@@ -16,8 +16,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/resources/pages/register.fxml").toURI().toURL());
+        FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/resources/user-view.fxml").toURI().toURL());
         Scene scene = new Scene(fxmlLoader.load(), 925, 745);
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.setTitle("ADOPTYOURDOG");
         stage.setScene(scene);
         stage.show();
