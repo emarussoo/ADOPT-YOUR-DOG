@@ -7,18 +7,16 @@ public class DogAdoptionRequest {
     private String userPhone;
     private int dogId;
     private String dogName;
-    private int dogAge;
     private String dogBreed;
     private boolean state;
 
-    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, String dogName, int dogAge, String dogBreed) {
+    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, String dogName, String dogBreed) {
         this.userFirstname = userFirstname;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
         this.dogId = dogId;
         this.dogName = dogName;
-        this.dogAge = dogAge;
         this.dogBreed = dogBreed;
         this.state = false;
     }
@@ -69,14 +67,6 @@ public class DogAdoptionRequest {
 
     public void setDogName(String dogName) {
         this.dogName = dogName;
-    }
-
-    public int getDogAge() {
-        return dogAge;
-    }
-
-    public void setDogAge(int dogAge) {
-        this.dogAge = dogAge;
     }
 
     public String getDogBreed() {
