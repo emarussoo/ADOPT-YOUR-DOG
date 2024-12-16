@@ -10,20 +10,20 @@ public class DogBreedBean {
     private float maxHeightMale;
 
     public DogBreedBean(String name,
-                        float coat_length,
+                        float coatLength,
                         float playfulness,
                         float protectiveness,
                         float energy,
                         float barking,
-                        float max_height_male)
+                        float maxHeightMale)
     {
         this.name = name;
-        this.coatLength = coat_length;
+        this.coatLength = coatLength;
         this.playfulness = playfulness;
         this.protectiveness = protectiveness;
         this.energy = energy;
         this.barking = barking;
-        this.maxHeightMale = max_height_male;
+        this.maxHeightMale = maxHeightMale;
     }
 
     public String getName() {
