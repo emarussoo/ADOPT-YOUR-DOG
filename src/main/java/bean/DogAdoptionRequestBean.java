@@ -1,49 +1,57 @@
 package bean;
 
 public class DogAdoptionRequestBean {
-    private String user_firstname;
-    private String user_lastname;
-    private String user_email;
-    private String user_phone;
-    private int dog_id;
+    private String userFirstname;
+    private String userLastname;
+    private String userEmail;
+    private String userPhone;
+    private int dogId;
 
-    public DogAdoptionRequestBean(String user_firstname, String user_lastname, String user_email, String user_phone, int dog_id) {
-        this.user_firstname = user_firstname;
-        this.user_lastname = user_lastname;
-        this.user_email = user_email;
-        this.user_phone = user_phone;
-        this.dog_id = dog_id;
+    public DogAdoptionRequestBean(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId) {
+        this.userFirstname = userFirstname;
+        this.userLastname = userLastname;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
+        this.dogId = dogId;
     }
 
-    public String getUser_firstname() {
-        return user_firstname;
+    public String getUserFirstname() {
+        return userFirstname;
     }
 
-    public void setUser_firstname(String user_firstname) {
-        this.user_firstname = user_firstname;
+    public void setUserFirstname(String userFirstname) {
+        this.userFirstname = userFirstname;
     }
 
-    public String getUser_lastname() {
-        return user_lastname;
+    public String getUserLastname() {
+        return userLastname;
     }
 
-    public void setUser_lastname(String user_lastname) {
-        this.user_lastname = user_lastname;
+    public void setUserLastname(String userLastname) {
+        this.userLastname = userLastname;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getUser_phone() {
-        return user_phone;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setUser_phone(String user_phone) {
-        this.user_phone = user_phone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
+    }
+
+    public int getDogId() {
+        return dogId;
+    }
+
+    public void setDogId(int dogId) {
+        this.dogId = dogId;
     }
 }

@@ -1,47 +1,47 @@
 package bean;
 
 public class DogProfileBean {
-    private int dog_id;
-    private String dog_name;
-    private int dog_age;
-    private String dog_breed;
+    private int dogId;
+    private String dogName;
+    private int dogAge;
+    private String dogBreed;
 
-    public DogProfileBean(int dog_id, String dog_name, int dog_age, String dog_breed) {
-        this.dog_id = dog_id;
-        this.dog_name = dog_name;
-        this.dog_age = dog_age;
-        this.dog_breed = dog_breed;
+    public DogProfileBean(int dogId, String dogName, int dogAge, String dogBreed) {
+        this.dogId = dogId;
+        this.dogName = dogName;
+        this.dogAge = dogAge;
+        this.dogBreed = dogBreed;
     }
 
-    public int getDog_id() {
-        return dog_id;
+    public int getDogId() {
+        return dogId;
     }
 
-    public void setDog_id(int dog_id) {
-        this.dog_id = dog_id;
+    public void setDogId(int dogId) {
+        this.dogId = dogId;
     }
 
-    public String getDog_name() {
-        return dog_name;
+    public String getDogName() {
+        return dogName;
     }
 
-    public void setDog_name(String dog_name) {
-        this.dog_name = dog_name;
+    public void setDogName(String dogName) {
+        this.dogName = dogName;
     }
 
-    public int getDog_age() {
-        return dog_age;
+    public int getDogAge() {
+        return dogAge;
     }
 
-    public void setDog_age(int dog_age) {
-        this.dog_age = dog_age;
+    public void setDogAge(int dogAge) {
+        this.dogAge = dogAge;
     }
 
-    public String getDog_breed() {
-        return dog_breed;
+    public String getDogBreed() {
+        return dogBreed;
     }
 
-    public void setDog_breed(String dog_breed) {
-        this.dog_breed = dog_breed;
+    public void setDogBreed(String dogBreed) {
+        this.dogBreed = dogBreed;
     }
 }
