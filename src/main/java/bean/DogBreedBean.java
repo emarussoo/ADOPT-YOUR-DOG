@@ -2,12 +2,12 @@ package bean;
 
 public class DogBreedBean {
     private String name;
-    private float coat_length; //lunghezza pelliccia
+    private float coatLength; //lunghezza pelliccia
     private float playfulness;
     private float protectiveness;
     private float energy;
     private float barking;
-    private float max_height_male;
+    private float maxHeightMale;
 
     public DogBreedBean(String name,
                         float coat_length,
@@ -18,12 +18,12 @@ public class DogBreedBean {
                         float max_height_male)
     {
         this.name = name;
-        this.coat_length = coat_length;
+        this.coatLength = coat_length;
         this.playfulness = playfulness;
         this.protectiveness = protectiveness;
         this.energy = energy;
         this.barking = barking;
-        this.max_height_male = max_height_male;
+        this.maxHeightMale = max_height_male;
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class DogBreedBean {
         this.name = name;
     }
 
-    public float getCoat_length() {
-        return this.coat_length;
+    public float getCoatLength() {
+        return this.coatLength;
     }
 
-    public void setCoat_length(float coat_length) {
-        this.coat_length = coat_length;
+    public void setCoatLength(float coatLength) {
+        this.coatLength = coatLength;
     }
 
     public float getPlayfulness() {
@@ -74,11 +74,11 @@ public class DogBreedBean {
         this.barking = barking;
     }
 
-    public float getMax_height_male() {
-        return this.max_height_male;
+    public float getMaxHeightMale() {
+        return this.maxHeightMale;
     }
 
-    public void setMax_height_male(float max_height_male) {
-        this.max_height_male = max_height_male;
+    public void setMaxHeightMale(float maxHeightMale) {
+        this.maxHeightMale = maxHeightMale;
     }
 }
