@@ -1,4 +1,4 @@
-package model.dogAdoptionRequest;
+package model.dogadoptionrequest;
 
 public class DogAdoptionRequest {
     private String userFirstname;
