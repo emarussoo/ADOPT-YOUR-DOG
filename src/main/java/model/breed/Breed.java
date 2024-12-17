@@ -4,7 +4,7 @@ import baseclasses.BreedBase;
 
 public class Breed extends BreedBase {
 
-    public Breed(String name, float coatLength, float playfulness, float protectiveness, float energy, float barking, float maxHeightMale) {
-        super(name, coatLength, playfulness, protectiveness, energy, barking, maxHeightMale);
+    public Breed(String imageLink, String name, String coatLength, String playfulness, String energy, String barking, String maxHeightMale) {
+        super(imageLink, name, coatLength, playfulness, energy, barking, maxHeightMale);
     }
 }

@@ -1,29 +1,37 @@
 package baseclasses;
 
 public class BreedBase {
+    String imageLink;
     private String name;
-    private float coatLength; //lunghezza pelliccia
-    private float playfulness;
-    private float protectiveness;
-    private float energy;
-    private float barking;
-    private float maxHeightMale;
+    private String coatLength; //lunghezza pelliccia
+    private String playfulness;
+    private String energy;
+    private String barking;
+    private String maxHeightMale;
 
-    public BreedBase(String name,
-                        float coatLength,
-                        float playfulness,
-                        float protectiveness,
-                        float energy,
-                        float barking,
-                        float maxHeightMale)
+    public BreedBase(String imageLink,
+                     String name,
+                     String coatLength,
+                     String playfulness,
+                     String energy,
+                     String barking,
+                     String maxHeightMale)
     {
+        this.imageLink = imageLink;
         this.name = name;
         this.coatLength = coatLength;
         this.playfulness = playfulness;
-        this.protectiveness = protectiveness;
         this.energy = energy;
         this.barking = barking;
         this.maxHeightMale = maxHeightMale;
+    }
+
+    public String getImageLink() {
+        return this.imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
     public String getName() {
@@ -34,51 +42,43 @@ public class BreedBase {
         this.name = name;
     }
 
-    public float getCoatLength() {
+    public String getCoatLength() {
         return this.coatLength;
     }
 
-    public void setCoatLength(float coatLength) {
+    public void setCoatLength(String coatLength) {
         this.coatLength = coatLength;
     }
 
-    public float getPlayfulness() {
+    public String getPlayfulness() {
         return this.playfulness;
     }
 
-    public void setPlayfulness(float playfulness) {
+    public void setPlayfulness(String playfulness) {
         this.playfulness = playfulness;
     }
 
-    public float getProtectiveness() {
-        return this.protectiveness;
-    }
-
-    public void setProtectiveness(float protectiveness) {
-        this.protectiveness = protectiveness;
-    }
-
-    public float getEnergy() {
+    public String getEnergy() {
         return this.energy;
     }
 
-    public void setEnergy(float energy) {
+    public void setEnergy(String energy) {
         this.energy = energy;
     }
 
-    public float getBarking() {
+    public String getBarking() {
         return this.barking;
     }
 
-    public void setBarking(float barking) {
+    public void setBarking(String barking) {
         this.barking = barking;
     }
 
-    public float getMaxHeightMale() {
+    public String getMaxHeightMale() {
         return this.maxHeightMale;
     }
 
-    public void setMaxHeightMale(float maxHeightMale) {
+    public void setMaxHeightMale(String maxHeightMale) {
         this.maxHeightMale = maxHeightMale;
     }
 }

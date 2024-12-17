@@ -1,5 +1,7 @@
 package model.breed.dao;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import model.breed.Breed;
 import utils.TestQuestions;
 
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class BreedDao {
     public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException {
+        String jsonResponse;
         HttpClient client = HttpClient
                 .newBuilder()
                 .version(HttpClient.Version.HTTP_2)
@@ -38,7 +41,37 @@ public class BreedDao {
                 .build();
 
         HttpResponse httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+        jsonResponse = httpResponse.body().toString();
+
+        if(jsonResponse.startsWith("[")){
+            jsonResponse = jsonResponse.substring(1, jsonResponse.length());
+
+        }
+        if(jsonResponse.endsWith("{")){
+            jsonResponse = jsonResponse.substring(0, jsonResponse.length()-1);
+        }
+
         System.out.println(httpResponse.body().toString());
+
+        try{
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            JsonNode rootNode = objectMapper.readTree(jsonResponse);
+
+            String imageLink = rootNode.get("image_link").asText();
+            String name = rootNode.get("name").asText();
+            String coatLength = rootNode.get("coat_length").asText();
+            String playfulness = rootNode.get("playfulness").asText();
+            String energy = rootNode.get("energy").asText();
+            String barking = rootNode.get("barking").asText();
+            String maxHeightMale = rootNode.get("max_height_male").asText();
+
+            Breed resultBreed = new Breed(imageLink, name, coatLength, playfulness, energy, barking, maxHeightMale);
+            return resultBreed;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     return null;
     }
 }
