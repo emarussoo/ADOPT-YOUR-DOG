@@ -31,8 +31,6 @@ public class BreedDao {
                 +"&"+TestQuestions.DOMANDA_7.getApiValue() + "=" + answers.get(6)
                 +"&"+TestQuestions.DOMANDA_8.getApiValue() + "=" + answers.get(7);
 
-        //System.out.println("URI: " + uri);
-
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(uri)
                 )
@@ -41,7 +39,7 @@ public class BreedDao {
                 .build();
 
         HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-        jsonResponse = httpResponse.body().toString();
+        jsonResponse = httpResponse.body();
 
         if(jsonResponse.startsWith("[")){
             jsonResponse = jsonResponse.substring(1, jsonResponse.length());
@@ -50,8 +48,6 @@ public class BreedDao {
         if(jsonResponse.endsWith("{")){
             jsonResponse = jsonResponse.substring(0, jsonResponse.length()-1);
         }
-
-        //System.out.println(httpResponse.body().toString());
 
         try{
             ObjectMapper objectMapper = new ObjectMapper();
@@ -66,8 +62,7 @@ public class BreedDao {
             String barking = rootNode.get("barking").asText();
             String maxHeightMale = rootNode.get("max_height_male").asText();
 
-            Breed resultBreed = new Breed(imageLink, name, coatLength, playfulness, energy, barking, maxHeightMale);
-            return resultBreed;
+            return new Breed(imageLink, name, coatLength, playfulness, energy, barking, maxHeightMale);
 
         } catch (Exception e) {
             e.printStackTrace();

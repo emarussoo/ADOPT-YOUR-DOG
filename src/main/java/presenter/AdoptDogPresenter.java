@@ -22,7 +22,6 @@ public class AdoptDogPresenter {
     }
 
     public void processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
-        System.out.println("Procedo a processare le risposte");
         BreedDao breedDao = new BreedDao();
         Breed resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
 
