@@ -7,6 +7,7 @@ import view.UserView;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 public class AdoptDogPresenter {
 
@@ -25,7 +26,8 @@ public class AdoptDogPresenter {
         BreedDao breedDao = new BreedDao();
         Breed resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
 
-        System.out.println(resultBreed.getName());
+
+        Logger.getLogger(resultBreed.getName());
         view.loadPage("dogs-user-page");
 
         //this will be called by view.getTestAnswers

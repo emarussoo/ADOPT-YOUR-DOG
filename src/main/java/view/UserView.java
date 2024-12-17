@@ -43,7 +43,7 @@ public class UserView {
         TestBean testAnswers = new TestBean(listOfAnswers);
         toggleList.clear();
 
-        System.out.println(testAnswers.getUserAnswers());
+        //System.out.println(testAnswers.getUserAnswers());
         AdoptDogPresenter presenter = new AdoptDogPresenter(this);
         presenter.processTestAnswers(testAnswers);
         //it will call presenter.processTestAnswers
