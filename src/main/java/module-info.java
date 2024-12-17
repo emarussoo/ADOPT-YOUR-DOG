@@ -6,4 +6,7 @@ module start.adoptyourdog {
 
     opens start to javafx.fxml;
     exports start;
+
+    opens view to javafx.fxml;
+    exports view;
 }
