@@ -11,8 +11,10 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import presenter.AdoptDogPresenter;
+import utils.TestQuestions;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,7 +23,6 @@ import java.util.logging.Logger;
 public class UserView {
 
     private List<ToggleGroup> toggleList = new ArrayList<>();
-    private AdoptDogPresenter presenter;
 
     @FXML
     private BorderPane bp;
@@ -32,7 +33,7 @@ public class UserView {
         bp.setCenter(sp);
     }
 
-    public void getTestAnswers(){
+    public void getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
         List<String> listOfAnswers = new ArrayList<>();
         for(ToggleGroup a: toggleList){
 
@@ -44,7 +45,7 @@ public class UserView {
 
         System.out.println(testAnswers.getUserAnswers());
         AdoptDogPresenter presenter = new AdoptDogPresenter(this);
-        presenter.processTestAnswers();
+        presenter.processTestAnswers(testAnswers);
         //it will call presenter.processTestAnswers
     }
 
@@ -98,7 +99,7 @@ public class UserView {
         questionContainer.setAlignment(Pos.CENTER);
 
         // Creazione delle domande e risposte
-        for (int i = 1; i < TestQuestions.values().length; i++) {
+        for (int i = 0; i < TestQuestions.values().length; i++) {
             VBox singleQuestionBox = new VBox(10);
 
             Label questionLabel = new Label("Domanda " + i + ": "+TestQuestions.values()[i].getTesto());
@@ -127,7 +128,17 @@ public class UserView {
 
         Button submitButton = new Button("SUBMIT");
         submitButton.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
-        submitButton.setOnAction(actionEvent -> getTestAnswers());
+        submitButton.setOnAction(actionEvent -> {
+            try {
+                getTestAnswers();
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        });
         questionContainer.getChildren().add(submitButton);
 
         // ScrollPane per rendere il contenitore scrollabile
@@ -136,10 +147,6 @@ public class UserView {
 
         // Creazione della scena con il questionario
         return scrollPane;
-    }
-
-    public void setPresenter(AdoptDogPresenter presenter) {
-        this.presenter = presenter;
     }
 }
 

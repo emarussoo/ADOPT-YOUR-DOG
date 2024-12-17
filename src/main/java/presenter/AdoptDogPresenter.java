@@ -1,6 +1,11 @@
 package presenter;
 
+import bean.TestBean;
+import model.breed.dao.BreedDao;
 import view.UserView;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class AdoptDogPresenter {
 
@@ -14,9 +19,12 @@ public class AdoptDogPresenter {
         this.view = view;
     }
 
-    public void processTestAnswers(){
+    public void processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
         System.out.println("Procedo a processare le risposte");
+        BreedDao breedDao = new BreedDao();
+        breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
         view.loadPage("dogs-user-page");
+
         //this will be called by view.getTestAnswers
     }
 
