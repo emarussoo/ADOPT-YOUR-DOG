@@ -1,8 +1,5 @@
 package view;
 
-import java.util.Arrays;
-import java.util.List;
-
 public enum TestQuestions {
     DOMANDA_1("Hai dei bambini in casa?"),
     DOMANDA_2("Durante le tue passeggiate quotidiane, quanto spesso incontri altri cani?"),

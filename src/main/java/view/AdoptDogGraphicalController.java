@@ -83,8 +83,6 @@ public class AdoptDogGraphicalController {
         VBox questionContainer = new VBox(30);
         questionContainer.setStyle("-fx-padding: 20px 20px 20px 20px;");
 
-        TestQuestions ciao;
-
         // Creazione delle domande e risposte
         for (int i = 1; i < TestQuestions.values().length; i++) {
             VBox singleQuestionBox = new VBox(10);
