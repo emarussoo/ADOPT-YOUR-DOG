@@ -2,17 +2,17 @@ package bean;
 import java.util.List;
 
 public class TestBean {
-    private List<Integer> userAnswers;
+    private List<String> userAnswers;
 
-    public TestBean(List<Integer> userAnswers) {
+    public TestBean(List<String> userAnswers) {
         this.userAnswers = userAnswers;
     }
 
-    public List<Integer> getUserAnswers() {
+    public List<String> getUserAnswers() {
         return userAnswers;
     }
 
-    public void setUserAnswers(List<Integer> userAnswers) {
+    public void setUserAnswers(List<String> userAnswers) {
         this.userAnswers = userAnswers;
     }
 }

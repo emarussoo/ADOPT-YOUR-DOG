@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import presenter.AdoptDogPresenter;
+import view.UserView;
 
 import java.io.File;
 import java.io.IOException;

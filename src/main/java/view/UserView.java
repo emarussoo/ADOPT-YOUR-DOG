@@ -1,26 +1,27 @@
 package view;
 
+import bean.TestBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import start.Main;
+import presenter.AdoptDogPresenter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class AdoptDogGraphicalController {
+public class UserView {
+
+    private List<ToggleGroup> toggleList = new ArrayList<>();
+    private AdoptDogPresenter presenter;
 
     @FXML
     private BorderPane bp;
@@ -32,6 +33,18 @@ public class AdoptDogGraphicalController {
     }
 
     public void getTestAnswers(){
+        List<String> listOfAnswers = new ArrayList<>();
+        for(ToggleGroup a: toggleList){
+
+            RadioButton rb = (RadioButton) a.getSelectedToggle();
+            listOfAnswers.add(rb.getText());
+        }
+        TestBean testAnswers = new TestBean(listOfAnswers);
+        toggleList.clear();
+
+        System.out.println(testAnswers.getUserAnswers());
+        AdoptDogPresenter presenter = new AdoptDogPresenter(this);
+        presenter.processTestAnswers();
         //it will call presenter.processTestAnswers
     }
 
@@ -72,7 +85,7 @@ public class AdoptDogGraphicalController {
             root = FXMLLoader.load(getClass().getClassLoader().getResource(page+".fxml"));
 
         }catch(IOException ex) {
-            Logger.getLogger(AdoptDogGraphicalController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserView.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         bp.setCenter(root);
@@ -82,6 +95,7 @@ public class AdoptDogGraphicalController {
         // Layout per contenere tutte le domande
         VBox questionContainer = new VBox(30);
         questionContainer.setStyle("-fx-padding: 20px 20px 20px 20px;");
+        questionContainer.setAlignment(Pos.CENTER);
 
         // Creazione delle domande e risposte
         for (int i = 1; i < TestQuestions.values().length; i++) {
@@ -91,6 +105,7 @@ public class AdoptDogGraphicalController {
             questionLabel.setStyle("-fx-font-size: 16px");
 
             ToggleGroup group = new ToggleGroup();
+            toggleList.add(group);
             RadioButton option1 = new RadioButton("1");
             option1.setToggleGroup(group);
             RadioButton option2 = new RadioButton("2");
@@ -110,12 +125,21 @@ public class AdoptDogGraphicalController {
             questionContainer.getChildren().add(singleQuestionBox);
         }
 
+        Button submitButton = new Button("SUBMIT");
+        submitButton.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
+        submitButton.setOnAction(actionEvent -> getTestAnswers());
+        questionContainer.getChildren().add(submitButton);
+
         // ScrollPane per rendere il contenitore scrollabile
         ScrollPane scrollPane = new ScrollPane(questionContainer);
         scrollPane.setFitToWidth(true);
 
         // Creazione della scena con il questionario
         return scrollPane;
+    }
+
+    public void setPresenter(AdoptDogPresenter presenter) {
+        this.presenter = presenter;
     }
 }
 
