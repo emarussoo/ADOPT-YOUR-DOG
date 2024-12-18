@@ -84,46 +84,48 @@ public class UserView {
         infoGrid.setHgap(20);
         infoGrid.setVgap(20);
 
+        String textSetting = "-fx-font-size: 20px";
+
 
         Label breedNameLabel = new Label("Name:");
-        breedNameLabel.setStyle("-fx-font-size: 20px");
+        breedNameLabel.setStyle(textSetting);
         Label breedNameValue = new Label(breedBean.getName());
-        breedNameValue.setStyle("-fx-font-size: 20px");// Imposta il font e la dimensione
+        breedNameValue.setStyle(textSetting);// Imposta il font e la dimensione
         infoGrid.add(breedNameLabel, 0, 0);
         infoGrid.add(breedNameValue, 1, 0);
 
         Label coatLengthLabel = new Label("Coat length:");
-        coatLengthLabel.setStyle("-fx-font-size: 20px");
+        coatLengthLabel.setStyle(textSetting);
         Label coatLengthValue = new Label(breedBean.getCoatLength());
-        coatLengthValue.setStyle("-fx-font-size: 20px");
+        coatLengthValue.setStyle(textSetting);
         infoGrid.add(coatLengthLabel, 0, 1);
         infoGrid.add(coatLengthValue, 1, 1);
 
         Label playfulnessLabel = new Label("Playfulness:");
-        playfulnessLabel.setStyle("-fx-font-size: 20px");
+        playfulnessLabel.setStyle(textSetting);
         Label playfulnessValue = new Label(breedBean.getPlayfulness());
-        playfulnessValue.setStyle("-fx-font-size: 20px");
+        playfulnessValue.setStyle(textSetting);
         infoGrid.add(playfulnessLabel, 0, 2);
         infoGrid.add(playfulnessValue, 1, 2);
 
         Label energyLabel = new Label("Energy:");
-        energyLabel.setStyle("-fx-font-size: 20px");
+        energyLabel.setStyle(textSetting);
         Label energyValue = new Label(breedBean.getEnergy());
-        energyValue.setStyle("-fx-font-size: 20px");
+        energyValue.setStyle(textSetting);
         infoGrid.add(energyLabel, 0, 3);
         infoGrid.add(energyValue, 1, 3);
 
         Label barkingLabel = new Label("Barking:");
-        barkingLabel.setStyle("-fx-font-size: 20px");
+        barkingLabel.setStyle(textSetting);
         Label barkingValue = new Label(breedBean.getBarking());
-        barkingValue.setStyle("-fx-font-size: 20px");
+        barkingValue.setStyle(textSetting);
         infoGrid.add(barkingLabel, 0, 4);
         infoGrid.add(barkingValue, 1, 4);
 
         Label heightLabel = new Label("Altezza Massima:");
-        heightLabel.setStyle("-fx-font-size: 20px");
+        heightLabel.setStyle(textSetting);
         Label heightValue = new Label(breedBean.getMaxHeightMale());
-        heightValue.setStyle("-fx-font-size: 20px");
+        heightValue.setStyle(textSetting);
         infoGrid.add(heightLabel, 0, 5);
         infoGrid.add(heightValue, 1, 5);
 
