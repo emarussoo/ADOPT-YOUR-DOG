@@ -12,6 +12,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class BreedDao {
     public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException {
@@ -22,14 +23,13 @@ public class BreedDao {
                 .build();
 
         String uri = "https://api.api-ninjas.com/v1/dogs?"
-                //+ TestQuestions.DOMANDA_1.getApiValue() + "=" + answers.get(0)
-                +TestQuestions.DOMANDA_2.getApiValue() + "=" + answers.get(1)
+                + TestQuestions.DOMANDA_1.getApiValue() + "=" + answers.get(0)
+                +"&"+TestQuestions.DOMANDA_2.getApiValue() + "=" + answers.get(1)
                 +"&"+TestQuestions.DOMANDA_3.getApiValue() + "=" + answers.get(2)
                 +"&"+TestQuestions.DOMANDA_4.getApiValue() + "=" + answers.get(3)
                 +"&"+TestQuestions.DOMANDA_5.getApiValue() + "=" + answers.get(4)
                 +"&"+TestQuestions.DOMANDA_6.getApiValue() + "=" + answers.get(5)
-                +"&"+TestQuestions.DOMANDA_7.getApiValue() + "=" + answers.get(6)
-                +"&"+TestQuestions.DOMANDA_8.getApiValue() + "=" + answers.get(7);
+                +"&"+TestQuestions.DOMANDA_7.getApiValue() + "=" + answers.get(6);
 
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(uri)
@@ -40,6 +40,8 @@ public class BreedDao {
 
         HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         jsonResponse = httpResponse.body();
+        System.out.println(uri);
+        System.out.println(jsonResponse);
 
         if(jsonResponse.startsWith("[")){
             jsonResponse = jsonResponse.substring(1, jsonResponse.length());

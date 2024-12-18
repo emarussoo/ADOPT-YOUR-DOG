@@ -1,5 +1,6 @@
 package presenter;
 
+import bean.BreedBean;
 import bean.TestBean;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
@@ -25,9 +26,18 @@ public class AdoptDogPresenter {
         BreedDao breedDao = new BreedDao();
         Breed resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
 
+        String resultBreedImage = resultBreed.getImageLink();
+        String resultBreedName = resultBreed.getName();
+        String resultBreedCoatLength = resultBreed.getCoatLength();
+        String resultBreedPlayfulness = resultBreed.getPlayfulness();
+        String resultBreedEnergy = resultBreed.getEnergy();
+        String resultBreedBarking = resultBreed.getBarking();
+        String resultBreedMaxHeightMale = resultBreed.getMaxHeightMale();
+
+        BreedBean breedBean = new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedEnergy, resultBreedBarking, resultBreedMaxHeightMale);
+        view.showTestResult(breedBean);
 
         Logger.getLogger(resultBreed.getName());
-        view.loadPage("dogs-user-page");
 
         //this will be called by view.getTestAnswers
     }

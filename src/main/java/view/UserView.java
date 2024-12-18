@@ -1,18 +1,23 @@
 package view;
 
+import bean.BreedBean;
 import bean.TestBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.*;
 import presenter.AdoptDogPresenter;
 import utils.TestQuestions;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -40,6 +45,8 @@ public class UserView {
             RadioButton rb = (RadioButton) a.getSelectedToggle();
             listOfAnswers.add(rb.getText());
         }
+
+        System.out.println(listOfAnswers);
         TestBean testAnswers = new TestBean(listOfAnswers);
         toggleList.clear();
 
@@ -59,8 +66,71 @@ public class UserView {
 
     }
 
-    public void showTestResult(){
+    public void showTestResult(BreedBean breedBean){
         //this will be called by presenter to show the breed
+        VBox vbox = new VBox(15);
+        vbox.setPadding(new Insets(20));
+        vbox.setAlignment(Pos.CENTER);
+
+        // Immagine della razza del cane
+        ImageView imageView = new ImageView(new Image(breedBean.getImageLink()));
+        imageView.setFitWidth(400);
+        imageView.setFitHeight(300);
+        imageView.setPreserveRatio(true);
+
+        // GridPane per mostrare le informazioni
+        GridPane infoGrid = new GridPane();
+        infoGrid.setAlignment(Pos.CENTER);
+        infoGrid.setHgap(20);
+        infoGrid.setVgap(20);
+
+
+        Label breedNameLabel = new Label("Name:");
+        breedNameLabel.setStyle("-fx-font-size: 20px");
+        Label breedNameValue = new Label(breedBean.getName());
+        breedNameValue.setStyle("-fx-font-size: 20px");// Imposta il font e la dimensione
+        infoGrid.add(breedNameLabel, 0, 0);
+        infoGrid.add(breedNameValue, 1, 0);
+
+        Label coatLengthLabel = new Label("Coat length:");
+        coatLengthLabel.setStyle("-fx-font-size: 20px");
+        Label coatLengthValue = new Label(breedBean.getCoatLength());
+        coatLengthValue.setStyle("-fx-font-size: 20px");
+        infoGrid.add(coatLengthLabel, 0, 1);
+        infoGrid.add(coatLengthValue, 1, 1);
+
+        Label playfulnessLabel = new Label("Playfulness:");
+        playfulnessLabel.setStyle("-fx-font-size: 20px");
+        Label playfulnessValue = new Label(breedBean.getPlayfulness());
+        playfulnessValue.setStyle("-fx-font-size: 20px");
+        infoGrid.add(playfulnessLabel, 0, 2);
+        infoGrid.add(playfulnessValue, 1, 2);
+
+        Label energyLabel = new Label("Energy:");
+        energyLabel.setStyle("-fx-font-size: 20px");
+        Label energyValue = new Label(breedBean.getEnergy());
+        energyValue.setStyle("-fx-font-size: 20px");
+        infoGrid.add(energyLabel, 0, 3);
+        infoGrid.add(energyValue, 1, 3);
+
+        Label barkingLabel = new Label("Barking:");
+        barkingLabel.setStyle("-fx-font-size: 20px");
+        Label barkingValue = new Label(breedBean.getBarking());
+        barkingValue.setStyle("-fx-font-size: 20px");
+        infoGrid.add(barkingLabel, 0, 4);
+        infoGrid.add(barkingValue, 1, 4);
+
+        Label heightLabel = new Label("Altezza Massima:");
+        heightLabel.setStyle("-fx-font-size: 20px");
+        Label heightValue = new Label(breedBean.getMaxHeightMale());
+        heightValue.setStyle("-fx-font-size: 20px");
+        infoGrid.add(heightLabel, 0, 5);
+        infoGrid.add(heightValue, 1, 5);
+
+        // Aggiunta dell'immagine e del GridPane al VBox
+        vbox.getChildren().addAll(imageView, infoGrid);
+
+        bp.setCenter(vbox);
     }
 
     public void showDogs(){
