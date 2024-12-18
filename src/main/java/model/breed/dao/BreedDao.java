@@ -60,11 +60,12 @@ public class BreedDao {
             String name = rootNode.get("name").asText();
             String coatLength = rootNode.get("coat_length").asText();
             String playfulness = rootNode.get("playfulness").asText();
+            String protectiveness = rootNode.get("protectiveness").asText();
             String energy = rootNode.get("energy").asText();
             String barking = rootNode.get("barking").asText();
             //String maxHeightMale = rootNode.get("max_height_male").asText();
 
-            return new Breed(imageLink, name, coatLength, playfulness, energy, barking);
+            return new Breed(imageLink, name, coatLength, playfulness, protectiveness, energy, barking);
 
         } catch (Exception e) {
             e.printStackTrace();

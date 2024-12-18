@@ -5,6 +5,7 @@ public class BreedBase {
     private String name;
     private String coatLength; //lunghezza pelliccia
     private String playfulness;
+    private String protectiveness;
     private String energy;
     private String barking;
     private String maxHeightMale;
@@ -13,6 +14,7 @@ public class BreedBase {
                      String name,
                      String coatLength,
                      String playfulness,
+                     String protectiveness,
                      String energy,
                      String barking)
     {
@@ -20,6 +22,7 @@ public class BreedBase {
         this.name = name;
         this.coatLength = coatLength;
         this.playfulness = playfulness;
+        this.protectiveness = protectiveness;
         this.energy = energy;
         this.barking = barking;
     }
@@ -54,6 +57,14 @@ public class BreedBase {
 
     public void setPlayfulness(String playfulness) {
         this.playfulness = playfulness;
+    }
+
+    public String getProtectiveness() {
+        return this.protectiveness;
+    }
+
+    public void setProtectiveness(String protectiveness) {
+        this.protectiveness = protectiveness;
     }
 
     public String getEnergy() {

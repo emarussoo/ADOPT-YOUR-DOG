@@ -122,6 +122,13 @@ public class UserView {
         infoGrid.add(barkingLabel, 0, 4);
         infoGrid.add(barkingValue, 1, 4);
 
+        Label protectivenessLabel = new Label("Protectiveness:");
+        protectivenessLabel.setStyle(textSetting);
+        Label protectivenessValue = new Label(breedBean.getBarking());
+        protectivenessValue.setStyle(textSetting);
+        infoGrid.add(protectivenessLabel, 0, 5);
+        infoGrid.add(protectivenessValue, 1, 5);
+
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
