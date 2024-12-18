@@ -14,8 +14,7 @@ public class BreedBase {
                      String coatLength,
                      String playfulness,
                      String energy,
-                     String barking,
-                     String maxHeightMale)
+                     String barking)
     {
         this.imageLink = imageLink;
         this.name = name;
@@ -23,7 +22,6 @@ public class BreedBase {
         this.playfulness = playfulness;
         this.energy = energy;
         this.barking = barking;
-        this.maxHeightMale = maxHeightMale;
     }
 
     public String getImageLink() {
@@ -72,13 +70,5 @@ public class BreedBase {
 
     public void setBarking(String barking) {
         this.barking = barking;
-    }
-
-    public String getMaxHeightMale() {
-        return this.maxHeightMale;
-    }
-
-    public void setMaxHeightMale(String maxHeightMale) {
-        this.maxHeightMale = maxHeightMale;
     }
 }

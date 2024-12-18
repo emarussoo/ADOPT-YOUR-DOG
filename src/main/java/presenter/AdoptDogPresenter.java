@@ -32,9 +32,9 @@ public class AdoptDogPresenter {
         String resultBreedPlayfulness = resultBreed.getPlayfulness();
         String resultBreedEnergy = resultBreed.getEnergy();
         String resultBreedBarking = resultBreed.getBarking();
-        String resultBreedMaxHeightMale = resultBreed.getMaxHeightMale();
+        //String resultBreedMaxHeightMale = resultBreed.getMaxHeightMale();
 
-        BreedBean breedBean = new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedEnergy, resultBreedBarking, resultBreedMaxHeightMale);
+        BreedBean breedBean = new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedEnergy, resultBreedBarking);
         view.showTestResult(breedBean);
 
         Logger.getLogger(resultBreed.getName());

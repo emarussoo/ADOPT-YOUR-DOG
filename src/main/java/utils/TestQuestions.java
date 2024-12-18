@@ -6,8 +6,8 @@ public enum TestQuestions {
     DOMANDA_3("Quanto spesso inviti ospiti a casa?", "good_with_strangers"),
     DOMANDA_4("Quanto vuoi che sia giocherellone (inserisci il valore minimo)?", "playfulness"),
     DOMANDA_5("Quanto vorresti che il tuo cane fosse energico (inserisci il valore minimo)?", "energy"),
-    DOMANDA_6("Quanto vuoi che abbai?", "barking"),
-    DOMANDA_7("Quanto vorresti grande il tuo cane (inserisci il valore minimo)?", "max_height_male");
+    DOMANDA_6("Quanto vuoi che abbai?", "barking");
+    //DOMANDA_7("Quanto vorresti grande il tuo cane (inserisci il valore minimo)?", "max_height_male");
 
     private final String testo;
     private final String apiValue;

@@ -122,13 +122,6 @@ public class UserView {
         infoGrid.add(barkingLabel, 0, 4);
         infoGrid.add(barkingValue, 1, 4);
 
-        Label heightLabel = new Label("Altezza Massima:");
-        heightLabel.setStyle(textSetting);
-        Label heightValue = new Label(breedBean.getMaxHeightMale());
-        heightValue.setStyle(textSetting);
-        infoGrid.add(heightLabel, 0, 5);
-        infoGrid.add(heightValue, 1, 5);
-
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
