@@ -28,6 +28,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        //ciao
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/resources/user-view.fxml").toURI().toURL());
         GraphicalFactory graphicalFactory = GraphicalFactory.getGraphicalSingletonFactory();
         UserWindowManager controller = graphicalFactory.createUserWindowManager().getSingletonInstance();
