@@ -4,13 +4,13 @@ import view.user.dogspageview.CLIDogsPageController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.CLITestViewController;
 import view.user.testview.TestViewController;
-import view.user.windowmanager.CLIUserWindowManager;
-import view.user.windowmanager.UserWindowManager;
+import view.user.windowmanager.CLIStarterWindow;
+import view.user.windowmanager.StarterWindow;
 
 public class CLIFactory extends GraphicalFactory{
     @Override
-    public UserWindowManager createUserWindowManager(){
-        return CLIUserWindowManager.getSingletonInstance();
+    public StarterWindow createStarterWindow(){
+        return CLIStarterWindow.getSingletonInstance();
     }
 
     @Override

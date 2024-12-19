@@ -2,7 +2,7 @@ package view.user.factory;
 
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestViewController;
-import view.user.windowmanager.UserWindowManager;
+import view.user.windowmanager.StarterWindow;
 
 public abstract class GraphicalFactory {
 
@@ -11,7 +11,7 @@ public abstract class GraphicalFactory {
     protected GraphicalFactory(){
     };
 
-    public abstract UserWindowManager createUserWindowManager();
+    public abstract StarterWindow createStarterWindow();
     public abstract TestViewController createTestViewController();
     public abstract DogsPageController createDogsPageController();
 

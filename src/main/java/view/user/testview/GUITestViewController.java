@@ -2,21 +2,20 @@ package view.user.testview;
 
 import bean.BreedBean;
 import bean.TestBean;
+import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import presenter.AdoptDogController;
 import utils.TestQuestions;
 //import view.UserView;
 import view.user.factory.GUIFactory;
 import view.user.factory.GraphicalFactory;
-import view.user.windowmanager.UserWindowManager;
+import view.user.windowmanager.GUIStarterWindow;
+import view.user.windowmanager.WindowManager;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -82,8 +81,7 @@ public class GUITestViewController extends TestViewController{
 
         Pane pane = new Pane(scrollPane);
 
-        UserWindowManager.getSingletonInstance().setCentralView(pane);
-        //GUIFactory.getGraphicalSingletonFactory().createUserWindowManager().setCentralView(pane);
+        GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(pane);
 
     }
 
@@ -95,8 +93,7 @@ public class GUITestViewController extends TestViewController{
 
         AdoptDogController presenter = new AdoptDogController();
         BreedBean resultbreed = presenter.processTestAnswers(testAnswers);
-        UserWindowManager.getSingletonInstance().showTestResult(resultbreed);
-
+        WindowManager.getSingletonInstance().showTestResult(resultbreed);
     }
     @Override
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
@@ -178,6 +175,6 @@ public class GUITestViewController extends TestViewController{
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
-        UserWindowManager.getSingletonInstance().setCentralView(vbox);
+        GUIStarterWindow.getSingletonInstance().setCentralView(vbox);
     }
 }

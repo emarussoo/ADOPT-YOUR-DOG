@@ -6,15 +6,14 @@ import model.breed.Breed;
 import model.breed.dao.BreedDao;
 //import view.UserView;
 //import view.user.TestViewGraphicalController;
-import view.user.windowmanager.UserWindowManager;
+import view.user.windowmanager.StarterWindow;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Logger;
 
 public class AdoptDogController {
 
-    UserWindowManager view;
+    StarterWindow view;
     public void getDogsByBreed(){
         //this will be called by view.getBreedToSearch e view.getAllDogs
 

@@ -2,10 +2,9 @@ package view.user.testview;
 
 import bean.BreedBean;
 import bean.TestBean;
-import javafx.scene.layout.Pane;
 import presenter.AdoptDogController;
 import utils.TestQuestions;
-import view.user.windowmanager.UserWindowManager;
+import view.user.windowmanager.WindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class CLITestViewController extends TestViewController{
 
         AdoptDogController presenter = new AdoptDogController();
         BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
-        UserWindowManager.getSingletonInstance().showTestResult(resultBreed);
+        WindowManager.getSingletonInstance().showTestResult(resultBreed);
     };
 
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
