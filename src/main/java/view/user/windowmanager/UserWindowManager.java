@@ -2,9 +2,13 @@ package view.user.windowmanager;
 
 import bean.BreedBean;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import view.user.factory.GraphicalFactory;
 
+import java.io.IOException;
+
 public abstract class UserWindowManager {
+    public abstract void show();
     public abstract void showTest();
     public abstract void getBreedToSearch();
     public abstract void getAllDogs();

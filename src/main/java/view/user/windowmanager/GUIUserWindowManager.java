@@ -3,20 +3,11 @@ package view.user.windowmanager;
 import bean.BreedBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import view.UserView;
-import view.user.TestViewGraphicalController;
-import view.user.factory.GUIFactory;
+import start.Main;
 import view.user.factory.GraphicalFactory;
 import view.user.testview.TestViewController;
 
@@ -25,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static javafx.application.Application.launch;
 
 public class GUIUserWindowManager extends UserWindowManager{
 
@@ -43,6 +36,11 @@ public class GUIUserWindowManager extends UserWindowManager{
     @FXML
     private BorderPane bp;
     private Pane p;
+
+    public void show(){
+        System.out.println("gui mode");
+        Main.startGui();
+    }
 
     public void showTest(){
 

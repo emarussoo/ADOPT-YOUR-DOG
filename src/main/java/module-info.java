@@ -13,8 +13,6 @@ module start.adoptyourdog {
     exports view.user.windowmanager;
     opens view.user.windowmanager to javafx.fxml;
 
-    opens view to javafx.fxml;
-    exports view;
     exports utils;
     opens utils to javafx.fxml;
 }

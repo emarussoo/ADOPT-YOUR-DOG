@@ -47,7 +47,7 @@ public class BreedDao {
             jsonResponse = jsonResponse.substring(1, jsonResponse.length());
 
         }
-        if(jsonResponse.endsWith("{")){
+        if(jsonResponse.endsWith("]")){
             jsonResponse = jsonResponse.substring(0, jsonResponse.length()-1);
         }
 

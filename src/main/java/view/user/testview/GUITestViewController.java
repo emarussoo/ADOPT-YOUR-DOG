@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import presenter.AdoptDogController;
 import utils.TestQuestions;
 //import view.UserView;
+import view.user.factory.GUIFactory;
 import view.user.factory.GraphicalFactory;
 import view.user.windowmanager.UserWindowManager;
 
@@ -82,6 +83,7 @@ public class GUITestViewController extends TestViewController{
         Pane pane = new Pane(scrollPane);
 
         UserWindowManager.getSingletonInstance().setCentralView(pane);
+        //GUIFactory.getGraphicalSingletonFactory().createUserWindowManager().setCentralView(pane);
 
     }
 
