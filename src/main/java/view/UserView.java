@@ -14,10 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.*;
-import presenter.AdoptDogPresenter;
+import presenter.AdoptDogController;
 import utils.TestQuestions;
+import view.user.TestViewGraphicalController;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -34,8 +34,9 @@ public class UserView {
     private Pane p;
 
     public void showTest(){
-        ScrollPane sp = createTestScrollPane();
-        bp.setCenter(sp);
+        TestViewGraphicalController testView = new TestViewGraphicalController();
+        Pane test = testView.createTest();
+        setCentralView(test);
     }
 
     public void getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
@@ -50,8 +51,8 @@ public class UserView {
         TestBean testAnswers = new TestBean(listOfAnswers);
         toggleList.clear();
 
-        AdoptDogPresenter presenter = new AdoptDogPresenter(this);
-        presenter.processTestAnswers(testAnswers);
+        /*AdoptDogController presenter = new AdoptDogController(this);
+        presenter.processTestAnswers(testAnswers);*/
         //it will call presenter.processTestAnswers
     }
 
@@ -219,7 +220,14 @@ public class UserView {
         // Creazione della scena con il questionario
         return scrollPane;
     }
+
+    public void setCentralView(Pane centralView) {
+        bp.setCenter(centralView);
+    }
 }
+
+
+
 
 
 

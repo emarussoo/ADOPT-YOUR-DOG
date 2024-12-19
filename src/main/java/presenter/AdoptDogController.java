@@ -4,25 +4,26 @@ import bean.BreedBean;
 import bean.TestBean;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
-import view.UserView;
+//import view.UserView;
+//import view.user.TestViewGraphicalController;
+import view.user.windowmanager.UserWindowManager;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.logging.Logger;
 
-public class AdoptDogPresenter {
+public class AdoptDogController {
 
-    UserView view;
+    UserWindowManager view;
     public void getDogsByBreed(){
         //this will be called by view.getBreedToSearch e view.getAllDogs
 
     }
 
-    public AdoptDogPresenter(UserView view) {
-        this.view = view;
+    public AdoptDogController() {
     }
 
-    public void processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
+    public BreedBean processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
         BreedDao breedDao = new BreedDao();
         Breed resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
 
@@ -35,11 +36,7 @@ public class AdoptDogPresenter {
         String resultBreedBarking = resultBreed.getBarking();
         //String resultBreedMaxHeightMale = resultBreed.getMaxHeightMale();
 
-        BreedBean breedBean = new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedProtectiveness, resultBreedEnergy, resultBreedBarking);
-        view.showTestResult(breedBean);
-
-        Logger.getLogger(resultBreed.getName());
-
+        return new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedProtectiveness, resultBreedEnergy, resultBreedBarking);
         //this will be called by view.getTestAnswers
     }
 
@@ -47,7 +44,7 @@ public class AdoptDogPresenter {
         //this will be called by view.getDogAdoptionRequestData
     }
 
-    public void setView(UserView view) {
+    /*public void setView(UserView view) {
         this.view = view;
-    }
+    }*/
 }
