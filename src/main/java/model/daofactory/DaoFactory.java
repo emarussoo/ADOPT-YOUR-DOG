@@ -13,16 +13,17 @@ public abstract class DaoFactory {
     private static DaoFactory instance = null;
 
     public static DaoFactory getDaoSingletonFactory(){
+        String persistence = System.getProperty("persistence");
         if(instance == null){
-            if(System.getProperty("persistence").equals("DEMO")){
+            if(persistence.equals("DEMO")){
                 instance = new DemoDaoFactory();
             }
 
-            if(System.getProperty("persistence").equals("JDBC")){
+            if(persistence.equals("JDBC")){
                 instance = new DbmsDaoFactory();
             }
 
-            if(System.getProperty("persistence").equals("FILE")){
+            if(persistence.equals("FILE")){
                 instance = new FileDaoFactory();
             }
         }
