@@ -16,6 +16,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static void main(String[] args) throws IOException {
+        //ciao
         Initialize initializer = new Initialize();
         initializer.init();
         WindowManager.getSingletonInstance().show();
