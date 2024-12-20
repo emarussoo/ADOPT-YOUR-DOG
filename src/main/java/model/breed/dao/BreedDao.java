@@ -14,6 +14,8 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.logging.Logger;
 
+
+//TODO variazione con ritorno lista di razze e scelta numero visualizzazione in controller
 public class BreedDao {
     public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException {
         String jsonResponse;
@@ -22,6 +24,8 @@ public class BreedDao {
                 .version(HttpClient.Version.HTTP_2)
                 .build();
 
+
+        //modifica
         String uri = "https://api.api-ninjas.com/v1/dogs?"
                 + TestQuestions.DOMANDA_1.getApiValue() + "=" + answers.get(0)
                 +"&"+TestQuestions.DOMANDA_2.getApiValue() + "=" + answers.get(1)

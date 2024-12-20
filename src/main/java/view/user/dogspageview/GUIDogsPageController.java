@@ -1,46 +1,74 @@
 package view.user.dogspageview;
 
 import bean.DogProfileBean;
-import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+
+import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.util.Callback;
 import presenter.AdoptDogController;
 import view.user.factory.GUIFactory;
 import view.user.windowmanager.WindowManager;
 
 
-import java.awt.*;
+import java.util.Collection;
 import java.util.List;
 
+
 public class GUIDogsPageController extends DogsPageController{
-    public void getAllDogs() {
-        AdoptDogController presenter = new AdoptDogController();
-        List<DogProfileBean> listOfAllDogs = presenter.getDogsByBreed("");
-        WindowManager.getSingletonInstance().showListOfDogs(listOfAllDogs);
-    }
+
+    private TextField breedSearchField = new TextField();
 
     public void createListOfDogs(List<DogProfileBean> listOfDogs) {
+        System.out.println("creando la lista");
 
-        /*VBox dogContainer = new VBox(10);
+        HBox searchBar = new HBox(10);
+        breedSearchField.setPromptText("Inserisci la razza");
+        breedSearchField.setStyle("-fx-min-height: 38px; -fx-font-size: 16px;");
+        Button searchButton = new Button("Search");
+        searchButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
+        searchButton.setOnAction(event -> {
+            submitSearch(listOfDogs);
+        });
+
+
+        searchBar.getChildren().addAll(breedSearchField, searchButton);
+        HBox.setHgrow(breedSearchField, Priority.ALWAYS);
+
+        ListView listView = new ListView<>();
+        listView.setStyle("-fx-alignment: center; -fx-font-size: 15px");
+
+
+        VBox dogContainer = new VBox(10);
+        dogContainer.setSpacing(10);
+        dogContainer.setStyle("-fx-padding: 30px");
+        dogContainer.setAlignment(Pos.TOP_CENTER);
+
+
         for (DogProfileBean dog : listOfDogs) {
-            HBox dogBox = new HBox(15);             // Spaziatura di 15px tra i dettagli
-            Label idLabel = new Label(dog.getDogId());
-            Label nameLabel = new Label(dog.getDogName());
-            Label ageLabel = new Label(dog.getDogAge());
-            Label breedLabel = new Label(dog.getDogBreed());
+            HBox dogBox = new HBox(15);
+            Text idField = new Text(dog.getDogId());
+            Text nameField = new Text(dog.getDogName());
+            Text ageField = new Text(dog.getDogAge());
+            Text breedField = new Text(dog.getDogBreed());// Spaziatura di 15px tra i dettagli
 
-            // Aggiungi i dettagli del cane all'HBox
-            dogBox.getChildren().addAll(idLabel, nameLabel, ageLabel, breedLabel);
-
-            // Aggiungi l'HBox al contenitore principale
-            dogContainer.getChildren().add(dogBox);
+            listView.getItems().add(idField.getText() + "       " + nameField.getText() + "       " + ageField.getText() + "       " + breedField.getText());
         }
 
-        // Aggiungi il contenitore a uno ScrollPane
-        ScrollPane scrollPane = new ScrollPane(dogContainer);
+        dogContainer.getChildren().addAll(searchBar, listView);
         GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(dogContainer);
+    }
 
+    public void submitSearch(List<DogProfileBean> listOfDogs){
+        WindowManager.getSingletonInstance().submitSearch(listOfDogs);
+    }
 
-*/
+    public String getInsertedBreed(){
+        return breedSearchField.getText();
     }
 }

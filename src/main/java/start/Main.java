@@ -18,8 +18,6 @@ public class Main extends Application {
     public static void main(String[] args) throws IOException {
         Initialize initializer = new Initialize();
         initializer.init();
-        /*GraphicalFactory factory = GraphicalFactory.getGraphicalSingletonFactory();
-        factory.createUserWindowManager().show();*/
         WindowManager.getSingletonInstance().show();
     }
 

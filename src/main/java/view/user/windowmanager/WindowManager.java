@@ -2,10 +2,12 @@ package view.user.windowmanager;
 
 import bean.BreedBean;
 import bean.DogProfileBean;
+import bean.TestBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import presenter.AdoptDogController;
 import view.user.dogspageview.DogsPageController;
 import view.user.factory.GraphicalFactory;
 import view.user.testview.TestViewController;
@@ -20,7 +22,7 @@ public class WindowManager {
     private final TestViewController testView = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
     private final StarterWindow starterWindow = GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow();
-
+    private final AdoptDogController presenter = new AdoptDogController();
 
     private static WindowManager instance = null;
 
@@ -31,13 +33,18 @@ public class WindowManager {
     public void show(){
         starterWindow.show();
     };
+
     public void showTest(){
         testView.createTest();
     };
 
     public void submitTest(){
         try {
-            testView.submitTest();
+            List<String> listOfAnswers = testView.getTestAnswers();
+            TestBean testAnswers = new TestBean(listOfAnswers);
+            BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
+            showTestResult(resultBreed);
+
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -51,22 +58,25 @@ public class WindowManager {
         testView.createTestResult(breedBean);
     };
 
-    public void getBreedToSearch(){
+    public void submitSearch(List<DogProfileBean> listOfDogs){
+        String insertedBreed = dogsPage.getInsertedBreed();
+        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(listOfDogs, insertedBreed);
+        showListOfDogs(filteredDogs);
+    }
 
-    };
+    public List<DogProfileBean> getAllDogs(){
+        return presenter.getAllDogs();
+    }
 
-    public void getAllDogs(){
-        dogsPage.getAllDogs();
+    public void showAllDogs(){
+        List<DogProfileBean> allDogs = getAllDogs();
+        showListOfDogs(allDogs);
         //it will call presenter.getDogsByBreed with empty params
     }
 
     public void showListOfDogs(List<DogProfileBean> listOfDogs){
         dogsPage.createListOfDogs(listOfDogs);
-
     }
-    //public void setCentralView(Pane centralView){};
-
-    //////????rivedi///////
 
     public TestViewController getTestView() {
         return testView;

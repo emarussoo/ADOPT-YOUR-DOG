@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
+import javafx.stage.Popup;
 import presenter.AdoptDogController;
 import utils.TestQuestions;
 //import view.UserView;
@@ -24,6 +26,8 @@ import java.util.List;
 
 public class GUITestViewController extends TestViewController{
     private List<ToggleGroup> toggleList = new ArrayList<>();
+    @FXML
+    RadioButton rb = new RadioButton();
 
     @Override
     public void createTest(){
@@ -78,22 +82,24 @@ public class GUITestViewController extends TestViewController{
         // ScrollPane per rendere il contenitore scrollabile
         ScrollPane scrollPane = new ScrollPane(questionContainer);
         scrollPane.setFitToWidth(true);
+        scrollPane.setFitToHeight(true);
+        //Pane pane = new Pane(scrollPane);
 
-        Pane pane = new Pane(scrollPane);
-
-        GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(pane);
+        GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(scrollPane);
+        //GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(pane);
 
     }
 
 
     public void submitTest() throws URISyntaxException, IOException, InterruptedException {
-        List<String> listOfAnswers = getTestAnswers();
+        WindowManager.getSingletonInstance().submitTest();
+        /*List<String> listOfAnswers = getTestAnswers();
         TestBean testAnswers = new TestBean(listOfAnswers);
         toggleList.clear();
 
         AdoptDogController presenter = new AdoptDogController();
         BreedBean resultbreed = presenter.processTestAnswers(testAnswers);
-        WindowManager.getSingletonInstance().showTestResult(resultbreed);
+        WindowManager.getSingletonInstance().showTestResult(resultbreed);*/
     }
     @Override
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
@@ -101,7 +107,17 @@ public class GUITestViewController extends TestViewController{
         for(ToggleGroup a: toggleList){
 
             RadioButton rb = (RadioButton) a.getSelectedToggle();
-            listOfAnswers.add(rb.getText());
+            if(rb == null){
+                Popup popup = new Popup();
+                Text popupText = new Text("Questo è un popup!");
+                popupText.setStyle("-fx-background-color: white; -fx-padding: 10;");
+                VBox popupContent = new VBox(popupText);
+                popupContent.setStyle("-fx-background-color: lightblue; -fx-border-color: black; -fx-padding: 10;");
+                popup.getContent().add(popupContent);
+            }else{
+                listOfAnswers.add(rb.getText());
+            }
+
         }
 
         System.out.println(listOfAnswers);
@@ -175,6 +191,6 @@ public class GUITestViewController extends TestViewController{
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
-        GUIStarterWindow.getSingletonInstance().setCentralView(vbox);
+        GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(vbox);
     }
 }

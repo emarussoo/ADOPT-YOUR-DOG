@@ -1,8 +1,10 @@
 package view.user.windowmanager;
 
+import bean.DogProfileBean;
 import javafx.scene.layout.Pane;
 
 import java.io.BufferedReader;
+import java.util.List;
 
 public class CLIStarterWindow extends StarterWindow {
 
@@ -34,10 +36,10 @@ public class CLIStarterWindow extends StarterWindow {
                         submitTest();
                         break;
                     case 2:
-                        getAllDogs();
+                        showDogs();
                         break;
                     case 3:
-                        getBreedToSearch();
+                        submitSearch();
                         break;
                 }
 
@@ -55,15 +57,17 @@ public class CLIStarterWindow extends StarterWindow {
         WindowManager.getSingletonInstance().submitTest();
     }
 
-    public void getAllDogs(){
-        WindowManager.getSingletonInstance().getAllDogs();
+    public void submitSearch(){
+        List<DogProfileBean> toFilterList = WindowManager.getSingletonInstance().getAllDogs();
+        WindowManager.getSingletonInstance().submitSearch(toFilterList);
+
     }
 
-    public void getBreedToSearch(){
-        WindowManager.getSingletonInstance().getBreedToSearch();
+    public void showDogs(){
+        WindowManager.getSingletonInstance().showAllDogs();
     }
 
-    public void setCentralView(Pane centralView) {
-    }
+
+
 
 }

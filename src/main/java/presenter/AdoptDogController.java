@@ -19,26 +19,34 @@ import java.util.List;
 public class AdoptDogController {
 
     StarterWindow view;
-    public List<DogProfileBean> getDogsByBreed(String breed){
-        List<Dog> listOfDogs = new ArrayList<>();
-        if(breed.equals(null)){
-            listOfDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
-        }else{
-            //chiama dao
-        }
+    public List<DogProfileBean> getAllDogs(){
+        List<Dog> listOfAllDogs = new ArrayList<>();
+        listOfAllDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
 
-        List<DogProfileBean> listOfDogsBean = new ArrayList<>();
-        for(Dog dog : listOfDogs){
+        List<DogProfileBean> listOfAllDogsBean = new ArrayList<>();
+        for(Dog dog : listOfAllDogs){
             String dogIdBean = String.valueOf(dog.getDogId());
             String dogNameBean = dog.getDogName();
             String dogAgeBean = String.valueOf(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
 
-            listOfDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean));
+            listOfAllDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean));
         }
-        return listOfDogsBean;
+        return listOfAllDogsBean;
         //this will be called by view.getBreedToSearch e view.getAllDogs
+    }
 
+    public List<DogProfileBean> getDogsByBreed(List<DogProfileBean> beforeDogs, String breed){
+        if(breed.equals("")){
+            return getAllDogs();
+        }
+        List<DogProfileBean> filteredDogsList = new ArrayList<>();
+        for(DogProfileBean dog : beforeDogs){
+            if(dog.getDogBreed().equals(breed)){
+                filteredDogsList.add(dog);
+            }
+        }
+        return filteredDogsList;
     }
 
     public AdoptDogController() {

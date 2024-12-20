@@ -21,12 +21,7 @@ public class CLITestViewController extends TestViewController{
     };
 
     public void submitTest() throws URISyntaxException, IOException, InterruptedException{
-        List<String> listOfAnswers = getTestAnswers();
-        TestBean testAnswers = new TestBean(listOfAnswers);
-
-        AdoptDogController presenter = new AdoptDogController();
-        BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
-        WindowManager.getSingletonInstance().showTestResult(resultBreed);
+        WindowManager.getSingletonInstance().submitTest();
     };
 
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {

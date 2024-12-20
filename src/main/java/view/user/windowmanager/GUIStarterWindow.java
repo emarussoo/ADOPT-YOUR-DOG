@@ -2,12 +2,14 @@ package view.user.windowmanager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import start.Main;
 
+import javax.swing.text.ComponentView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +44,9 @@ public class GUIStarterWindow extends StarterWindow {
         WindowManager.getSingletonInstance().showTest();
     }
 
-    public void submitTest(){
-        WindowManager.getSingletonInstance().submitTest();
-    }
 
-    public void getAllDogs(){
-        WindowManager.getSingletonInstance().getAllDogs();
+    public void showDogs(){
+        WindowManager.getSingletonInstance().showAllDogs();
         //loadPage("dogs-user-page");
         //it will call presenter.getDogsByBreed with empty params
     }
@@ -65,10 +64,10 @@ public class GUIStarterWindow extends StarterWindow {
         bp.setCenter(root);
     }
 
-    public void setCentralView(Pane centralView) {
+    public void setCentralView(Node component) {
         if(this.bp == null){
             throw new IllegalStateException("BorderPane not initialized");
         }
-        bp.setCenter(centralView);
+        bp.setCenter(component);
     }
 }

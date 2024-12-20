@@ -8,11 +8,47 @@ import java.util.List;
 
 public class DemoDogDao extends DogDao{
 
-    private List<Dog> demoListOfDogs= new ArrayList<Dog>();
+    private static List<Dog> demoListOfDogs= new ArrayList<Dog>();
 
     static DemoDogDao instance = null;
 
     protected DemoDogDao() {
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
         demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
         demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
         demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));

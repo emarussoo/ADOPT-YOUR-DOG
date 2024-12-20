@@ -66,7 +66,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#getAllDogs" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="DOGS">
+            <Button mnemonicParsing="false" onMouseClicked="#showDogs" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="DOGS">
                <font>
                   <Font size="24.0" />
                </font>

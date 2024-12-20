@@ -27,6 +27,8 @@ public class Initialize
                             System.setProperty("user_choice", "GUI");
                             break;
             }
+            System.setProperty("persistence", "DEMO");
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

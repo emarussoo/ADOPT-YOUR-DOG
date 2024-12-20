@@ -1,15 +1,17 @@
 package view.user.windowmanager;
 
 import bean.BreedBean;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import view.user.factory.GraphicalFactory;
+
+import javax.swing.text.ComponentView;
 
 public abstract class StarterWindow {
     public abstract void show();
     public abstract void showTest();
-    public abstract void submitTest();
     //public abstract void getBreedToSearch();
-    public abstract void getAllDogs();
+    public abstract void showDogs();
     //public abstract void showTestResult(BreedBean breedBean);
     //public abstract void loadPage(String string, BorderPane bp);
 
@@ -27,5 +29,7 @@ public abstract class StarterWindow {
         return instance; // Ritorna sempre l'istanza unica
     }
 
-    public abstract void setCentralView(Pane pane);
+    public void setCentralView(Node component){
+
+    };
 }
