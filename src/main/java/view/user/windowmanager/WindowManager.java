@@ -1,6 +1,7 @@
 package view.user.windowmanager;
 
 import bean.BreedBean;
+import bean.DogProfileBean;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
@@ -11,6 +12,7 @@ import view.user.testview.TestViewController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -54,7 +56,13 @@ public class WindowManager {
     };
 
     public void getAllDogs(){
+        dogsPage.getAllDogs();
         //it will call presenter.getDogsByBreed with empty params
+    }
+
+    public void showListOfDogs(List<DogProfileBean> listOfDogs){
+        dogsPage.createListOfDogs(listOfDogs);
+
     }
     //public void setCentralView(Pane centralView){};
 

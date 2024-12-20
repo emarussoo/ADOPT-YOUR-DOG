@@ -1,20 +1,42 @@
 package presenter;
 
 import bean.BreedBean;
+import bean.DogProfileBean;
 import bean.TestBean;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
 //import view.UserView;
 //import view.user.TestViewGraphicalController;
+import model.daofactory.DaoFactory;
+import model.dog.Dog;
 import view.user.windowmanager.StarterWindow;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdoptDogController {
 
     StarterWindow view;
-    public void getDogsByBreed(){
+    public List<DogProfileBean> getDogsByBreed(String breed){
+        List<Dog> listOfDogs = new ArrayList<>();
+        if(breed.equals(null)){
+            listOfDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
+        }else{
+            //chiama dao
+        }
+
+        List<DogProfileBean> listOfDogsBean = new ArrayList<>();
+        for(Dog dog : listOfDogs){
+            String dogIdBean = String.valueOf(dog.getDogId());
+            String dogNameBean = dog.getDogName();
+            String dogAgeBean = String.valueOf(dog.getDogAge());
+            String dogBreedBean = dog.getDogBreed();
+
+            listOfDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean));
+        }
+        return listOfDogsBean;
         //this will be called by view.getBreedToSearch e view.getAllDogs
 
     }

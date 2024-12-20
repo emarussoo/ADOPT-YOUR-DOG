@@ -18,9 +18,9 @@ public class DbmsDogDao extends DogDao{
         //dbms implementation of delete operation
 
     };
-    public void searchDogsByBreed(String breed){
+    public List<Dog> searchDogsByBreed(String breed){
         //dbms implementation of search operation
-
+        return null;
     };
     public List<Dog> getAllDogs(){
         //dbms implementation of getalldogs operation

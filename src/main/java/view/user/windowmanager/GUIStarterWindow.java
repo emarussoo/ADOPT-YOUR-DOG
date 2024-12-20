@@ -47,7 +47,8 @@ public class GUIStarterWindow extends StarterWindow {
     }
 
     public void getAllDogs(){
-        loadPage("dogs-user-page");
+        WindowManager.getSingletonInstance().getAllDogs();
+        //loadPage("dogs-user-page");
         //it will call presenter.getDogsByBreed with empty params
     }
 
