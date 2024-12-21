@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -20,6 +21,10 @@ public class GUIStarterWindow extends StarterWindow {
 
     @FXML
     private BorderPane bp;
+    @FXML
+    private Button testButton;
+    @FXML
+    private Button dogsButton;
 
     static GUIStarterWindow instance = null;
 
@@ -41,11 +46,15 @@ public class GUIStarterWindow extends StarterWindow {
     }
 
     public void showTest(){
+        dogsButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
+        testButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
         WindowManager.getSingletonInstance().showTest();
     }
 
 
     public void showDogs(){
+        testButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
+        dogsButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
         WindowManager.getSingletonInstance().showAllDogs();
         //loadPage("dogs-user-page");
         //it will call presenter.getDogsByBreed with empty params

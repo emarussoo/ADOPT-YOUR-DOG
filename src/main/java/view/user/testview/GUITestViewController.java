@@ -85,8 +85,9 @@ public class GUITestViewController extends TestViewController{
         scrollPane.setFitToHeight(true);
         //Pane pane = new Pane(scrollPane);
 
-        GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(scrollPane);
+        //GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(scrollPane);
         //GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(pane);
+        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
 
     }
 
@@ -191,6 +192,6 @@ public class GUITestViewController extends TestViewController{
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
-        GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(vbox);
+        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(vbox);
     }
 }

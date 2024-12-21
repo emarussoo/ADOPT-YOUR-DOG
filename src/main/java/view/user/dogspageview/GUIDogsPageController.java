@@ -72,7 +72,8 @@ public class GUIDogsPageController extends DogsPageController{
         });
 
         dogContainer.getChildren().addAll(searchBar, header, listView, sendDogAdoptionRequest);
-        GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(dogContainer);
+        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
+        //GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(dogContainer);
     }
 
     public void submitSearch(List<DogProfileBean> listOfDogs){

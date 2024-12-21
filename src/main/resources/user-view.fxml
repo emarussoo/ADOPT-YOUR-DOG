@@ -61,12 +61,12 @@
    <left>
       <VBox prefHeight="622.0" prefWidth="152.0" style="-fx-border-width: 0px 3px 0px 0px; -fx-border-color: #2cc61e;" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onMouseClicked="#showTest" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="TEST">
+            <Button fx:id="testButton" mnemonicParsing="false" onMouseClicked="#showTest" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="TEST">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onMouseClicked="#showDogs" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="DOGS">
+            <Button fx:id="dogsButton" mnemonicParsing="false" onMouseClicked="#showDogs" prefHeight="120.0" prefWidth="149.0" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-border-width: 0px 0px 1px 0px;" text="DOGS">
                <font>
                   <Font size="24.0" />
                </font>
