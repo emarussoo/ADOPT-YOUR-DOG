@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import presenter.AdoptDogController;
+import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
 import view.user.factory.GraphicalFactory;
 import view.user.testview.TestViewController;
@@ -21,6 +22,7 @@ import java.util.logging.Logger;
 public class WindowManager {
     private final TestViewController testView = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
+    private final DogAdoptionRequestController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
     private final StarterWindow starterWindow = GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow();
     private final AdoptDogController presenter = new AdoptDogController();
 
@@ -78,6 +80,11 @@ public class WindowManager {
         dogsPage.createListOfDogs(listOfDogs);
     }
 
+    public void showDogAdoptionRequestForm(){
+        DogProfileBean dogProfileBean = dogsPage.getDogInfo();
+        dogAdoptionRequestPage.createDogAdoptionRequest(dogProfileBean);
+    }
+
     public TestViewController getTestView() {
         return testView;
     }
@@ -88,6 +95,10 @@ public class WindowManager {
 
     public StarterWindow getStarterWindow() {
         return starterWindow;
+    }
+
+    public AdoptDogController getPresenter() {
+        return presenter;
     }
 
     public static WindowManager getSingletonInstance() {

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class DbmsDogDao extends DogDao{
     @Override
-    public Dog load(int dogId){
+    public Dog getDogById(int dogId){
         //dbms implementation of load operation
         return null;
     };

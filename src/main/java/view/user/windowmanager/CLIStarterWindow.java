@@ -26,6 +26,7 @@ public class CLIStarterWindow extends StarterWindow {
             System.out.println("1. Take test");
             System.out.println("2. Show dogs list");
             System.out.println("3. Search dogs by breed");
+            System.out.println("4. Send dog adoption request");
 
             BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
             try{
@@ -41,6 +42,9 @@ public class CLIStarterWindow extends StarterWindow {
                     case 3:
                         submitSearch();
                         break;
+                    case 4:
+                        showDogAdoptionRequest();
+
                 }
 
             }catch(Exception e){
@@ -67,6 +71,9 @@ public class CLIStarterWindow extends StarterWindow {
         WindowManager.getSingletonInstance().showAllDogs();
     }
 
+    public void showDogAdoptionRequest(){
+        WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+    }
 
 
 

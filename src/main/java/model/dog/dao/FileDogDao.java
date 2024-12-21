@@ -6,7 +6,7 @@ import java.util.List;
 
 public class FileDogDao extends DogDao{
     @Override
-    public Dog load(int dogId){
+    public Dog getDogById(int dogId){
         //file implementation of add operation
         return null;
     };

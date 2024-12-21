@@ -32,4 +32,16 @@ public class CLIDogsPageController extends DogsPageController{
         }
         return insertedBreed;
     }
+
+    public DogProfileBean getDogInfo(){
+        int insertedId;
+        BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
+        System.out.println("=====================Inserisci l'id del cane a cui vorresti mandare la richiesta di adozione=====================");
+        try {
+            insertedId = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return WindowManager.getSingletonInstance().getPresenter().getDogById(insertedId);
+    }
 }

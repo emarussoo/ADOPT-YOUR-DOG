@@ -9,6 +9,7 @@ import model.breed.dao.BreedDao;
 //import view.user.TestViewGraphicalController;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
+import model.dog.dao.DogDao;
 import view.user.windowmanager.StarterWindow;
 
 import java.io.IOException;
@@ -29,8 +30,10 @@ public class AdoptDogController {
             String dogNameBean = dog.getDogName();
             String dogAgeBean = String.valueOf(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
+            String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
+            String dogKennelIdBean = String.valueOf(dog.getKennelId());
 
-            listOfAllDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean));
+            listOfAllDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean));
         }
         return listOfAllDogsBean;
         //this will be called by view.getBreedToSearch e view.getAllDogs
@@ -67,6 +70,18 @@ public class AdoptDogController {
 
         return new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedProtectiveness, resultBreedEnergy, resultBreedBarking);
         //this will be called by view.getTestAnswers
+    }
+
+    public DogProfileBean getDogById(int dogId){
+        Dog dog = DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(dogId);
+        String dogIdBean = String.valueOf(dog.getDogId());
+        String dogNameBean = dog.getDogName();
+        String dogAgeBean = String.valueOf(dog.getDogAge());
+        String dogBreedBean = dog.getDogBreed();
+        String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
+        String dogKennelIdBean = String.valueOf(dog.getKennelId());
+
+        return new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean);
     }
 
     public void sendDogAdoptionRequest(){

@@ -1,5 +1,7 @@
 package view.user.factory;
 
+import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
+import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.CLIDogsPageController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.CLITestViewController;
@@ -21,5 +23,9 @@ public class CLIFactory extends GraphicalFactory{
     @Override
     public DogsPageController createDogsPageController(){
         return new CLIDogsPageController();
+    }
+
+    public DogAdoptionRequestController createDogAdoptionRequestController(){
+        return new CLIDogAdoptionRequestController();
     }
 }

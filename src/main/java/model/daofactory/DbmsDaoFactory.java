@@ -6,6 +6,8 @@ import model.dog.dao.DogDao;
 import model.dogadoptionrequest.dao.DbmsDogAdoptionRequestDao;
 import model.dogadoptionrequest.dao.DemoDogAdoptionRequestDao;
 import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
+import model.kennel.dao.DbmsKennelDao;
+import model.kennel.dao.KennelDao;
 
 public class DbmsDaoFactory extends DaoFactory {
     @Override
@@ -15,4 +17,7 @@ public class DbmsDaoFactory extends DaoFactory {
     public DogAdoptionRequestDao createDogAdoptionRequestDao() {
         return new DbmsDogAdoptionRequestDao();
     }
+    public KennelDao createKennelDao(){
+        return new DbmsKennelDao();
+    };
 }

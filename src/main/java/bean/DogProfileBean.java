@@ -7,12 +7,16 @@ public class DogProfileBean{
     private String dogName;
     private String dogAge;
     private String dogBreed;
+    private String kennelName;
+    private String kennelId;
 
-    public DogProfileBean(String dogId, String dogName, String dogAge, String dogBreed) {
+    public DogProfileBean(String dogId, String dogName, String dogAge, String dogBreed, String kennelName, String kennelId) {
         this.dogId = dogId;
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
+        this.kennelName = kennelName;
+        this.kennelId = kennelId;
     }
 
     public String getDogId() {
@@ -45,5 +49,26 @@ public class DogProfileBean{
 
     public void setDogBreed(String dogBreed) {
         this.dogBreed = dogBreed;
+    }
+
+    public String getKennelName() {
+        return kennelName;
+    }
+
+    public void setKennelName(String kennelName) {
+        this.kennelName = kennelName;
+    }
+
+    public String getKennelId() {
+        return kennelId;
+    }
+
+    public void setKennelId(String kennelId) {
+        this.kennelId = kennelId;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-25s %-25s %-25s %-30s %-25s", getDogId(), getDogName(), getDogAge(), getDogBreed(), getKennelName());
     }
 }

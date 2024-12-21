@@ -13,45 +13,10 @@ public class DemoDogDao extends DogDao{
     static DemoDogDao instance = null;
 
     protected DemoDogDao() {
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco"));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano"));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky"));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco", 34));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano", 90));
+        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky", 96));
+
     }
 
     public static DemoDogDao getSingletonInstance() {
@@ -62,7 +27,12 @@ public class DemoDogDao extends DogDao{
     }
 
     @Override
-    public Dog load(int dogId){
+    public Dog getDogById(int dogId){
+        for(Dog dog: demoListOfDogs){
+            if(dog.getDogId() == dogId){
+                return dog;
+            }
+        }
         //demo implementation of load operation
         return null;
     };

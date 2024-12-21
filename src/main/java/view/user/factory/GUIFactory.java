@@ -1,5 +1,7 @@
 package view.user.factory;
 
+import view.user.dogadoptionrequestview.DogAdoptionRequestController;
+import view.user.dogadoptionrequestview.GUIDogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
 import view.user.dogspageview.GUIDogsPageController;
 import view.user.testview.GUITestViewController;
@@ -21,6 +23,10 @@ public class GUIFactory extends GraphicalFactory{
     @Override
     public DogsPageController createDogsPageController(){
         return new GUIDogsPageController();
+    }
+
+    public DogAdoptionRequestController createDogAdoptionRequestController(){
+        return new GUIDogAdoptionRequestController();
     }
 
 
