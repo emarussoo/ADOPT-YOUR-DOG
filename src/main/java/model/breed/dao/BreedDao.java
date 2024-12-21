@@ -12,7 +12,6 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.logging.Logger;
 
 
 //TODO variazione con ritorno lista di razze e scelta numero visualizzazione in controller

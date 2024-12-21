@@ -1,7 +1,6 @@
 package model.dog.dao;
 
 import model.dog.Dog;
-import view.user.windowmanager.GUIStarterWindow;
 
 import java.util.ArrayList;
 import java.util.List;

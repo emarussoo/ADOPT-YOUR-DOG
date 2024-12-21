@@ -1,7 +1,6 @@
 package view.user.testview;
 
 import bean.BreedBean;
-import bean.TestBean;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,12 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
-import presenter.AdoptDogController;
 import utils.TestQuestions;
-//import view.UserView;
-import view.user.factory.GUIFactory;
-import view.user.factory.GraphicalFactory;
-import view.user.windowmanager.GUIStarterWindow;
 import view.user.windowmanager.WindowManager;
 
 import java.io.IOException;
@@ -83,10 +77,7 @@ public class GUITestViewController extends TestViewController{
         ScrollPane scrollPane = new ScrollPane(questionContainer);
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
-        //Pane pane = new Pane(scrollPane);
 
-        //GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(scrollPane);
-        //GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(pane);
         WindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
 
     }
@@ -94,13 +85,6 @@ public class GUITestViewController extends TestViewController{
 
     public void submitTest() throws URISyntaxException, IOException, InterruptedException {
         WindowManager.getSingletonInstance().submitTest();
-        /*List<String> listOfAnswers = getTestAnswers();
-        TestBean testAnswers = new TestBean(listOfAnswers);
-        toggleList.clear();
-
-        AdoptDogController presenter = new AdoptDogController();
-        BreedBean resultbreed = presenter.processTestAnswers(testAnswers);
-        WindowManager.getSingletonInstance().showTestResult(resultbreed);*/
     }
     @Override
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {

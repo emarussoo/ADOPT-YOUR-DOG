@@ -1,12 +1,10 @@
 package view.user.dogspageview;
 
 import bean.DogProfileBean;
-import utils.TestQuestions;
 import view.user.windowmanager.WindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CLIDogsPageController extends DogsPageController{

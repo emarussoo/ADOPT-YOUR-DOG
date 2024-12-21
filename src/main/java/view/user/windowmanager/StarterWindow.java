@@ -1,11 +1,9 @@
 package view.user.windowmanager;
 
-import bean.BreedBean;
+
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 import view.user.factory.GraphicalFactory;
 
-import javax.swing.text.ComponentView;
 
 public abstract class StarterWindow {
     public abstract void show();
@@ -20,7 +18,8 @@ public abstract class StarterWindow {
     protected StarterWindow() {
         // Inizializzazione se necessaria
     }
-    //////????rivedi///////
+
+
     public static StarterWindow getSingletonInstance() {
         if (instance == null) {
             GraphicalFactory factory = GraphicalFactory.getGraphicalSingletonFactory();

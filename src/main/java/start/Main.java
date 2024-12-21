@@ -4,9 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import view.user.factory.GraphicalFactory;
 import view.user.windowmanager.GUIStarterWindow;
-import view.user.windowmanager.StarterWindow;
 import view.user.windowmanager.WindowManager;
 
 import java.io.File;

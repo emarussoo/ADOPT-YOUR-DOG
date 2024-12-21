@@ -1,8 +1,6 @@
 package view.user.testview;
 
 import bean.BreedBean;
-import bean.TestBean;
-import presenter.AdoptDogController;
 import utils.TestQuestions;
 import view.user.windowmanager.WindowManager;
 

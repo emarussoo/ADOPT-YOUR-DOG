@@ -3,10 +3,6 @@ package view.user.windowmanager;
 import bean.BreedBean;
 import bean.DogProfileBean;
 import bean.TestBean;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import presenter.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
@@ -16,8 +12,6 @@ import view.user.testview.TestViewController;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class WindowManager {
     private final TestViewController testView = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();

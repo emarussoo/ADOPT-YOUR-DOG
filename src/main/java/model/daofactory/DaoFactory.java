@@ -3,9 +3,6 @@ package model.daofactory;
 import model.dog.dao.DogDao;
 import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
 import model.kennel.dao.KennelDao;
-import view.user.factory.CLIFactory;
-import view.user.factory.GUIFactory;
-import view.user.factory.GraphicalFactory;
 
 public abstract class DaoFactory {
     public abstract DogDao createDogDao();

@@ -12,8 +12,6 @@ import view.user.windowmanager.WindowManager;
 
 public class GUIDogAdoptionRequestController extends DogAdoptionRequestController{
     public void createDogAdoptionRequest(DogProfileBean dogProfileBean) {
-        //TODO
-        System.out.println("Stai mandando una richiesta di adozione al canile "+ dogProfileBean.getKennelName() +" per "+dogProfileBean.getDogName()+" di razza "+ dogProfileBean.getDogBreed()+" di età "+ dogProfileBean.getDogAge()+ " anni" );
         VBox dogAdoptionRequestContainer = new VBox();
         dogAdoptionRequestContainer.setAlignment(Pos.TOP_CENTER);
         Label title = new Label("Dog Adoption Request");

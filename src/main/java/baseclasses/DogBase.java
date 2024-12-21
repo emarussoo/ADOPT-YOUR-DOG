@@ -5,14 +5,14 @@ public class DogBase {
     private String dogName;
     private int dogAge;
     private String dogBreed;
-    private int KennelId;
+    private int kennelId;
 
     public DogBase(int dogId, String dogName, int dogAge, String dogBreed, int KennelId) {
         this.dogId = dogId;
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
-        this.KennelId = KennelId;
+        this.kennelId = KennelId;
     }
 
     public int getDogId() {
@@ -48,10 +48,10 @@ public class DogBase {
     }
 
     public int getKennelId() {
-        return KennelId;
+        return kennelId;
     }
 
-    public void setKennelId(int KennelId) {
-        this.KennelId = KennelId;
+    public void setKennelId(int kennelId) {
+        this.kennelId = kennelId;
     }
 }

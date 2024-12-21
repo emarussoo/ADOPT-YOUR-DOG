@@ -1,7 +1,6 @@
 package view.user.windowmanager;
 
 import bean.DogProfileBean;
-import javafx.scene.layout.Pane;
 
 import java.io.BufferedReader;
 import java.util.List;

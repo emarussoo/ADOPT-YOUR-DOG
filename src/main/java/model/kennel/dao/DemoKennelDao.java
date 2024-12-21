@@ -1,7 +1,5 @@
 package model.kennel.dao;
 
-import model.dog.Dog;
-import model.dog.dao.DemoDogDao;
 import model.kennel.Kennel;
 
 import java.util.ArrayList;

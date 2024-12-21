@@ -1,7 +1,5 @@
 package bean;
 
-import baseclasses.DogBase;
-
 public class DogProfileBean{
     private String dogId;
     private String dogName;

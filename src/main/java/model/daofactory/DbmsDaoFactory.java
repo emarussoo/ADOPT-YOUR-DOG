@@ -1,10 +1,8 @@
 package model.daofactory;
 
 import model.dog.dao.DbmsDogDao;
-import model.dog.dao.DemoDogDao;
 import model.dog.dao.DogDao;
 import model.dogadoptionrequest.dao.DbmsDogAdoptionRequestDao;
-import model.dogadoptionrequest.dao.DemoDogAdoptionRequestDao;
 import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
 import model.kennel.dao.DbmsKennelDao;
 import model.kennel.dao.KennelDao;

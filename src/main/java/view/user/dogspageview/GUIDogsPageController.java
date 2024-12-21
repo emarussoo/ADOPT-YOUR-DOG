@@ -3,23 +3,12 @@ package view.user.dogspageview;
 import bean.DogProfileBean;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.util.Callback;
-import presenter.AdoptDogController;
-import view.user.factory.GUIFactory;
 import view.user.windowmanager.WindowManager;
-
-
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -73,7 +62,6 @@ public class GUIDogsPageController extends DogsPageController{
 
         dogContainer.getChildren().addAll(searchBar, header, listView, sendDogAdoptionRequest);
         WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
-        //GUIFactory.getGraphicalSingletonFactory().createStarterWindow().setCentralView(dogContainer);
     }
 
     public void submitSearch(List<DogProfileBean> listOfDogs){

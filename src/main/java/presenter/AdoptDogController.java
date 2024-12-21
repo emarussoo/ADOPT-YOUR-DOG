@@ -5,11 +5,8 @@ import bean.DogProfileBean;
 import bean.TestBean;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
-//import view.UserView;
-//import view.user.TestViewGraphicalController;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
-import model.dog.dao.DogDao;
 import view.user.windowmanager.StarterWindow;
 
 import java.io.IOException;
@@ -36,7 +33,6 @@ public class AdoptDogController {
             listOfAllDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean));
         }
         return listOfAllDogsBean;
-        //this will be called by view.getBreedToSearch e view.getAllDogs
     }
 
     public List<DogProfileBean> getDogsByBreed(List<DogProfileBean> beforeDogs, String breed){
@@ -66,10 +62,8 @@ public class AdoptDogController {
         String resultBreedProtectiveness = resultBreed.getProtectiveness();
         String resultBreedEnergy = resultBreed.getEnergy();
         String resultBreedBarking = resultBreed.getBarking();
-        //String resultBreedMaxHeightMale = resultBreed.getMaxHeightMale();
 
         return new BreedBean(resultBreedImage, resultBreedName, resultBreedCoatLength, resultBreedPlayfulness, resultBreedProtectiveness, resultBreedEnergy, resultBreedBarking);
-        //this will be called by view.getTestAnswers
     }
 
     public DogProfileBean getDogById(int dogId){
@@ -87,8 +81,4 @@ public class AdoptDogController {
     public void sendDogAdoptionRequest(){
         //this will be called by view.getDogAdoptionRequestData
     }
-
-    /*public void setView(UserView view) {
-        this.view = view;
-    }*/
 }

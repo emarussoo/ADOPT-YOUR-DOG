@@ -7,7 +7,6 @@ public enum TestQuestions {
     DOMANDA_4("Quanto vuoi che sia giocherellone (inserisci il valore minimo)?", "playfulness"),
     DOMANDA_5("Quanto vorresti che il tuo cane fosse energico (inserisci il valore minimo)?", "energy"),
     DOMANDA_6("Quanto vuoi che abbai?", "barking");
-    //DOMANDA_7("Quanto vuoi che sia protettivo (inserisci valore minimo)?", "protectiveness");
 
     private final String testo;
     private final String apiValue;
