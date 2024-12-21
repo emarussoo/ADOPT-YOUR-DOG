@@ -8,14 +8,15 @@ public class FileDogAdoptionRequestDao extends DogAdoptionRequestDao{
     @Override
     public DogAdoptionRequest load(int darId){
         return null;
-    };
+    }
     public void add(DogAdoptionRequest dogAdoptionRequest){
-
-    };
+        //add
+    }
     public void delete(int darId){
+        //delete
 
-    };
+    }
     public List<DogAdoptionRequest> getAllKennelDogAdoptionRequest(int kennelId){
         return null;
-    };
+    }
 }

@@ -10,7 +10,7 @@ public abstract class GraphicalFactory {
     private static GraphicalFactory instance = null;
 
     protected GraphicalFactory(){
-    };
+    }
 
     public abstract StarterWindow createStarterWindow();
     public abstract TestViewController createTestViewController();

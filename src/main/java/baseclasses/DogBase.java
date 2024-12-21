@@ -7,12 +7,12 @@ public class DogBase {
     private String dogBreed;
     private int kennelId;
 
-    public DogBase(int dogId, String dogName, int dogAge, String dogBreed, int KennelId) {
+    public DogBase(int dogId, String dogName, int dogAge, String dogBreed, int kennelId) {
         this.dogId = dogId;
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
-        this.kennelId = KennelId;
+        this.kennelId = kennelId;
     }
 
     public int getDogId() {

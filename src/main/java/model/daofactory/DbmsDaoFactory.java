@@ -17,5 +17,5 @@ public class DbmsDaoFactory extends DaoFactory {
     }
     public KennelDao createKennelDao(){
         return new DbmsKennelDao();
-    };
+    }
 }

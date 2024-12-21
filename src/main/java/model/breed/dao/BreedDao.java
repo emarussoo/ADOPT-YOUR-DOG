@@ -32,7 +32,6 @@ public class BreedDao {
                 +"&"+TestQuestions.DOMANDA_4.getApiValue() + "=" + answers.get(3)
                 +"&"+TestQuestions.DOMANDA_5.getApiValue() + "=" + answers.get(4)
                 +"&"+TestQuestions.DOMANDA_6.getApiValue() + "=" + answers.get(5);
-                //+"&"+TestQuestions.DOMANDA_7.getApiValue() + "=" + answers.get(6);
 
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(uri)
@@ -66,7 +65,6 @@ public class BreedDao {
             String protectiveness = rootNode.get("protectiveness").asText();
             String energy = rootNode.get("energy").asText();
             String barking = rootNode.get("barking").asText();
-            //String maxHeightMale = rootNode.get("max_height_male").asText();
 
             return new Breed(imageLink, name, coatLength, playfulness, protectiveness, energy, barking);
 

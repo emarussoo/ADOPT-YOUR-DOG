@@ -11,7 +11,7 @@ public abstract class DogsPageController {
         AdoptDogController presenter = new AdoptDogController();
         List<DogProfileBean> listOfAllDogs = presenter.getAllDogs();
         WindowManager.getSingletonInstance().showListOfDogs(listOfAllDogs);
-    };
+    }
 
     public abstract void createListOfDogs(List<DogProfileBean> listOfDogs);
     public abstract void submitSearch(List<DogProfileBean> listOfDogs);

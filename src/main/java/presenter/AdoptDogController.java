@@ -49,6 +49,7 @@ public class AdoptDogController {
     }
 
     public AdoptDogController() {
+        //controllore
     }
 
     public BreedBean processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {

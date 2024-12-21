@@ -13,7 +13,7 @@ public class CLIDogsPageController extends DogsPageController{
         for(DogProfileBean dog : listOfDogs){
             System.out.println(dog.getDogId() + ", "+ dog.getDogName()+", "+dog.getDogAge()+", "+dog.getDogBreed());
         }
-    };
+    }
 
     public void submitSearch(List<DogProfileBean> listOfDogs){
         WindowManager.getSingletonInstance().submitSearch(listOfDogs);
@@ -26,7 +26,7 @@ public class CLIDogsPageController extends DogsPageController{
         try {
             insertedBreed = reader.readLine();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException();
         }
         return insertedBreed;
     }

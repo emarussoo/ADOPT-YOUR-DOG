@@ -8,10 +8,7 @@ import view.user.factory.GraphicalFactory;
 public abstract class StarterWindow {
     public abstract void show();
     public abstract void showTest();
-    //public abstract void getBreedToSearch();
     public abstract void showDogs();
-    //public abstract void showTestResult(BreedBean breedBean);
-    //public abstract void loadPage(String string, BorderPane bp);
 
     private static StarterWindow instance;
 
@@ -30,5 +27,5 @@ public abstract class StarterWindow {
 
     public void setCentralView(Node component){
 
-    };
+    }
 }

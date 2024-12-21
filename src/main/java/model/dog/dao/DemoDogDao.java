@@ -34,23 +34,23 @@ public class DemoDogDao extends DogDao{
         }
         //demo implementation of load operation
         return null;
-    };
+    }
     public void add(Dog dog){
         demoListOfDogs.add(dog);
         //demo implementation of add operation
 
-    };
+    }
     public void delete(int dogId){
         //demo implementation of delete operation
 
-    };
+    }
     public List<Dog> searchDogsByBreed(String breed){
 
         //demo implementation of search operation
         return null;
-    };
+    }
     public List<Dog> getAllDogs(){
         //demo implementation of getalldogs operation
-        return this.demoListOfDogs;
-    };
+        return demoListOfDogs;
+    }
 }

@@ -15,22 +15,23 @@ public class Initialize
         System.out.println("2. CLI");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
+            String choiceProperty = "user_choice";
             choice = Integer.parseInt(reader.readLine());
             switch(choice){
                 case 1:
-                    System.setProperty("user_choice", "GUI");
+                    System.setProperty(choiceProperty, "GUI");
                     break;
                     case 2:
-                        System.setProperty("user_choice", "CLI");
+                        System.setProperty(choiceProperty, "CLI");
                         break;
                         default:
-                            System.setProperty("user_choice", "GUI");
+                                System.setProperty(choiceProperty, "GUI");
                             break;
             }
             System.setProperty("persistence", "DEMO");
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ExceptionInInitializerError(e);
         }
     }
 }

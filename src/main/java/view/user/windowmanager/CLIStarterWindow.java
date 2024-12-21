@@ -43,6 +43,8 @@ public class CLIStarterWindow extends StarterWindow {
                         break;
                     case 4:
                         showDogAdoptionRequest();
+                    default:
+                        break;
 
                 }
 
@@ -50,7 +52,7 @@ public class CLIStarterWindow extends StarterWindow {
                 e.printStackTrace();
             }
         }
-    };
+    }
 
     public void showTest(){
         WindowManager.getSingletonInstance().showTest();

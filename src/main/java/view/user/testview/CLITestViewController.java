@@ -16,11 +16,11 @@ public class CLITestViewController extends TestViewController{
         for (int i = 0; i < TestQuestions.values().length; i++){
             System.out.println("Domanda " + i + ": "+TestQuestions.values()[i].getTesto());
         }
-    };
+    }
 
     public void submitTest() throws URISyntaxException, IOException, InterruptedException{
         WindowManager.getSingletonInstance().submitTest();
-    };
+    }
 
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
         List<String> answersList = new ArrayList<>();
@@ -47,5 +47,5 @@ public class CLITestViewController extends TestViewController{
         System.out.println("dog energy: " + breedBean.getEnergy());
         System.out.println("dog barking: " + breedBean.getBarking());
         System.out.println("dog protectiveness: " + breedBean.getProtectiveness());
-    };
+    }
 }

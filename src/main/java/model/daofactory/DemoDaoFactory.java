@@ -17,5 +17,5 @@ public class DemoDaoFactory extends DaoFactory {
     }
     public KennelDao createKennelDao(){
         return DemoKennelDao.getSingletonInstance();
-    };
+    }
 }

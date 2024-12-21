@@ -17,5 +17,5 @@ public class FileDaoFactory extends DaoFactory {
     }
     public KennelDao createKennelDao(){
         return new FileKennelDao();
-    };
+    }
 }

@@ -20,8 +20,6 @@ import java.util.List;
 
 public class GUITestViewController extends TestViewController{
     private List<ToggleGroup> toggleList = new ArrayList<>();
-    @FXML
-    RadioButton rb = new RadioButton();
 
     @Override
     public void createTest(){
@@ -91,8 +89,8 @@ public class GUITestViewController extends TestViewController{
         List<String> listOfAnswers = new ArrayList<>();
         for(ToggleGroup a: toggleList){
 
-            RadioButton rb = (RadioButton) a.getSelectedToggle();
-            if(rb == null){
+            RadioButton radiobutton = (RadioButton) a.getSelectedToggle();
+            if(radiobutton == null){
                 Popup popup = new Popup();
                 Text popupText = new Text("Questo è un popup!");
                 popupText.setStyle("-fx-background-color: white; -fx-padding: 10;");
@@ -100,10 +98,11 @@ public class GUITestViewController extends TestViewController{
                 popupContent.setStyle("-fx-background-color: lightblue; -fx-border-color: black; -fx-padding: 10;");
                 popup.getContent().add(popupContent);
             }else{
-                listOfAnswers.add(rb.getText());
+                listOfAnswers.add(radiobutton.getText());
             }
 
         }
+        toggleList.clear();
 
         System.out.println(listOfAnswers);
         return listOfAnswers;
