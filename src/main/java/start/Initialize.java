@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 
 public class Initialize
 {
-    public Initialize(){}
+    public Initialize(){
+        //costruttore
+    }
 
     public void init(){
         int choice;

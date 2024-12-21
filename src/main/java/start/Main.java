@@ -24,7 +24,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(new File("src/main/resources/user-view.fxml").toURI().toURL());
         fxmlLoader.setController(GUIStarterWindow.getSingletonInstance());
         Scene scene = new Scene(fxmlLoader.load(), 925, 745);

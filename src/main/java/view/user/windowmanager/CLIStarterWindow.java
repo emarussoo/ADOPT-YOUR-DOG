@@ -43,6 +43,7 @@ public class CLIStarterWindow extends StarterWindow {
                         break;
                     case 4:
                         showDogAdoptionRequest();
+                        break;
                     default:
                         break;
 
