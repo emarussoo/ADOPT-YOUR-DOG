@@ -10,6 +10,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
 import view.user.windowmanager.WindowManager;
 
@@ -19,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GUITestViewController extends TestViewController{
+    private static final Logger debugLogger = LogManager.getLogger("debugLogger");
     private List<ToggleGroup> toggleList = new ArrayList<>();
 
     @Override
@@ -104,7 +107,7 @@ public class GUITestViewController extends TestViewController{
         }
         toggleList.clear();
 
-        System.out.println(listOfAnswers);
+        debugLogger.debug(listOfAnswers);
         return listOfAnswers;
     }
 

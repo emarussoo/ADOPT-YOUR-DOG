@@ -37,7 +37,6 @@ public class GUIStarterWindow extends StarterWindow {
 
 
     public void show(){
-        System.out.println("gui mode");
         Main.startGui();
     }
 

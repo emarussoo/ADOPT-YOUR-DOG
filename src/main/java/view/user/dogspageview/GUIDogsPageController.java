@@ -8,6 +8,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import view.user.windowmanager.WindowManager;
 import java.util.List;
 
@@ -18,7 +20,6 @@ public class GUIDogsPageController extends DogsPageController{
     ListView listView = new ListView<>();
 
     public void createListOfDogs(List<DogProfileBean> listOfDogs) {
-        System.out.println("creando la lista");
 
         HBox searchBar = new HBox(10);
         breedSearchField.setPromptText("Inserisci la razza");

@@ -9,10 +9,21 @@
                 <pattern>%msg%n</pattern>
             </PatternLayout>
         </Console>
+
+        <File name="File" fileName="logs/debug_log.txt" append="false">
+            <PatternLayout>
+                <!-- Personalizza il formato del log -->
+                <pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%level]  %msg%n</pattern>
+            </PatternLayout>
+        </File>
     </Appenders>
 
     <!-- Configura i logger -->
     <Loggers>
+
+        <Logger name="debugLogger" level="debug" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
         <!-- Logger per l'applicazione -->
         <Root level="info">
             <AppenderRef ref="Console"/>

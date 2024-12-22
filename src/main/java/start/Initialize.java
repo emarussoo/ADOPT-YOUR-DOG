@@ -1,20 +1,25 @@
 package start;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Initialize
 {
+    private static final Logger logger = LogManager.getLogger(Initialize.class.getName());
     public Initialize(){
         //costruttore
     }
 
     public void init(){
         int choice;
-        System.out.println("SCEGLI LA MODALITA' GRAFICA:");
-        System.out.println("1. GUI");
-        System.out.println("2. CLI");
+        logger.info("SCEGLI LA MODALITA' GRAFICA:");
+        logger.info("1. GUI");
+        logger.info("2. CLI");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
             String choiceProperty = "user_choice";

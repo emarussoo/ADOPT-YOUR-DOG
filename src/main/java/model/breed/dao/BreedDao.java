@@ -3,7 +3,10 @@ package model.breed.dao;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import model.breed.Breed;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
+import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
 
 import java.io.IOException;
 import java.net.URI;
@@ -16,6 +19,8 @@ import java.util.List;
 
 //TODO variazione con ritorno lista di razze e scelta numero visualizzazione in controller
 public class BreedDao {
+    private static final Logger debugLogger = LogManager.getLogger("debugLogger");
+
     public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException {
         String jsonResponse;
         HttpClient client = HttpClient
@@ -42,8 +47,9 @@ public class BreedDao {
 
         HttpResponse<String> httpResponse = client.send(httpRequest, HttpResponse.BodyHandlers.ofString());
         jsonResponse = httpResponse.body();
-        System.out.println(uri);
-        System.out.println(jsonResponse);
+
+        debugLogger.debug(uri);
+        debugLogger.debug(jsonResponse);
 
         if(jsonResponse.startsWith("[")){
             jsonResponse = jsonResponse.substring(1, jsonResponse.length());
