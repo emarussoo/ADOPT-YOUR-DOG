@@ -1,10 +1,7 @@
 package model.dogadoptionrequest.dao;
 
-import model.daofactory.DaoFactory;
-import model.dog.Dog;
-import model.dog.dao.DemoDogDao;
+
 import model.dogadoptionrequest.DogAdoptionRequest;
-import view.user.windowmanager.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
