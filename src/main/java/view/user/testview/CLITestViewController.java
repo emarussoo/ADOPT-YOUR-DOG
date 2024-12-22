@@ -4,7 +4,6 @@ import bean.BreedBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.user.dogspageview.CLIDogsPageController;
 import view.user.windowmanager.WindowManager;
 
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ public class CLITestViewController extends TestViewController{
     @Override
     public void createTest(){
         for (int i = 0; i < TestQuestions.values().length; i++){
-            logger.info("Domanda " + i + ": "+TestQuestions.values()[i].getTesto());
+            logger.info("Domanda {}: {}", i, TestQuestions.values()[i].getTesto());
         }
     }
 
@@ -31,7 +30,7 @@ public class CLITestViewController extends TestViewController{
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         logger.info("=====================Inserisci risposte=====================");
         for (int i = 0; i < TestQuestions.values().length; i++){
-            System.out.print("domanda " + i + ": ");
+            logger.info("domanda {}: {}", i, TestQuestions.values()[i].getTesto());
             try{
                 String answer = reader.readLine();
                 answersList.add(answer);

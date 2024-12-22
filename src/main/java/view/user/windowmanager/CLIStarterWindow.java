@@ -3,7 +3,6 @@ package view.user.windowmanager;
 import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.testview.CLITestViewController;
 
 import java.io.BufferedReader;
 import java.util.List;

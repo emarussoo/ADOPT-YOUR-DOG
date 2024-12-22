@@ -6,7 +6,6 @@ import model.breed.Breed;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
 
 import java.io.IOException;
 import java.net.URI;

@@ -8,12 +8,11 @@ import view.user.windowmanager.GUIStarterWindow;
 import view.user.windowmanager.WindowManager;
 
 import java.io.File;
-import java.io.IOException;
 
 
 public class Main extends Application {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception{
         Initialize initializer = new Initialize();
         initializer.init();
         WindowManager.getSingletonInstance().show();

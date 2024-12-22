@@ -28,11 +28,11 @@ public class WindowManager {
 
     public void show(){
         starterWindow.show();
-    };
+    }
 
     public void showTest(){
         testView.createTest();
-    };
+    }
 
     public void submitTest(){
         try {
@@ -52,7 +52,7 @@ public class WindowManager {
 
     public void showTestResult(BreedBean breedBean){
         testView.createTestResult(breedBean);
-    };
+    }
 
     public void submitSearch(List<DogProfileBean> listOfDogs){
         String insertedBreed = dogsPage.getInsertedBreed();

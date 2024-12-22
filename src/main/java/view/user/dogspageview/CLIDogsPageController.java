@@ -3,7 +3,6 @@ package view.user.dogspageview;
 import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
 import view.user.windowmanager.WindowManager;
 
 import java.io.BufferedReader;
@@ -15,7 +14,7 @@ public class CLIDogsPageController extends DogsPageController{
 
     public void createListOfDogs(List<DogProfileBean> listOfDogs){
         for(DogProfileBean dog : listOfDogs){
-            logger.info(dog.getDogId() + ", "+ dog.getDogName()+", "+dog.getDogAge()+", "+dog.getDogBreed());
+            logger.info("{}, {}, {}, {}", dog.getDogId(), dog.getDogName(), dog.getDogAge(), dog.getDogBreed());
         }
     }
 
