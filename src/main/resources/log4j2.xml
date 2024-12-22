@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- Definisci gli appender -->
+    <Appenders>
+        <!-- ConsoleAppender per stampare sulla console -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <!-- Personalizza il formato del log -->
+                <pattern>%msg%n</pattern>
+            </PatternLayout>
+        </Console>
+    </Appenders>
+
+    <!-- Configura i logger -->
+    <Loggers>
+        <!-- Logger per l'applicazione -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

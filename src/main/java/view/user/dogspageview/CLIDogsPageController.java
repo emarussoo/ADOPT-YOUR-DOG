@@ -1,6 +1,9 @@
 package view.user.dogspageview;
 
 import bean.DogProfileBean;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
 import view.user.windowmanager.WindowManager;
 
 import java.io.BufferedReader;
@@ -8,10 +11,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class CLIDogsPageController extends DogsPageController{
+    private static final Logger logger = LogManager.getLogger(CLIDogsPageController.class.getName());
 
     public void createListOfDogs(List<DogProfileBean> listOfDogs){
         for(DogProfileBean dog : listOfDogs){
-            System.out.println(dog.getDogId() + ", "+ dog.getDogName()+", "+dog.getDogAge()+", "+dog.getDogBreed());
+            logger.info(dog.getDogId() + ", "+ dog.getDogName()+", "+dog.getDogAge()+", "+dog.getDogBreed());
         }
     }
 
@@ -22,7 +26,7 @@ public class CLIDogsPageController extends DogsPageController{
     public String getInsertedBreed(){
         String insertedBreed;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
-        System.out.println("=====================Inserisci razza da cercare=====================");
+        logger.info("=====================Inserisci razza da cercare=====================");
         try {
             insertedBreed = reader.readLine();
         } catch (IOException e) {
@@ -34,7 +38,7 @@ public class CLIDogsPageController extends DogsPageController{
     public DogProfileBean getDogInfo(){
         int insertedId;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
-        System.out.println("=====================Inserisci l'id del cane a cui vorresti mandare la richiesta di adozione=====================");
+        logger.info("=====================Inserisci l'id del cane a cui vorresti mandare la richiesta di adozione=====================");
         try {
             insertedId = Integer.parseInt(reader.readLine());
         } catch (IOException e) {

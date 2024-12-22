@@ -1,11 +1,15 @@
 package view.user.windowmanager;
 
 import bean.DogProfileBean;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import view.user.testview.CLITestViewController;
 
 import java.io.BufferedReader;
 import java.util.List;
 
 public class CLIStarterWindow extends StarterWindow {
+    private static final Logger logger = LogManager.getLogger(CLIStarterWindow.class.getName());
 
     static CLIStarterWindow instance = null;
 
@@ -20,12 +24,12 @@ public class CLIStarterWindow extends StarterWindow {
 
     public void show(){
         while(true){
-            System.out.println("=====================Menu=====================");
-            System.out.println("Enter an option:");
-            System.out.println("1. Take test");
-            System.out.println("2. Show dogs list");
-            System.out.println("3. Search dogs by breed");
-            System.out.println("4. Send dog adoption request");
+            logger.info("=====================Menu=====================");
+            logger.info("Enter an option:");
+            logger.info("1. Take test");
+            logger.info("2. Show dogs list");
+            logger.info("3. Search dogs by breed");
+            logger.info("4. Send dog adoption request");
 
             BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
             try{
