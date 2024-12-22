@@ -3,7 +3,7 @@ package view.user.factory;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestViewController;
-import view.user.windowmanager.StarterWindow;
+import view.user.windowmanager.UserMenuController;
 
 public abstract class GraphicalFactory {
 
@@ -12,7 +12,7 @@ public abstract class GraphicalFactory {
     protected GraphicalFactory(){
     }
 
-    public abstract StarterWindow createStarterWindow();
+    public abstract UserMenuController createUserMenuController();
     public abstract TestViewController createTestViewController();
     public abstract DogsPageController createDogsPageController();
     public abstract DogAdoptionRequestController createDogAdoptionRequestController();

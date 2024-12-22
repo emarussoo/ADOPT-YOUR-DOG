@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import view.user.windowmanager.WindowManager;
+import view.user.windowmanager.UserWindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,12 +68,16 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
             userSurnameField.clear();
             userEmailField.clear();
             userPhoneField.clear();
-            WindowManager.getSingletonInstance().getStarterWindow().showDogs();
+            UserWindowManager.getSingletonInstance().getStarterWindow().showDogs();
         });
         Button sendButton = new Button("SEND");
         sendButton.setStyle("-fx-background-color: #2cc61e; -fx-font-size: 20px; -fx-min-width: 250px");
         sendButton.setOnAction(actionEvent -> {
-            WindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
+            UserWindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
+            userNameField.clear();
+            userSurnameField.clear();
+            userEmailField.clear();
+            userPhoneField.clear();
         });
 
         grid.add(dogIdLabel, 0, 0);
@@ -99,7 +103,7 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
         VBox.setMargin(title, new Insets(30, 0, 30, 0));
 
         dogAdoptionRequestContainer.getChildren().addAll(title, grid);
-        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogAdoptionRequestContainer);
+        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogAdoptionRequestContainer);
     }
 
     public List<String> getUserInfo(){
@@ -121,10 +125,10 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
         Button okButton = new Button("OK");
         okButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
         okButton.setOnAction(actionEvent -> {
-            WindowManager.getSingletonInstance().getStarterWindow().showDogs();
+            UserWindowManager.getSingletonInstance().getStarterWindow().showDogs();
         });
 
         messageContainer.getChildren().addAll(messageLabel, okButton);
-        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(messageContainer);
+        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(messageContainer);
     }
 }

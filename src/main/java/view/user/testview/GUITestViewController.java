@@ -1,7 +1,6 @@
 package view.user.testview;
 
 import bean.BreedBean;
-import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -13,7 +12,7 @@ import javafx.stage.Popup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.user.windowmanager.WindowManager;
+import view.user.windowmanager.UserWindowManager;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -62,7 +61,7 @@ public class GUITestViewController extends TestViewController{
         Button submitButton = new Button("SUBMIT");
         submitButton.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
         submitButton.setOnAction(actionEvent -> {
-            WindowManager.getSingletonInstance().submitTest();
+            UserWindowManager.getSingletonInstance().submitTest();
         });
         questionContainer.getChildren().add(submitButton);
 
@@ -71,7 +70,7 @@ public class GUITestViewController extends TestViewController{
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
 
-        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
+        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
     }
 
     @Override
@@ -165,6 +164,6 @@ public class GUITestViewController extends TestViewController{
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
-        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(vbox);
+        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(vbox);
     }
 }

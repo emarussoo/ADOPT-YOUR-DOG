@@ -7,16 +7,16 @@ import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
 import java.util.List;
 
-public class CLIStarterWindow extends StarterWindow {
-    private static final Logger logger = LogManager.getLogger(CLIStarterWindow.class.getName());
+public class CLIUserMenuController extends UserMenuController {
+    private static final Logger logger = LogManager.getLogger(CLIUserMenuController.class.getName());
 
-    static CLIStarterWindow instance = null;
+    static CLIUserMenuController instance = null;
 
-    protected CLIStarterWindow() {}
+    protected CLIUserMenuController() {}
 
-    public static CLIStarterWindow getSingletonInstance() {
+    public static CLIUserMenuController getSingletonInstance() {
         if(instance == null){
-            return new CLIStarterWindow();
+            return new CLIUserMenuController();
         }
         return instance;
     }
@@ -60,29 +60,29 @@ public class CLIStarterWindow extends StarterWindow {
     }
 
     public void showTest(){
-        WindowManager.getSingletonInstance().showTest();
+        UserWindowManager.getSingletonInstance().showTest();
     }
 
     public void submitTest(){
-        WindowManager.getSingletonInstance().submitTest();
+        UserWindowManager.getSingletonInstance().submitTest();
     }
 
     public void submitSearch(){
-        List<DogProfileBean> toFilterList = WindowManager.getSingletonInstance().getAllDogs();
-        WindowManager.getSingletonInstance().submitSearch(toFilterList);
+        List<DogProfileBean> toFilterList = UserWindowManager.getSingletonInstance().getAllDogs();
+        UserWindowManager.getSingletonInstance().submitSearch(toFilterList);
 
     }
 
     public void showDogs(){
-        WindowManager.getSingletonInstance().showAllDogs();
+        UserWindowManager.getSingletonInstance().showAllDogs();
     }
 
     public DogProfileBean showDogAdoptionRequest(){
-        return WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+        return UserWindowManager.getSingletonInstance().showDogAdoptionRequestForm();
     }
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
-        WindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
+        UserWindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
     }
 
 

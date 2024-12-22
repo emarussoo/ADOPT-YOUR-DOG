@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GUIStarterWindow extends StarterWindow {
+public class GUIUserMenuController extends UserMenuController {
 
     @FXML
     private BorderPane bp;
@@ -22,15 +22,15 @@ public class GUIStarterWindow extends StarterWindow {
     @FXML
     private Button dogsButton;
 
-    static GUIStarterWindow instance = null;
+    static GUIUserMenuController instance = null;
 
-    protected GUIStarterWindow() {
+    protected GUIUserMenuController() {
 
     }
 
-    public static GUIStarterWindow getSingletonInstance() {
+    public static GUIUserMenuController getSingletonInstance() {
         if(instance == null){
-            instance = new GUIStarterWindow();
+            instance = new GUIUserMenuController();
         }
         return instance;
     }
@@ -43,14 +43,14 @@ public class GUIStarterWindow extends StarterWindow {
     public void showTest(){
         dogsButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
         testButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
-        WindowManager.getSingletonInstance().showTest();
+        UserWindowManager.getSingletonInstance().showTest();
     }
 
 
     public void showDogs(){
         testButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
         dogsButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
-        WindowManager.getSingletonInstance().showAllDogs();
+        UserWindowManager.getSingletonInstance().showAllDogs();
         //it will call presenter.getDogsByBreed with empty params
     }
 
@@ -61,7 +61,7 @@ public class GUIStarterWindow extends StarterWindow {
             root = FXMLLoader.load(getClass().getClassLoader().getResource(page+".fxml"));
 
         }catch(IOException ex) {
-            Logger.getLogger(StarterWindow.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         bp.setCenter(root);

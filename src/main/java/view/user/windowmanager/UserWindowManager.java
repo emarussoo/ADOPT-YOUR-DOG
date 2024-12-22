@@ -14,21 +14,21 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
-public class WindowManager {
+public class UserWindowManager {
     private final TestViewController testView = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
     private final DogAdoptionRequestController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
-    private final StarterWindow starterWindow = GraphicalFactory.getGraphicalSingletonFactory().createStarterWindow();
+    private final UserMenuController userMenuController = GraphicalFactory.getGraphicalSingletonFactory().createUserMenuController();
     private final AdoptDogController presenter = new AdoptDogController();
 
-    private static WindowManager instance = null;
+    private static UserWindowManager instance = null;
 
-    protected WindowManager() {
+    protected UserWindowManager() {
         // Inizializzazione se necessaria
     }
 
     public void show(){
-        starterWindow.show();
+        userMenuController.show();
     }
 
     public void showTest(){
@@ -121,17 +121,17 @@ public class WindowManager {
         return dogsPage;
     }
 
-    public StarterWindow getStarterWindow() {
-        return starterWindow;
+    public UserMenuController getStarterWindow() {
+        return userMenuController;
     }
 
     public AdoptDogController getPresenter() {
         return presenter;
     }
 
-    public static WindowManager getSingletonInstance() {
+    public static UserWindowManager getSingletonInstance() {
         if (instance == null) {
-            instance = new WindowManager(); // Creazione solo se necessario
+            instance = new UserWindowManager(); // Creazione solo se necessario
         }
         return instance; // Ritorna sempre l'istanza unica
     }

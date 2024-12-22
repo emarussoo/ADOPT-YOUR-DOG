@@ -6,13 +6,13 @@ import view.user.dogspageview.DogsPageController;
 import view.user.dogspageview.GUIDogsPageController;
 import view.user.testview.GUITestViewController;
 import view.user.testview.TestViewController;
-import view.user.windowmanager.GUIStarterWindow;
-import view.user.windowmanager.StarterWindow;
+import view.user.windowmanager.GUIUserMenuController;
+import view.user.windowmanager.UserMenuController;
 
 public class GUIFactory extends GraphicalFactory{
     @Override
-    public StarterWindow createStarterWindow(){
-        return GUIStarterWindow.getSingletonInstance();
+    public UserMenuController createUserMenuController(){
+        return GUIUserMenuController.getSingletonInstance();
     }
 
     @Override

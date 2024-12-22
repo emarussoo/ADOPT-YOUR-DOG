@@ -3,7 +3,7 @@ package view.user.dogspageview;
 import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.windowmanager.WindowManager;
+import view.user.windowmanager.UserWindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class CLIDogsPageController extends DogsPageController{
     }
 
     public void submitSearch(List<DogProfileBean> listOfDogs){
-        WindowManager.getSingletonInstance().submitSearch(listOfDogs);
+        UserWindowManager.getSingletonInstance().submitSearch(listOfDogs);
     }
 
     public String getInsertedBreed(){
@@ -43,6 +43,6 @@ public class CLIDogsPageController extends DogsPageController{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return WindowManager.getSingletonInstance().getPresenter().getDogById(insertedId);
+        return UserWindowManager.getSingletonInstance().getPresenter().getDogById(insertedId);
     }
 }

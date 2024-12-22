@@ -5,22 +5,22 @@ import javafx.scene.Node;
 import view.user.factory.GraphicalFactory;
 
 
-public abstract class StarterWindow {
+public abstract class UserMenuController {
     public abstract void show();
     public abstract void showTest();
     public abstract void showDogs();
 
-    private static StarterWindow instance;
+    private static UserMenuController instance;
 
-    protected StarterWindow() {
+    protected UserMenuController() {
         // Inizializzazione se necessaria
     }
 
 
-    public static StarterWindow getSingletonInstance() {
+    public static UserMenuController getSingletonInstance() {
         if (instance == null) {
             GraphicalFactory factory = GraphicalFactory.getGraphicalSingletonFactory();
-            instance = factory.createStarterWindow(); // Creazione solo se necessario
+            instance = factory.createUserMenuController(); // Creazione solo se necessario
         }
         return instance; // Ritorna sempre l'istanza unica
     }

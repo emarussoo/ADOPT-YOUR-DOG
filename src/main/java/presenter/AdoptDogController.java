@@ -11,7 +11,7 @@ import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.windowmanager.StarterWindow;
+import view.user.windowmanager.UserMenuController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -23,7 +23,7 @@ import static java.lang.Integer.valueOf;
 public class AdoptDogController {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
-    StarterWindow view;
+    UserMenuController view;
     public List<DogProfileBean> getAllDogs(){
         List<Dog> listOfAllDogs;
         listOfAllDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();

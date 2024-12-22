@@ -8,9 +8,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import view.user.windowmanager.WindowManager;
+import view.user.windowmanager.UserWindowManager;
 import java.util.List;
 
 
@@ -27,7 +25,7 @@ public class GUIDogsPageController extends DogsPageController{
         Button searchButton = new Button("Search");
         searchButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
         searchButton.setOnAction(event -> {
-            WindowManager.getSingletonInstance().submitSearch(listOfDogs);
+            UserWindowManager.getSingletonInstance().submitSearch(listOfDogs);
         });
 
 
@@ -58,11 +56,11 @@ public class GUIDogsPageController extends DogsPageController{
         Button createDogAdoptionRequest = new Button("SUBMIT");
         createDogAdoptionRequest.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
         createDogAdoptionRequest.setOnAction(actionEvent -> {
-            WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+            UserWindowManager.getSingletonInstance().showDogAdoptionRequestForm();
         });
 
         dogContainer.getChildren().addAll(searchBar, header, listView, createDogAdoptionRequest);
-        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
+        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
     }
 
     public String getInsertedBreed(){

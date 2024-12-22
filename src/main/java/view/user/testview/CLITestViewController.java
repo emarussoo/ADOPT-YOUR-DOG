@@ -4,7 +4,7 @@ import bean.BreedBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.user.windowmanager.WindowManager;
+import view.user.windowmanager.UserWindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class CLITestViewController extends TestViewController{
     }
 
     public void submitTest() throws URISyntaxException, IOException, InterruptedException{
-        WindowManager.getSingletonInstance().submitTest();
+        UserWindowManager.getSingletonInstance().submitTest();
     }
 
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
