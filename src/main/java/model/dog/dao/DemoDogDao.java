@@ -51,6 +51,6 @@ public class DemoDogDao extends DogDao{
     }
     public List<Dog> getAllDogs(){
         //demo implementation of getalldogs operation
-        return new ArrayList<>();
+        return demoListOfDogs;
     }
 }

@@ -9,7 +9,6 @@ import java.util.List;
 
 public abstract class TestViewController {
     public abstract void createTest();
-    public abstract void submitTest() throws URISyntaxException, IOException, InterruptedException;
     public abstract List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException;
     public abstract void createTestResult(BreedBean breedBean);
 }

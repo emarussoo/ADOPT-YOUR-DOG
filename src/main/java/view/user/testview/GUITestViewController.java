@@ -62,15 +62,7 @@ public class GUITestViewController extends TestViewController{
         Button submitButton = new Button("SUBMIT");
         submitButton.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
         submitButton.setOnAction(actionEvent -> {
-            try {
-                submitTest();
-            } catch (URISyntaxException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            WindowManager.getSingletonInstance().submitTest();
         });
         questionContainer.getChildren().add(submitButton);
 
@@ -80,13 +72,8 @@ public class GUITestViewController extends TestViewController{
         scrollPane.setFitToHeight(true);
 
         WindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
-
     }
 
-
-    public void submitTest() throws URISyntaxException, IOException, InterruptedException {
-        WindowManager.getSingletonInstance().submitTest();
-    }
     @Override
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
         List<String> listOfAnswers = new ArrayList<>();

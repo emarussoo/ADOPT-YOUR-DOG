@@ -27,7 +27,7 @@ public class GUIDogsPageController extends DogsPageController{
         Button searchButton = new Button("Search");
         searchButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
         searchButton.setOnAction(event -> {
-            submitSearch(listOfDogs);
+            WindowManager.getSingletonInstance().submitSearch(listOfDogs);
         });
 
 
@@ -55,27 +55,18 @@ public class GUIDogsPageController extends DogsPageController{
         listView.getItems().clear();
         listView.getItems().addAll(listOfDogs);
 
-        Button sendDogAdoptionRequest = new Button("SUBMIT");
-        sendDogAdoptionRequest.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
-        sendDogAdoptionRequest.setOnAction(actionEvent -> {
-            showDogAdoptionRequestForm();
+        Button createDogAdoptionRequest = new Button("SUBMIT");
+        createDogAdoptionRequest.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
+        createDogAdoptionRequest.setOnAction(actionEvent -> {
+            WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
         });
 
-        dogContainer.getChildren().addAll(searchBar, header, listView, sendDogAdoptionRequest);
+        dogContainer.getChildren().addAll(searchBar, header, listView, createDogAdoptionRequest);
         WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
-    }
-
-    public void submitSearch(List<DogProfileBean> listOfDogs){
-        WindowManager.getSingletonInstance().submitSearch(listOfDogs);
     }
 
     public String getInsertedBreed(){
         return breedSearchField.getText();
-    }
-
-    public void showDogAdoptionRequestForm(){
-        WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
-
     }
 
     public DogProfileBean getDogInfo(){

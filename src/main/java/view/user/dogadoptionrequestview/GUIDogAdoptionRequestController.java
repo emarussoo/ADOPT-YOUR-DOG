@@ -10,7 +10,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import view.user.windowmanager.WindowManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GUIDogAdoptionRequestController extends DogAdoptionRequestController{
+    private Label dogIdValue;
+    private TextField userNameField = new TextField();
+    private TextField userSurnameField = new TextField();
+    private TextField userEmailField = new TextField();
+    private TextField userPhoneField = new TextField();
+
     public void createDogAdoptionRequest(DogProfileBean dogProfileBean) {
         VBox dogAdoptionRequestContainer = new VBox();
         dogAdoptionRequestContainer.setAlignment(Pos.TOP_CENTER);
@@ -26,7 +35,7 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
 
         Label dogIdLabel = new Label("Dog id:");
         dogIdLabel.setStyle(labelTextFormat);
-        Label dogIdValue = new Label(dogProfileBean.getDogId());
+        dogIdValue = new Label(dogProfileBean.getDogId());
         dogIdValue.setStyle(labelTextFormat);
         Label dogNameLabel = new Label("Dog name:");
         dogNameLabel.setStyle(labelTextFormat);
@@ -45,22 +54,27 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
         Label dogKennelValue = new Label(dogProfileBean.getKennelName());
         dogKennelValue.setStyle(labelTextFormat);
 
-        TextField userNameField = new TextField();
+
+
         userNameField.setPromptText("Inserisci nome");
-        TextField userSurnameField = new TextField();
         userSurnameField.setPromptText("Inserisci cognome");
-        TextField userEmailField = new TextField();
         userEmailField.setPromptText("Inserisci email");
-        TextField userPhoneField = new TextField();
         userPhoneField.setPromptText("Inserisci numero di telefono");
 
         Button cancelButton = new Button("CANCEL");
         cancelButton.setStyle("-fx-background-color: red; -fx-font-size: 20px; -fx-min-width: 250px");
         cancelButton.setOnAction(actionEvent -> {
+            userNameField.clear();
+            userSurnameField.clear();
+            userEmailField.clear();
+            userPhoneField.clear();
             WindowManager.getSingletonInstance().getStarterWindow().showDogs();
         });
         Button sendButton = new Button("SEND");
         sendButton.setStyle("-fx-background-color: #2cc61e; -fx-font-size: 20px; -fx-min-width: 250px");
+        sendButton.setOnAction(actionEvent -> {
+            WindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
+        });
 
         grid.add(dogIdLabel, 0, 0);
         grid.add(dogIdValue, 1, 0);
@@ -86,5 +100,31 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
 
         dogAdoptionRequestContainer.getChildren().addAll(title, grid);
         WindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogAdoptionRequestContainer);
+    }
+
+    public List<String> getUserInfo(){
+        List<String> dogAdoptionRequestInfo = new ArrayList<>();
+        dogAdoptionRequestInfo.add(userNameField.getText());
+        dogAdoptionRequestInfo.add(userSurnameField.getText());
+        dogAdoptionRequestInfo.add(userEmailField.getText());
+        dogAdoptionRequestInfo.add(userPhoneField.getText());
+        return dogAdoptionRequestInfo;
+    }
+
+    public void createMessage(String message){
+        VBox messageContainer = new VBox();
+        messageContainer.setSpacing(30);
+        messageContainer.setAlignment(Pos.CENTER);
+        Label messageLabel = new Label(message);
+        messageLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+
+        Button okButton = new Button("OK");
+        okButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
+        okButton.setOnAction(actionEvent -> {
+            WindowManager.getSingletonInstance().getStarterWindow().showDogs();
+        });
+
+        messageContainer.getChildren().addAll(messageLabel, okButton);
+        WindowManager.getSingletonInstance().getStarterWindow().setCentralView(messageContainer);
     }
 }

@@ -13,7 +13,7 @@ public class DemoDaoFactory extends DaoFactory {
         return DemoDogDao.getSingletonInstance();
     }
     public DogAdoptionRequestDao createDogAdoptionRequestDao() {
-        return new DemoDogAdoptionRequestDao();
+        return DemoDogAdoptionRequestDao.getSingletonInstance();
     }
     public KennelDao createKennelDao(){
         return DemoKennelDao.getSingletonInstance();

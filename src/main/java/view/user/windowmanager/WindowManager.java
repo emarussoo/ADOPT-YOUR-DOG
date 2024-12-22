@@ -1,6 +1,7 @@
 package view.user.windowmanager;
 
 import bean.BreedBean;
+import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import bean.TestBean;
 import presenter.AdoptDogController;
@@ -54,6 +55,12 @@ public class WindowManager {
         testView.createTestResult(breedBean);
     }
 
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
     public void submitSearch(List<DogProfileBean> listOfDogs){
         String insertedBreed = dogsPage.getInsertedBreed();
         List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(listOfDogs, insertedBreed);
@@ -74,10 +81,37 @@ public class WindowManager {
         dogsPage.createListOfDogs(listOfDogs);
     }
 
-    public void showDogAdoptionRequestForm(){
+    public DogProfileBean  showDogAdoptionRequestForm(){
         DogProfileBean dogProfileBean = dogsPage.getDogInfo();
         dogAdoptionRequestPage.createDogAdoptionRequest(dogProfileBean);
+        return dogProfileBean;
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
+        List<String> dogAdoptionRequestInfo = dogAdoptionRequestPage.getUserInfo();
+        String userNameBean = dogAdoptionRequestInfo.get(0);
+        String userSurnameBean = dogAdoptionRequestInfo.get(1);
+        String userEmailBean = dogAdoptionRequestInfo.get(2);
+        String userPhoneBean = dogAdoptionRequestInfo.get(3);
+        String dogIdBean = dogProfileBean.getDogId();
+        String kennelIdBean = dogProfileBean.getKennelId();
+        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
+        presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
+        dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
+    }
+
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public TestViewController getTestView() {
         return testView;

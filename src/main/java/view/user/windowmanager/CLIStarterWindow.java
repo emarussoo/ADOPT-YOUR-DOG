@@ -45,7 +45,8 @@ public class CLIStarterWindow extends StarterWindow {
                         submitSearch();
                         break;
                     case 4:
-                        showDogAdoptionRequest();
+                        DogProfileBean dogProfileBean = showDogAdoptionRequest();
+                        sendDogAdoptionRequest(dogProfileBean);
                         break;
                     default:
                         break;
@@ -76,8 +77,12 @@ public class CLIStarterWindow extends StarterWindow {
         WindowManager.getSingletonInstance().showAllDogs();
     }
 
-    public void showDogAdoptionRequest(){
-        WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+    public DogProfileBean showDogAdoptionRequest(){
+        return WindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+    }
+
+    public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
+        WindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
     }
 
 

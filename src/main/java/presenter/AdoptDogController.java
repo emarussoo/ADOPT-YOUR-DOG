@@ -1,12 +1,16 @@
 package presenter;
 
 import bean.BreedBean;
+import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import bean.TestBean;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
+import model.dogadoptionrequest.DogAdoptionRequest;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import view.user.windowmanager.StarterWindow;
 
 import java.io.IOException;
@@ -14,11 +18,14 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Integer.valueOf;
+
 public class AdoptDogController {
+    private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
     StarterWindow view;
     public List<DogProfileBean> getAllDogs(){
-        List<Dog> listOfAllDogs = new ArrayList<>();
+        List<Dog> listOfAllDogs;
         listOfAllDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
 
         List<DogProfileBean> listOfAllDogsBean = new ArrayList<>();
@@ -79,7 +86,16 @@ public class AdoptDogController {
         return new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean);
     }
 
-    public void sendDogAdoptionRequest(){
+    public void sendDogAdoptionRequest(DogAdoptionRequestBean dogAdoptionRequestBean){
+        String userName = dogAdoptionRequestBean.getUserFirstname();
+        String lastName = dogAdoptionRequestBean.getUserLastname();
+        String email = dogAdoptionRequestBean.getUserEmail();
+        String phone = dogAdoptionRequestBean.getUserPhone();
+        int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
+        int kennelId = Integer.parseInt(dogAdoptionRequestBean.getKennelId());
+        DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(userName, lastName, email, phone, dogId, kennelId);
+        DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().add(dogAdoptionRequest);
+        debugLogger.debug(DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getAllKennelDogAdoptionRequest(96).toString());
         //this will be called by view.getDogAdoptionRequestData
     }
 }

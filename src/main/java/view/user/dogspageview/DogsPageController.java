@@ -14,7 +14,6 @@ public abstract class DogsPageController {
     }
 
     public abstract void createListOfDogs(List<DogProfileBean> listOfDogs);
-    public abstract void submitSearch(List<DogProfileBean> listOfDogs);
     public abstract String getInsertedBreed();
 
     public abstract DogProfileBean getDogInfo();
