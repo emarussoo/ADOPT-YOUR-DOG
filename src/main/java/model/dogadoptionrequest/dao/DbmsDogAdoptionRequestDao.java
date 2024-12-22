@@ -2,6 +2,7 @@ package model.dogadoptionrequest.dao;
 
 import model.dogadoptionrequest.DogAdoptionRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
@@ -16,6 +17,6 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         //delete
     }
     public List<DogAdoptionRequest> getAllKennelDogAdoptionRequest(int kennelId){
-        return null;
+        return new ArrayList<>();
     }
 }

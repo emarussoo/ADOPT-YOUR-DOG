@@ -2,6 +2,7 @@ package model.dog.dao;
 
 import model.dog.Dog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FileDogDao extends DogDao{
@@ -20,10 +21,10 @@ public class FileDogDao extends DogDao{
     }
     public List<Dog> searchDogsByBreed(String breed){
         //file implementation of search operation
-        return null;
+        return new ArrayList<>();
     }
     public List<Dog> getAllDogs(){
         //file implementation of getalldogs operation
-        return null;
+        return new ArrayList<>();
     }
 }

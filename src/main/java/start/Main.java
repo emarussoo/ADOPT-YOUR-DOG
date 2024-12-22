@@ -12,7 +12,7 @@ import java.io.File;
 
 public class Main extends Application {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args){
         Initialize initializer = new Initialize();
         initializer.init();
         WindowManager.getSingletonInstance().show();
