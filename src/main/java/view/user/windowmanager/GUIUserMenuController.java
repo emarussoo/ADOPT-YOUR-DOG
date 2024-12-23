@@ -1,14 +1,23 @@
 package view.user.windowmanager;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import jdk.jfr.Event;
 import start.Main;
+import view.login.GUILoginViewController;
+import view.login.LoginManager;
+import view.login.LoginViewController;
 
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,6 +49,7 @@ public class GUIUserMenuController extends UserMenuController {
         Main.startGui();
     }
 
+
     public void showTest(){
         dogsButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
         testButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
@@ -54,23 +64,16 @@ public class GUIUserMenuController extends UserMenuController {
         //it will call presenter.getDogsByBreed with empty params
     }
 
-    public void loadPage(String page){
-        Parent root = null;
-
-        try{
-            root = FXMLLoader.load(getClass().getClassLoader().getResource(page+".fxml"));
-
-        }catch(IOException ex) {
-            Logger.getLogger(UserMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        bp.setCenter(root);
-    }
-
     public void setCentralView(Node component) {
-        if(this.bp == null){
+        if(bp == null){
             throw new IllegalStateException("BorderPane not initialized");
         }
         bp.setCenter(component);
+    }
+
+    @FXML
+    public void Login(ActionEvent event) throws IOException {
+        LoginViewController loginViewController = GUILoginViewController.getSingletonInstance();
+        LoginManager.getSingletonInstance().loadPage(event, loginViewController, "src/main/resources/login.fxml");
     }
 }

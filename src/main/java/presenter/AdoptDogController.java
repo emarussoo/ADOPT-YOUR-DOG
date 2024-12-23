@@ -1,9 +1,6 @@
 package presenter;
 
-import bean.BreedBean;
-import bean.DogAdoptionRequestBean;
-import bean.DogProfileBean;
-import bean.TestBean;
+import bean.*;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
 import model.daofactory.DaoFactory;
@@ -42,13 +39,13 @@ public class AdoptDogController {
         return listOfAllDogsBean;
     }
 
-    public List<DogProfileBean> getDogsByBreed(List<DogProfileBean> beforeDogs, String breed){
-        if(breed.equals("")){
+    public List<DogProfileBean> getDogsByBreed(List<DogProfileBean> beforeDogs, DogBreedSearchBean dogBreedSearchBean){
+        if(dogBreedSearchBean.getName().equals("")){
             return getAllDogs();
         }
         List<DogProfileBean> filteredDogsList = new ArrayList<>();
         for(DogProfileBean dog : beforeDogs){
-            if(dog.getDogBreed().equals(breed)){
+            if(dog.getDogBreed().equals(dogBreedSearchBean.getName())){
                 filteredDogsList.add(dog);
             }
         }

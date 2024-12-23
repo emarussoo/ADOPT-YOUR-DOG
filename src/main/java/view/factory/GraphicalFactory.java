@@ -1,5 +1,6 @@
-package view.user.factory;
+package view.factory;
 
+import view.login.LoginViewController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestViewController;
@@ -16,6 +17,7 @@ public abstract class GraphicalFactory {
     public abstract TestViewController createTestViewController();
     public abstract DogsPageController createDogsPageController();
     public abstract DogAdoptionRequestController createDogAdoptionRequestController();
+    public abstract LoginViewController createLoginPageController();
 
     //singleton
     public static GraphicalFactory getGraphicalSingletonFactory(){

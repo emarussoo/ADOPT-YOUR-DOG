@@ -6,6 +6,7 @@ module start.adoptyourdog {
     requires java.desktop;
     requires org.apache.logging.log4j;
     requires java.logging;
+    requires jdk.jfr;
 
 
     opens start to javafx.fxml;
@@ -16,4 +17,5 @@ module start.adoptyourdog {
 
     exports utils;
     opens utils to javafx.fxml;
+    opens view.login to javafx.fxml;
 }

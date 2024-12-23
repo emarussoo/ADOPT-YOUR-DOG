@@ -11,7 +11,8 @@ import java.io.File;
 
 
 public class Main extends Application {
-    //a
+    private static boolean isLaunched = false;
+
     public static void main(String[] args){
         Initialize initializer = new Initialize();
         initializer.init();

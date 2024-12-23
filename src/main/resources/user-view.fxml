@@ -48,11 +48,10 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="97.0" prefWidth="578.0" style="-fx-padding: 20px;">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: #2cc61e; -fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 24px; -fx-font-weight: bold;" text="LOGIN" textFill="WHITE">
                      <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Text>
+                        <Font size="1.0" />
+                     </font></Button>
                </children>
             </HBox>
             </children>

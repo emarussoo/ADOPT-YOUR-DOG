@@ -1,5 +1,7 @@
-package view.user.factory;
+package view.factory;
 
+import view.login.CLILoginViewController;
+import view.login.LoginViewController;
 import view.user.dogadoptionrequestview.CLIDogAdoptionRequestController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.CLIDogsPageController;
@@ -12,7 +14,7 @@ import view.user.windowmanager.UserMenuController;
 public class CLIFactory extends GraphicalFactory{
     @Override
     public UserMenuController createUserMenuController(){
-        return CLIUserMenuController.getSingletonInstance();
+        return new CLIUserMenuController();
     }
 
     @Override
@@ -27,5 +29,10 @@ public class CLIFactory extends GraphicalFactory{
 
     public DogAdoptionRequestController createDogAdoptionRequestController(){
         return new CLIDogAdoptionRequestController();
+    }
+
+    @Override
+    public LoginViewController createLoginPageController(){
+        return new CLILoginViewController();
     }
 }

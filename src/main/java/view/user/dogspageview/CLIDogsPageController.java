@@ -18,10 +18,6 @@ public class CLIDogsPageController extends DogsPageController{
         }
     }
 
-    public void submitSearch(List<DogProfileBean> listOfDogs){
-        UserWindowManager.getSingletonInstance().submitSearch(listOfDogs);
-    }
-
     public String getInsertedBreed(){
         String insertedBreed;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));

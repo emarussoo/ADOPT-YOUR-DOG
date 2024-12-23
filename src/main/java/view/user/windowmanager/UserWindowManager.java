@@ -1,13 +1,11 @@
 package view.user.windowmanager;
 
-import bean.BreedBean;
-import bean.DogAdoptionRequestBean;
-import bean.DogProfileBean;
-import bean.TestBean;
+import bean.*;
+import javafx.event.ActionEvent;
 import presenter.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
-import view.user.factory.GraphicalFactory;
+import view.factory.GraphicalFactory;
 import view.user.testview.TestViewController;
 
 import java.io.IOException;
@@ -63,7 +61,8 @@ public class UserWindowManager {
 
     public void submitSearch(List<DogProfileBean> listOfDogs){
         String insertedBreed = dogsPage.getInsertedBreed();
-        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(listOfDogs, insertedBreed);
+        DogBreedSearchBean dogBreedSearchBean = new DogBreedSearchBean(insertedBreed);
+        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(listOfDogs, dogBreedSearchBean);
         showListOfDogs(filteredDogs);
     }
 
@@ -112,6 +111,9 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
     public TestViewController getTestView() {
         return testView;

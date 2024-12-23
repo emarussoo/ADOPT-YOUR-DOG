@@ -21,10 +21,6 @@ public class CLITestViewController extends TestViewController{
         }
     }
 
-    public void submitTest() throws URISyntaxException, IOException, InterruptedException{
-        UserWindowManager.getSingletonInstance().submitTest();
-    }
-
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
         List<String> answersList = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));

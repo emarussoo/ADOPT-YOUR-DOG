@@ -1,5 +1,8 @@
-package view.user.factory;
+package view.factory;
 
+import view.login.CLILoginViewController;
+import view.login.GUILoginViewController;
+import view.login.LoginViewController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestController;
 import view.user.dogadoptionrequestview.GUIDogAdoptionRequestController;
 import view.user.dogspageview.DogsPageController;
@@ -27,6 +30,11 @@ public class GUIFactory extends GraphicalFactory{
 
     public DogAdoptionRequestController createDogAdoptionRequestController(){
         return new GUIDogAdoptionRequestController();
+    }
+
+    @Override
+    public LoginViewController createLoginPageController(){
+        return GUILoginViewController.getSingletonInstance();
     }
 
 

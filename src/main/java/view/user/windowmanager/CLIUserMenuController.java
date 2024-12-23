@@ -3,6 +3,7 @@ package view.user.windowmanager;
 import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import view.login.LoginManager;
 
 import java.io.BufferedReader;
 import java.util.List;
@@ -10,16 +11,16 @@ import java.util.List;
 public class CLIUserMenuController extends UserMenuController {
     private static final Logger logger = LogManager.getLogger(CLIUserMenuController.class.getName());
 
-    static CLIUserMenuController instance = null;
+    //static CLIUserMenuController instance = null;
 
-    protected CLIUserMenuController() {}
+    public CLIUserMenuController() {}
 
-    public static CLIUserMenuController getSingletonInstance() {
+    /*public static CLIUserMenuController getSingletonInstance() {
         if(instance == null){
             return new CLIUserMenuController();
         }
         return instance;
-    }
+    }*/
 
     public void show(){
         while(true){
@@ -29,6 +30,7 @@ public class CLIUserMenuController extends UserMenuController {
             logger.info("2. Show dogs list");
             logger.info("3. Search dogs by breed");
             logger.info("4. Send dog adoption request");
+            logger.info("5. Login");
 
             BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
             try{
@@ -48,6 +50,8 @@ public class CLIUserMenuController extends UserMenuController {
                         DogProfileBean dogProfileBean = showDogAdoptionRequest();
                         sendDogAdoptionRequest(dogProfileBean);
                         break;
+                    case 5:
+                        login();
                     default:
                         break;
 
@@ -83,6 +87,10 @@ public class CLIUserMenuController extends UserMenuController {
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
         UserWindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
+    }
+
+    public void login(){
+        LoginManager.getSingletonInstance().authenticate();
     }
 
 
