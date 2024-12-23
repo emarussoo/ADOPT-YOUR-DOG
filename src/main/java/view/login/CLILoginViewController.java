@@ -2,7 +2,7 @@ package view.login;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.testview.CLITestViewController;
+import view.user.testview.CLITestPageController;
 import view.user.windowmanager.UserWindowManager;
 
 import java.io.BufferedReader;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CLILoginViewController extends LoginViewController{
-    private static final Logger logger = LogManager.getLogger(CLITestViewController.class.getName());
+    private static final Logger logger = LogManager.getLogger(CLITestPageController.class.getName());
     @Override
     public void backToUserPage() {
         UserWindowManager.getSingletonInstance().show();
@@ -36,7 +36,8 @@ public class CLILoginViewController extends LoginViewController{
         return credentials;
     }
 
-    public void showKennelPage(){
-        logger.info("Benvenuto nella pagina canile!");
+    public void showErrorMessage(String message){
+        logger.info(message);
     }
+
 }

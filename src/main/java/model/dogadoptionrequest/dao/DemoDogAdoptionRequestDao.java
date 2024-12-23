@@ -15,25 +15,31 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
     }
     @Override
-    public DogAdoptionRequest load(int darId){
-        return null;
+    public DogAdoptionRequest getDarById(int darId){
+        DogAdoptionRequest toReturnDar = null;
+        for(DogAdoptionRequest dar: demoListOfDogAdoptionRequest){
+            if(dar.getDarId() == darId){
+                toReturnDar = dar;
+            }
+        }
+        return toReturnDar;
     }
+
     public void add(DogAdoptionRequest dogAdoptionRequest){
         demoListOfDogAdoptionRequest.add(dogAdoptionRequest);
         //add
     }
-    public void delete(int darId){
-        //delete
-    }
-    public List<DogAdoptionRequest> getAllKennelDogAdoptionRequest(int kennelId){
-        List<DogAdoptionRequest> kennelIdDogAdoptionRequest = new ArrayList<>();
-        for(DogAdoptionRequest dar : demoListOfDogAdoptionRequest){
-            if(dar.getKennelId() == kennelId){
-                kennelIdDogAdoptionRequest.add(dar);
+    public void removeDarById(int darId){
+        for(DogAdoptionRequest dar: demoListOfDogAdoptionRequest){
+            if(dar.getDarId() == darId){
+                demoListOfDogAdoptionRequest.remove(dar);
+                return;
             }
         }
-
-        return kennelIdDogAdoptionRequest;
+        //delete
+    }
+    public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
+        return demoListOfDogAdoptionRequest;
     }
 
     public static DemoDogAdoptionRequestDao getSingletonInstance() {

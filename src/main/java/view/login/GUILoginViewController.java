@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import presenter.LogInController;
+import view.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
 import view.user.windowmanager.UserMenuController;
 import view.user.windowmanager.UserWindowManager;
@@ -37,10 +38,13 @@ public class GUILoginViewController extends LoginViewController{
     }
 
     @FXML
-    public void backToUserPage(ActionEvent event) throws IOException {
+    public void backToUserPage(){
         UserMenuController controller = GUIUserMenuController.getSingletonInstance();
-
-        LoginManager.getSingletonInstance().loadPage(event, controller,"src/main/resources/user-view.fxml" );
+        try {
+            StageHandler.getSingletonInstance().loadPage(controller, "/user-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -48,7 +52,6 @@ public class GUILoginViewController extends LoginViewController{
         LoginManager.getSingletonInstance().authenticate();
     }
 
-    public void backToUserPage(){}
 
     @Override
     public List<String> getCredentials(){
@@ -60,7 +63,5 @@ public class GUILoginViewController extends LoginViewController{
         return credentials;
     }
 
-    public void showKennelPage(){
-        //mostra pag canile con loadpage
-    }
+    public void showErrorMessage(String message){}
 }

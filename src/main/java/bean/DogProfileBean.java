@@ -65,8 +65,11 @@ public class DogProfileBean{
         this.kennelId = kennelId;
     }
 
-    @Override
     public String toString() {
         return String.format("%-25s %-25s %-25s %-30s %-25s", getDogId(), getDogName(), getDogAge(), getDogBreed(), getKennelName());
+    }
+
+    public String kennelString(){
+        return String.format("%-35s %-35s %-35s %-35s", getDogId(), getDogName(), getDogAge(), getDogBreed());
     }
 }

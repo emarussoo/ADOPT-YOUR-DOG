@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import jdk.jfr.Event;
 import start.Main;
+import view.StageHandler;
 import view.login.GUILoginViewController;
 import view.login.LoginManager;
 import view.login.LoginViewController;
@@ -72,8 +73,12 @@ public class GUIUserMenuController extends UserMenuController {
     }
 
     @FXML
-    public void Login(ActionEvent event) throws IOException {
+    public void login(){
         LoginViewController loginViewController = GUILoginViewController.getSingletonInstance();
-        LoginManager.getSingletonInstance().loadPage(event, loginViewController, "src/main/resources/login.fxml");
+        try {
+            StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

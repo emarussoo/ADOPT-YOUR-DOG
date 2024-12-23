@@ -60,7 +60,7 @@ public class GUIDogsPageController extends DogsPageController{
         });
 
         dogContainer.getChildren().addAll(searchBar, header, listView, createDogAdoptionRequest);
-        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogContainer);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(dogContainer);
     }
 
     public String getInsertedBreed(){

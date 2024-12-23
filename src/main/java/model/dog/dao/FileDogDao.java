@@ -15,9 +15,8 @@ public class FileDogDao extends DogDao{
         //file implementation of add operation
 
     }
-    public void delete(int dogId){
+    public void removeDogById(int dogId){
         //file implementation of delete operation
-
     }
     public List<Dog> searchDogsByBreed(String breed){
         //file implementation of search operation

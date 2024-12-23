@@ -1,5 +1,9 @@
 package view.kennel.windowmanager;
 
-public abstract class KennelMenuController {
+import javafx.scene.Node;
+import view.GraphicalController;
+
+public abstract class KennelMenuController implements GraphicalController {
     public abstract void show();
+    public void setCentralView(Node component){};
 }

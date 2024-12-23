@@ -1,6 +1,7 @@
 package model.dogadoptionrequest;
 
 public class DogAdoptionRequest {
+    private int darId;
     private String userFirstname;
     private String userLastname;
     private String userEmail;
@@ -8,13 +9,22 @@ public class DogAdoptionRequest {
     private int dogId;
     private int kennelId;
 
-    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, int kennelId) {
+    public DogAdoptionRequest(int darId, String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, int kennelId) {
+        this.darId = darId;
         this.userFirstname = userFirstname;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
         this.dogId = dogId;
         this.kennelId = kennelId;
+    }
+
+    public int getDarId() {
+        return darId;
+    }
+
+    public void setDarId(int darId) {
+        this.darId = darId;
     }
 
     public String getUserFirstname() {

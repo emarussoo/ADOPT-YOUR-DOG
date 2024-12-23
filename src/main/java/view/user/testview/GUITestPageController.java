@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GUITestViewController extends TestViewController{
+public class GUITestPageController extends TestPageController {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
     private List<ToggleGroup> toggleList = new ArrayList<>();
 
@@ -70,7 +70,7 @@ public class GUITestViewController extends TestViewController{
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
 
-        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(scrollPane);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(scrollPane);
     }
 
     @Override
@@ -164,6 +164,6 @@ public class GUITestViewController extends TestViewController{
         // Aggiunta dell'immagine e del GridPane al VBox
         vbox.getChildren().addAll(imageView, infoGrid);
 
-        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(vbox);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(vbox);
     }
 }

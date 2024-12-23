@@ -15,6 +15,8 @@ public class DemoDogDao extends DogDao{
         demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco", 34));
         demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano", 90));
         demoListOfDogs.add(new Dog(3, "paperino", 2, "husky", 96));
+        demoListOfDogs.add(new Dog(4, "rambo", 2, "maremmano", 96));
+        demoListOfDogs.add(new Dog(5, "rocky", 2, "setter", 96));
 
     }
 
@@ -40,9 +42,13 @@ public class DemoDogDao extends DogDao{
         //demo implementation of add operation
 
     }
-    public void delete(int dogId){
-        //demo implementation of delete operation
-
+    public void removeDogById(int dogId){
+        for(Dog dog: demoListOfDogs){
+            if(dog.getDogId() == dogId){
+                demoListOfDogs.remove(dog);
+                return;
+            }
+        }
     }
     public List<Dog> searchDogsByBreed(String breed){
 

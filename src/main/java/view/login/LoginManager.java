@@ -7,8 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import presenter.LogInController;
-import start.GraphicalController;
+import view.GraphicalController;
 import view.factory.GraphicalFactory;
+import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;
 
 import java.io.File;
@@ -17,6 +18,7 @@ import java.util.List;
 
 public class LoginManager {
     private UserWindowManager userWindowManager = UserWindowManager.getSingletonInstance();
+    private KennelWindowManager kennelWindowManager = KennelWindowManager.getSingletonInstance();
     private LoginViewController loginViewController = GraphicalFactory.getGraphicalSingletonFactory().createLoginPageController();
     private LogInController logInController = new LogInController();
 
@@ -29,29 +31,21 @@ public class LoginManager {
         return instance;
     }
 
-    public void backToUserPage(){
-        loginViewController.backToUserPage();
-    }
     public void authenticate() {
         boolean auth = false;
         List<String> credentials = loginViewController.getCredentials();
         LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
         auth = logInController.auth(loginBean);
         if(auth){
-            loginViewController.showKennelPage();
+            kennelWindowManager.setKennelId(96);
+            kennelWindowManager.show();
             //System.out.println("Authentication successful");
+        }else{
+            loginViewController.showErrorMessage("Errore");
         }
     }
 
-
-    public void loadPage(ActionEvent event, GraphicalController graphicalController, String path) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(new File(path).toURI().toURL());
-        fxmlLoader.setController(graphicalController);
-        Scene scene = new Scene(fxmlLoader.load(), 925, 745);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.resizableProperty().setValue(Boolean.FALSE);
-        stage.setTitle("LOGIN");
-        stage.setScene(scene);
-        stage.show();
+    public void logout(){
+        loginViewController.backToUserPage();
     }
 }

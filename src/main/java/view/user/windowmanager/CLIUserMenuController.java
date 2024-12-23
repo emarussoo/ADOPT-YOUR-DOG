@@ -24,7 +24,7 @@ public class CLIUserMenuController extends UserMenuController {
 
     public void show(){
         while(true){
-            logger.info("=====================Menu=====================");
+            logger.info("=====================User Menu=====================");
             logger.info("Enter an option:");
             logger.info("1. Take test");
             logger.info("2. Show dogs list");

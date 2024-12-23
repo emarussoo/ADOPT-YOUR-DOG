@@ -2,14 +2,14 @@ package view.user.windowmanager;
 
 
 import javafx.scene.Node;
-import start.GraphicalController;
-import view.kennel.windowmanager.KennelMenuController;
+import view.GraphicalController;
 
 
-public abstract class UserMenuController extends GraphicalController {
+public abstract class UserMenuController implements GraphicalController {
     public abstract void show();
     public abstract void showTest();
     public abstract void showDogs();
+    public abstract void login();
 
     //private static UserMenuController instance;
 

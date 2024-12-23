@@ -1,21 +1,21 @@
 package view.user.windowmanager;
 
 import bean.*;
-import javafx.event.ActionEvent;
 import presenter.AdoptDogController;
-import view.user.dogadoptionrequestview.DogAdoptionRequestController;
+import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.factory.GraphicalFactory;
-import view.user.testview.TestViewController;
+import view.user.testview.TestPageController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
 public class UserWindowManager {
-    private final TestViewController testView = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
+    private int counter=0;
+    private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
-    private final DogAdoptionRequestController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
+    private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
     private final UserMenuController userMenuController = GraphicalFactory.getGraphicalSingletonFactory().createUserMenuController();
     private final AdoptDogController presenter = new AdoptDogController();
 
@@ -30,12 +30,12 @@ public class UserWindowManager {
     }
 
     public void showTest(){
-        testView.createTest();
+        testPage.createTest();
     }
 
     public void submitTest(){
         try {
-            List<String> listOfAnswers = testView.getTestAnswers();
+            List<String> listOfAnswers = testPage.getTestAnswers();
             TestBean testAnswers = new TestBean(listOfAnswers);
             BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
             showTestResult(resultBreed);
@@ -50,7 +50,7 @@ public class UserWindowManager {
     }
 
     public void showTestResult(BreedBean breedBean){
-        testView.createTestResult(breedBean);
+        testPage.createTestResult(breedBean);
     }
 
 
@@ -92,13 +92,14 @@ public class UserWindowManager {
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
         List<String> dogAdoptionRequestInfo = dogAdoptionRequestPage.getUserInfo();
+        String darId = String.valueOf(counter++);
         String userNameBean = dogAdoptionRequestInfo.get(0);
         String userSurnameBean = dogAdoptionRequestInfo.get(1);
         String userEmailBean = dogAdoptionRequestInfo.get(2);
         String userPhoneBean = dogAdoptionRequestInfo.get(3);
         String dogIdBean = dogProfileBean.getDogId();
         String kennelIdBean = dogProfileBean.getKennelId();
-        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
+        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(darId, userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
         presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
         dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
     }
@@ -115,15 +116,15 @@ public class UserWindowManager {
 
 
 
-    public TestViewController getTestView() {
-        return testView;
+    public TestPageController getTestView() {
+        return testPage;
     }
 
     public DogsPageController getDogsPage() {
         return dogsPage;
     }
 
-    public UserMenuController getStarterWindow() {
+    public UserMenuController getUserMenuController() {
         return userMenuController;
     }
 

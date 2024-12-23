@@ -1,9 +1,13 @@
 package view.factory;
 
+import view.kennel.addadogview.AddDogPageController;
+import view.kennel.managedogadoptionrequestview.ManageDarPageController;
+import view.kennel.mydogsview.MyDogsPageController;
+import view.kennel.windowmanager.KennelMenuController;
 import view.login.LoginViewController;
-import view.user.dogadoptionrequestview.DogAdoptionRequestController;
+import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
-import view.user.testview.TestViewController;
+import view.user.testview.TestPageController;
 import view.user.windowmanager.UserMenuController;
 
 public abstract class GraphicalFactory {
@@ -14,11 +18,16 @@ public abstract class GraphicalFactory {
     }
 
     public abstract UserMenuController createUserMenuController();
-    public abstract TestViewController createTestViewController();
+    public abstract TestPageController createTestViewController();
     public abstract DogsPageController createDogsPageController();
-    public abstract DogAdoptionRequestController createDogAdoptionRequestController();
+    public abstract DogAdoptionRequestPageController createDogAdoptionRequestController();
     public abstract LoginViewController createLoginPageController();
+    public abstract KennelMenuController createKennelMenuController();
 
+
+    public abstract MyDogsPageController createMyDogsPageController();
+    public abstract ManageDarPageController createManageDarPageController();
+    public abstract AddDogPageController createAddDogPageController();
     //singleton
     public static GraphicalFactory getGraphicalSingletonFactory(){
         if(instance == null){

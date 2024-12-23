@@ -4,7 +4,6 @@ import bean.BreedBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.user.windowmanager.UserWindowManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,8 +11,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CLITestViewController extends TestViewController{
-    private static final Logger logger = LogManager.getLogger(CLITestViewController.class.getName());
+public class CLITestPageController extends TestPageController {
+    private static final Logger logger = LogManager.getLogger(CLITestPageController.class.getName());
     @Override
     public void createTest(){
         for (int i = 0; i < TestQuestions.values().length; i++){

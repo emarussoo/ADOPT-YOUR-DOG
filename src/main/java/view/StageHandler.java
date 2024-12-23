@@ -1,0 +1,41 @@
+package view;
+
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
+
+public class StageHandler {
+    private static StageHandler instance;
+    private Stage stage;
+    private StageHandler(){}
+    public static StageHandler getSingletonInstance(){
+        if(instance == null){
+            instance = new StageHandler();
+        }
+        return instance;
+    }
+
+    public void loadPage(GraphicalController graphicalController, String path) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
+        fxmlLoader.setController(graphicalController);
+        Scene scene = new Scene(fxmlLoader.load(), 925, 745);
+        Stage stage = this.stage;
+        stage.resizableProperty().setValue(Boolean.FALSE);
+        stage.setTitle("LOGIN");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public Stage getStage(){
+        return stage;
+    }
+
+    public void setStage(Stage stage){
+        this.stage = stage;
+    }
+
+}

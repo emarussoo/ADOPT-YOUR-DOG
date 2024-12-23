@@ -8,8 +8,8 @@ import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CLIDogAdoptionRequestController extends DogAdoptionRequestController{
-    private static final Logger logger = LogManager.getLogger(CLIDogAdoptionRequestController.class.getName());
+public class CLIDogAdoptionRequestPageController extends DogAdoptionRequestPageController {
+    private static final Logger logger = LogManager.getLogger(CLIDogAdoptionRequestPageController.class.getName());
 
     public void createDogAdoptionRequest(DogProfileBean dogProfileBean) {
         logger.info("Stai mandando una richiesta di adozione al canile {} per {} di razza {} di età {} anni", dogProfileBean.getKennelName(), dogProfileBean.getDogName(), dogProfileBean.getDogBreed(), dogProfileBean.getDogAge());

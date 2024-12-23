@@ -48,7 +48,7 @@
                 </HBox>
                 <HBox alignment="CENTER_RIGHT" prefHeight="97.0" prefWidth="578.0" style="-fx-padding: 20px;">
                <children>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: #2cc61e; -fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 24px; -fx-font-weight: bold;" text="LOGIN" textFill="WHITE">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #2cc61e; -fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 24px; -fx-font-weight: bold;" text="LOGIN" textFill="WHITE">
                      <font>
                         <Font size="1.0" />
                      </font></Button>

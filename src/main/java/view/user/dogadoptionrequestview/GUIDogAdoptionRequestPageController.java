@@ -13,7 +13,7 @@ import view.user.windowmanager.UserWindowManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GUIDogAdoptionRequestController extends DogAdoptionRequestController{
+public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageController {
     private Label dogIdValue;
     private TextField userNameField = new TextField();
     private TextField userSurnameField = new TextField();
@@ -68,7 +68,7 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
             userSurnameField.clear();
             userEmailField.clear();
             userPhoneField.clear();
-            UserWindowManager.getSingletonInstance().getStarterWindow().showDogs();
+            UserWindowManager.getSingletonInstance().getUserMenuController().showDogs();
         });
         Button sendButton = new Button("SEND");
         sendButton.setStyle("-fx-background-color: #2cc61e; -fx-font-size: 20px; -fx-min-width: 250px");
@@ -103,7 +103,7 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
         VBox.setMargin(title, new Insets(30, 0, 30, 0));
 
         dogAdoptionRequestContainer.getChildren().addAll(title, grid);
-        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(dogAdoptionRequestContainer);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(dogAdoptionRequestContainer);
     }
 
     public List<String> getUserInfo(){
@@ -125,10 +125,10 @@ public class GUIDogAdoptionRequestController extends DogAdoptionRequestControlle
         Button okButton = new Button("OK");
         okButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
         okButton.setOnAction(actionEvent -> {
-            UserWindowManager.getSingletonInstance().getStarterWindow().showDogs();
+            UserWindowManager.getSingletonInstance().getUserMenuController().showDogs();
         });
 
         messageContainer.getChildren().addAll(messageLabel, okButton);
-        UserWindowManager.getSingletonInstance().getStarterWindow().setCentralView(messageContainer);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(messageContainer);
     }
 }

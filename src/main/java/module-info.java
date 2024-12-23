@@ -14,8 +14,13 @@ module start.adoptyourdog {
     exports baseclasses to com.fasterxml.jackson.databind;
     exports view.user.windowmanager;
     opens view.user.windowmanager to javafx.fxml;
+    opens view.kennel.windowmanager to javafx.fxml;
+
+    exports view.kennel.windowmanager;
 
     exports utils;
     opens utils to javafx.fxml;
     opens view.login to javafx.fxml;
+    exports view;
+    opens view to javafx.fxml;
 }

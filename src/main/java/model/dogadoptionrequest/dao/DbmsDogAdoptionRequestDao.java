@@ -7,16 +7,16 @@ import java.util.List;
 
 public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
     @Override
-    public DogAdoptionRequest load(int darId){
+    public DogAdoptionRequest getDarById(int darId){
         return null;
     }
     public void add(DogAdoptionRequest dogAdoptionRequest){
         //add
     }
-    public void delete(int darId){
+    public void removeDarById(int darId){
         //delete
     }
-    public List<DogAdoptionRequest> getAllKennelDogAdoptionRequest(int kennelId){
+    public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
         return new ArrayList<>();
     }
 }
