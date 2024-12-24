@@ -71,7 +71,7 @@ public class KennelWindowManager {
         addDogPage.createMessage("Cane aggiunto correttamente");
 
     }
-    public static KennelWindowManager getSingletonInstance() {
+    public synchronized static KennelWindowManager getSingletonInstance() {
         if (instance == null) {
             instance = new KennelWindowManager(); // Creazione solo se necessario
         }

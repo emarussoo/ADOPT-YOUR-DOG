@@ -71,6 +71,7 @@ public class GUIDogsPageController extends DogsPageController{
     }
 
     public DogProfileBean getDogInfo(){
+        breedSearchField.clear();
         return (DogProfileBean) listView.getSelectionModel().getSelectedItem();
     }
 }
