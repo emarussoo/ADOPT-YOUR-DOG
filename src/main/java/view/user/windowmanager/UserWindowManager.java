@@ -2,6 +2,7 @@ package view.user.windowmanager;
 
 import bean.*;
 import presenter.AdoptDogController;
+import view.kennel.windowmanager.KennelWindowManager;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.factory.GraphicalFactory;
@@ -12,7 +13,6 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class UserWindowManager {
-    private int counter=0;
     private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
     private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
@@ -91,15 +91,15 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
-        List<String> dogAdoptionRequestInfo = dogAdoptionRequestPage.getUserInfo();
-        String darId = String.valueOf(counter++);
-        String userNameBean = dogAdoptionRequestInfo.get(0);
-        String userSurnameBean = dogAdoptionRequestInfo.get(1);
-        String userEmailBean = dogAdoptionRequestInfo.get(2);
-        String userPhoneBean = dogAdoptionRequestInfo.get(3);
+        List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();
+        String darIdBean = String.valueOf(KennelWindowManager.getSingletonInstance().getManageDarController().getCurrentDarId());
+        String userNameBean = dogAdoptionRequestUserInfo.get(0);
+        String userSurnameBean = dogAdoptionRequestUserInfo.get(1);
+        String userEmailBean = dogAdoptionRequestUserInfo.get(2);
+        String userPhoneBean = dogAdoptionRequestUserInfo.get(3);
         String dogIdBean = dogProfileBean.getDogId();
         String kennelIdBean = dogProfileBean.getKennelId();
-        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(darId, userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
+        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(darIdBean, userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
         presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
         dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
     }

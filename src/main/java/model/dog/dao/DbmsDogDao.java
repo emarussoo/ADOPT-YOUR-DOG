@@ -26,4 +26,8 @@ public class DbmsDogDao extends DogDao{
         //dbms implementation of getalldogs operation
         return new ArrayList<>();
     }
+
+    public int getCurrentId(){
+        return 0;
+    }
 }

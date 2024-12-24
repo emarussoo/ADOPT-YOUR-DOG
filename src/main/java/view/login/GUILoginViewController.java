@@ -27,6 +27,7 @@ public class GUILoginViewController extends LoginViewController{
     TextField password;
 
     protected GUILoginViewController() {
+        //costruttore
 
     }
 

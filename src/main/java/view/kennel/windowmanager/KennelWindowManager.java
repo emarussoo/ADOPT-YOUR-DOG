@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KennelWindowManager {
-    private int kennelId;
+    int kennelId;
     private AddDogPageController addDogPage = GraphicalFactory.getGraphicalSingletonFactory().createAddDogPageController();
     private ManageDarPageController manageDarPage = GraphicalFactory.getGraphicalSingletonFactory().createManageDarPageController();
     private MyDogsPageController myDogsPage = GraphicalFactory.getGraphicalSingletonFactory().createMyDogsPageController();
@@ -30,7 +30,7 @@ public class KennelWindowManager {
     }
 
     public void showAddDog(){
-        System.out.println("showing add dog");
+        addDogPage.createAddForm();
     }
 
     public void showMyDars(){
@@ -59,11 +59,19 @@ public class KennelWindowManager {
         showMyDars();
     }
 
+    public void submitAdd(){
+        List<String> dogInfo = addDogPage.getDogInfo();
+        String dogIdBean = String.valueOf(DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId());
+        String dogNameBean = dogInfo.get(0);
+        String dogAgeBean = dogInfo.get(1);
+        String dogBreedBean = dogInfo.get(2);
+        String kennelIdBean = String.valueOf(kennelId);
+        String kennelNameBean = "da cambiare";
+        DogProfileBean dogProfileBean = new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
+        manageDogsController.addDog(dogProfileBean);
+        addDogPage.createMessage("Cane aggiunto correttamente");
 
-
-   /* public void show(){
-        kennelMenuController.show();
-    }*/
+    }
     public static KennelWindowManager getSingletonInstance() {
         if (instance == null) {
             instance = new KennelWindowManager(); // Creazione solo se necessario
@@ -90,4 +98,5 @@ public class KennelWindowManager {
     public void setKennelId(int kennelId) {
         this.kennelId = kennelId;
     }
+
 }

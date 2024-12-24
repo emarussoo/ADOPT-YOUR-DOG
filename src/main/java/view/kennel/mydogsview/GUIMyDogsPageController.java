@@ -19,6 +19,9 @@ import java.util.List;
 public class GUIMyDogsPageController extends MyDogsPageController {
     public void createMyDogsList(List<DogProfileBean> listOfDogsBean) {
 
+        Label title = new Label("My dogs");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+
         ListView listView = new ListView<>();
 
         GridPane header = new GridPane();
@@ -44,7 +47,7 @@ public class GUIMyDogsPageController extends MyDogsPageController {
         }
 
 
-        dogContainer.getChildren().addAll(header, listView);
+        dogContainer.getChildren().addAll(title, header, listView);
         KennelWindowManager.getSingletonInstance().getKennelMenuController().setCentralView(dogContainer);
     }
 }

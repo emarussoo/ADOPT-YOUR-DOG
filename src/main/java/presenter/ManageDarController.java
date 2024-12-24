@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ManageDarController {
     public ManageDarController() {
+        //costrutore
     }
 
     public DogAdoptionRequestBean getDarById(int darId){
@@ -41,6 +42,10 @@ public class ManageDarController {
         }
 
         return filteredDarList;
+    }
+
+    public int getCurrentDarId(){
+        return DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getCurrentId();
     }
 
     public void removeDar(DogAdoptionRequestBean dogAdoptionRequestBean){

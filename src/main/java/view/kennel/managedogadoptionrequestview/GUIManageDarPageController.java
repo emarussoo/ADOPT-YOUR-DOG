@@ -18,6 +18,9 @@ public class GUIManageDarPageController extends ManageDarPageController {
     ListView listView = new ListView<>();
     public void createDarList(List<DogAdoptionRequestBean> listOfDarsBean) {
 
+        Label title = new Label("Manage dog adoption requests");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+
         GridPane header = new GridPane();
         header.setHgap(90); // Spaziatura orizzontale tra le colonne
         header.add(new Label("ID"), 0, 0);
@@ -52,7 +55,7 @@ public class GUIManageDarPageController extends ManageDarPageController {
         });
 
 
-        dogContainer.getChildren().addAll(header, listView, rejectButton, acceptButton);
+        dogContainer.getChildren().addAll(title, header, listView, rejectButton, acceptButton);
         KennelWindowManager.getSingletonInstance().getKennelMenuController().setCentralView(dogContainer);
 
     }

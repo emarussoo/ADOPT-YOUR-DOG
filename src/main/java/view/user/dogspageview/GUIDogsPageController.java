@@ -19,6 +19,9 @@ public class GUIDogsPageController extends DogsPageController{
 
     public void createListOfDogs(List<DogProfileBean> listOfDogs) {
 
+        Label title = new Label("Adoptable dogs");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+
         HBox searchBar = new HBox(10);
         breedSearchField.setPromptText("Inserisci la razza");
         breedSearchField.setStyle("-fx-min-height: 38px; -fx-font-size: 16px;");
@@ -59,7 +62,7 @@ public class GUIDogsPageController extends DogsPageController{
             UserWindowManager.getSingletonInstance().showDogAdoptionRequestForm();
         });
 
-        dogContainer.getChildren().addAll(searchBar, header, listView, createDogAdoptionRequest);
+        dogContainer.getChildren().addAll(title, searchBar, header, listView, createDogAdoptionRequest);
         UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(dogContainer);
     }
 

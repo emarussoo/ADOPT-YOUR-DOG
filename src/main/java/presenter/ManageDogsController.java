@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ManageDogsController {
-    public ManageDogsController() {}
+    public ManageDogsController() {
+        //costruttore
+    }
 
     public List<DogProfileBean> getDogsWithKennelId(int kennelId){
         List<Dog> listOfAllDogs;
@@ -30,9 +32,25 @@ public class ManageDogsController {
         return filteredDogsList;
     }
 
+    public int getCurrentDogId(){
+        return DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId();
+    }
+
     public void removeDogByDar(DogAdoptionRequestBean dogAdoptionRequestBean){
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
         DaoFactory.getDaoSingletonFactory().createDogDao().removeDogById(dogId);
+    }
+
+    public void addDog(DogProfileBean dogProfileBean){
+        int dogId = Integer.parseInt(dogProfileBean.getDogId());
+        String dogName = dogProfileBean.getDogName();
+        int dogAge = Integer.parseInt(dogProfileBean.getDogAge());
+        String dogBreed = dogProfileBean.getDogBreed();
+        int kennelId = Integer.parseInt(dogProfileBean.getKennelId());
+
+        Dog toAddDog = new Dog(dogId, dogName, dogAge, dogBreed, kennelId);
+
+        DaoFactory.getDaoSingletonFactory().createDogDao().add(toAddDog);
     }
 
 }

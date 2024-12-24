@@ -26,4 +26,8 @@ public class FileDogDao extends DogDao{
         //file implementation of getalldogs operation
         return new ArrayList<>();
     }
+
+    public int getCurrentId(){
+        return 0;
+    }
 }

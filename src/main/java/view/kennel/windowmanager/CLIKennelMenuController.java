@@ -14,9 +14,9 @@ public class CLIKennelMenuController extends KennelMenuController{
     public void show() {
         while(true) {
             logger.info("=====================Kennel Menu=====================");
-            logger.info("1. prova");
-            logger.info("2. my dogs");
-            logger.info("3. show dars");
+            logger.info("1. add dog");
+            logger.info("2. show my dars");
+            logger.info("3. my dogs");
             logger.info("4. accept a dar");
             logger.info("5. reject a dar");
             logger.info("6. logout");
@@ -26,12 +26,13 @@ public class CLIKennelMenuController extends KennelMenuController{
                 int option = Integer.parseInt(reader.readLine());
                 switch(option){
                     case 1:
+                        addDog();
                         break;
                     case 2:
-                        myDogs();
+                        showDars();
                         break;
                     case 3:
-                        showDars();
+                        myDogs();
                         break;
                     case 4:
                         acceptDar();
@@ -55,6 +56,9 @@ public class CLIKennelMenuController extends KennelMenuController{
     }
 
 
+    public void addDog(){
+        KennelWindowManager.getSingletonInstance().submitAdd();
+    }
     public void myDogs(){
         KennelWindowManager.getSingletonInstance().showMyDogs();
     }

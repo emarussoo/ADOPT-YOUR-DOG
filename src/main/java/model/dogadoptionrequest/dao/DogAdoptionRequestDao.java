@@ -8,6 +8,7 @@ public abstract class DogAdoptionRequestDao {
     public abstract DogAdoptionRequest getDarById(int darId);
     public abstract void add(DogAdoptionRequest dogAdoptionRequest);
     public abstract List<DogAdoptionRequest> getAllDogAdoptionRequest();
+    public abstract int getCurrentId();
     public abstract void removeDarById(int darId);
 
 }

@@ -35,7 +35,7 @@ public class GUIUserMenuController extends UserMenuController {
     static GUIUserMenuController instance = null;
 
     protected GUIUserMenuController() {
-
+        //costruttore
     }
 
     public static GUIUserMenuController getSingletonInstance() {

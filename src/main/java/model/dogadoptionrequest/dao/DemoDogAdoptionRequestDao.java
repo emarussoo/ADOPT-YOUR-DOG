@@ -10,6 +10,7 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
     private static List<DogAdoptionRequest> demoListOfDogAdoptionRequest= new ArrayList<DogAdoptionRequest>();
     static DemoDogAdoptionRequestDao instance = null;
+    private static int counter = 0;
 
     protected DemoDogAdoptionRequestDao(){
 
@@ -38,6 +39,11 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
         }
         //delete
     }
+
+    public int getCurrentId(){
+        return counter++;
+    }
+
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
         return demoListOfDogAdoptionRequest;
     }

@@ -23,6 +23,9 @@ public class GUIKennelMenuController extends KennelMenuController{
     @FXML
     BorderPane bp;
 
+    private String unselectedButtonStyle = "-fx-background-color: white; -fx-border-color:  #2cc61e";
+    private String selectedButtonStyle = "-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e";
+
     private static GUIKennelMenuController instance = null;
 
     private GUIKennelMenuController() {}
@@ -38,26 +41,26 @@ public class GUIKennelMenuController extends KennelMenuController{
 
     @FXML
     public void addDog() {
-        darButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        myDogsButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        addDogButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
+        darButton.setStyle(unselectedButtonStyle);
+        myDogsButton.setStyle(unselectedButtonStyle);
+        addDogButton.setStyle(selectedButtonStyle);
         KennelWindowManager.getSingletonInstance().showAddDog();
     }
 
 
     @FXML
     public void showDogAdoptionRequest(){
-        addDogButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        myDogsButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        darButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
+        addDogButton.setStyle(unselectedButtonStyle);
+        myDogsButton.setStyle(unselectedButtonStyle);
+        darButton.setStyle(selectedButtonStyle);
         KennelWindowManager.getSingletonInstance().showMyDars();
     }
 
     @FXML
     public void showMyDogs(){
-        addDogButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        darButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
-        myDogsButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
+        addDogButton.setStyle(unselectedButtonStyle);
+        darButton.setStyle(unselectedButtonStyle);
+        myDogsButton.setStyle(selectedButtonStyle);
         KennelWindowManager.getSingletonInstance().showMyDogs();
     }
 

@@ -25,8 +25,12 @@ public class GUITestPageController extends TestPageController {
 
     @Override
     public void createTest(){
+
+        Label title = new Label("Breed test");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
         // Layout per contenere tutte le domande
-        VBox questionContainer = new VBox(30);
+        VBox questionContainer = new VBox(25);
+        questionContainer.getChildren().add(title);
         questionContainer.setStyle("-fx-padding: 20px 20px 20px 20px;");
         questionContainer.setAlignment(Pos.CENTER);
 
