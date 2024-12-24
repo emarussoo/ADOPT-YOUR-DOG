@@ -4,7 +4,6 @@ import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
-import model.dog.dao.DogDao;
 
 import java.util.ArrayList;
 import java.util.List;

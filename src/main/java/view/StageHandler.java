@@ -12,7 +12,7 @@ public class StageHandler {
     private static StageHandler instance;
     private Stage stage;
     private StageHandler(){}
-    public synchronized static StageHandler getSingletonInstance(){
+    public static StageHandler getSingletonInstance(){
         if(instance == null){
             instance = new StageHandler();
         }

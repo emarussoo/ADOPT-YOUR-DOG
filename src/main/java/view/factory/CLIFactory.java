@@ -45,7 +45,7 @@ public class CLIFactory extends GraphicalFactory{
     }
     public KennelMenuController createKennelMenuController(){
         return new CLIKennelMenuController();
-    };
+    }
 
     public MyDogsPageController createMyDogsPageController(){
         return new CLIMyDogsPageController();

@@ -8,17 +8,14 @@ import view.user.dogspageview.CLIDogsPageController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.Buffer;
 import java.util.List;
 
 public class CLIManageDarPageController extends ManageDarPageController {
-    private static final Logger logger = LogManager.getLogger(CLIDogsPageController.class.getName());
+    private static final Logger logger = LogManager.getLogger(CLIManageDarPageController.class.getName());
 
     public void createDarList(List<DogAdoptionRequestBean> listOfDarsBean) {
-        int counter = 0;
         for(DogAdoptionRequestBean dar: listOfDarsBean){
             logger.info("{}, {}, {}, {}, {}", dar.getDarId(), dar.getUserFirstname(), dar.getUserLastname(), dar.getUserEmail(), dar.getUserPhone());
-            counter++;
         }
     }
 

@@ -3,7 +3,6 @@ package view.kennel.windowmanager;
 import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import model.daofactory.DaoFactory;
-import model.dog.Dog;
 import presenter.ManageDarController;
 import presenter.ManageDogsController;
 import view.factory.GraphicalFactory;
@@ -11,7 +10,6 @@ import view.kennel.addadogview.AddDogPageController;
 import view.kennel.managedogadoptionrequestview.ManageDarPageController;
 import view.kennel.mydogsview.MyDogsPageController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class KennelWindowManager {
@@ -71,7 +69,7 @@ public class KennelWindowManager {
         addDogPage.createMessage("Cane aggiunto correttamente");
 
     }
-    public synchronized static KennelWindowManager getSingletonInstance() {
+    public static KennelWindowManager getSingletonInstance() {
         if (instance == null) {
             instance = new KennelWindowManager(); // Creazione solo se necessario
         }

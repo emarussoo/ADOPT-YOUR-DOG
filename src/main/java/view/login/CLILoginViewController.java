@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CLILoginViewController extends LoginViewController{
-    private static final Logger logger = LogManager.getLogger(CLITestPageController.class.getName());
+    private static final Logger logger = LogManager.getLogger(CLILoginViewController.class.getName());
     @Override
     public void backToUserPage() {
         UserWindowManager.getSingletonInstance().show();

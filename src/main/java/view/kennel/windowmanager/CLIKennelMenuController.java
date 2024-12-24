@@ -1,13 +1,10 @@
 package view.kennel.windowmanager;
 
-import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.login.LoginManager;
-import view.user.windowmanager.CLIUserMenuController;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 
 public class CLIKennelMenuController extends KennelMenuController{
     private static final Logger logger = LogManager.getLogger(CLIKennelMenuController.class.getName());
