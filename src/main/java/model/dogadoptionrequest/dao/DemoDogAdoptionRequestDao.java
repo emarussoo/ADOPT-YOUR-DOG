@@ -10,7 +10,7 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
     private static List<DogAdoptionRequest> demoListOfDogAdoptionRequest= new ArrayList<DogAdoptionRequest>();
     static DemoDogAdoptionRequestDao instance = null;
-    private static int counter = 0;
+    private int counter = 0;
 
     protected DemoDogAdoptionRequestDao(){
 

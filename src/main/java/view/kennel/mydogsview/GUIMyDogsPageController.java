@@ -17,6 +17,8 @@ import java.util.List;
 
 
 public class GUIMyDogsPageController extends MyDogsPageController {
+
+    @Override
     public void createMyDogsList(List<DogProfileBean> listOfDogsBean) {
 
         Label title = new Label("My dogs");

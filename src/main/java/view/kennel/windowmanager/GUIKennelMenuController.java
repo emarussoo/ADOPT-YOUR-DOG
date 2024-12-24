@@ -40,6 +40,7 @@ public class GUIKennelMenuController extends KennelMenuController{
     }
 
     @FXML
+    @Override
     public void addDog() {
         darButton.setStyle(unselectedButtonStyle);
         myDogsButton.setStyle(unselectedButtonStyle);

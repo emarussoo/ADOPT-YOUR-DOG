@@ -11,16 +11,9 @@ import java.util.List;
 public class CLIUserMenuController extends UserMenuController {
     private static final Logger logger = LogManager.getLogger(CLIUserMenuController.class.getName());
 
-    //static CLIUserMenuController instance = null;
-
-    public CLIUserMenuController() {}
-
-    /*public static CLIUserMenuController getSingletonInstance() {
-        if(instance == null){
-            return new CLIUserMenuController();
-        }
-        return instance;
-    }*/
+    public CLIUserMenuController() {
+        //costruttore
+    }
 
     public void show(){
         while(true){

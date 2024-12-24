@@ -56,6 +56,7 @@ public class CLIKennelMenuController extends KennelMenuController{
     }
 
 
+    @Override
     public void addDog(){
         KennelWindowManager.getSingletonInstance().submitAdd();
     }

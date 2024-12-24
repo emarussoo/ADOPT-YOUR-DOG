@@ -52,11 +52,4 @@ public class ManageDarController {
         int darId = Integer.parseInt(dogAdoptionRequestBean.getDarId());
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().removeDarById(darId);
     }
-
-    /*public DogAdoptionRequestBean getDarById(int darId){
-        List<DogAdoptionRequest> dar = DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getAllDogAdoptionRequest();
-        for(DogAdoptionRequest d : dar){
-
-        }
-    }*/
 }

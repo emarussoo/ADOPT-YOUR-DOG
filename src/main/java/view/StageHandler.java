@@ -23,11 +23,11 @@ public class StageHandler {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
         fxmlLoader.setController(graphicalController);
         Scene scene = new Scene(fxmlLoader.load(), 925, 745);
-        Stage stage = this.stage;
-        stage.resizableProperty().setValue(Boolean.FALSE);
-        stage.setTitle("LOGIN");
-        stage.setScene(scene);
-        stage.show();
+        Stage currentStage = this.stage;
+        currentStage.resizableProperty().setValue(Boolean.FALSE);
+        currentStage.setTitle("LOGIN");
+        currentStage.setScene(scene);
+        currentStage.show();
     }
 
     public Stage getStage(){

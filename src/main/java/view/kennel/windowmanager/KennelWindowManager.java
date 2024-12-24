@@ -41,7 +41,6 @@ public class KennelWindowManager {
     public void showMyDogs(){
         List<DogProfileBean> myDogs = manageDogsController.getDogsWithKennelId(96);
         myDogsPage.createMyDogsList(myDogs);
-        //System.out.println("showing my dogs");
     }
 
     public void acceptDar(){

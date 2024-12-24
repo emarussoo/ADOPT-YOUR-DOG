@@ -39,7 +39,6 @@ public class LoginManager {
         if(auth){
             kennelWindowManager.setKennelId(96);
             kennelWindowManager.show();
-            //System.out.println("Authentication successful");
         }else{
             loginViewController.showErrorMessage("Errore");
         }

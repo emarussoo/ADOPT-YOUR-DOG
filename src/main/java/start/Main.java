@@ -3,6 +3,7 @@ package start;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import view.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
@@ -25,6 +26,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/logo.png")));
         StageHandler.getSingletonInstance().setStage(stage);
         StageHandler.getSingletonInstance().loadPage(GUIUserMenuController.getSingletonInstance(), "/user-view.fxml");
     }

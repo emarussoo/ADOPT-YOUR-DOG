@@ -57,12 +57,14 @@ public class GUILoginViewController extends LoginViewController{
     @Override
     public List<String> getCredentials(){
         List<String> credentials = new ArrayList<>();
-        String username = this.username.getText();
-        String password = this.password.getText();
-        credentials.add(username);
-        credentials.add(password);
+        String insertedUsername = this.username.getText();
+        String insertedPassword = this.password.getText();
+        credentials.add(insertedUsername);
+        credentials.add(insertedPassword);
         return credentials;
     }
 
-    public void showErrorMessage(String message){}
+    public void showErrorMessage(String message){
+        //ci dovrà essere l'errore
+    }
 }
