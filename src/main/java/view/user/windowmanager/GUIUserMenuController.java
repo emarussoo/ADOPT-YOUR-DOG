@@ -34,7 +34,7 @@ public class GUIUserMenuController extends UserMenuController {
 
     static GUIUserMenuController instance = null;
 
-    protected GUIUserMenuController() {
+    private GUIUserMenuController() {
         //costruttore
     }
 

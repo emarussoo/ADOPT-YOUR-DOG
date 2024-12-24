@@ -29,7 +29,7 @@ public abstract class GraphicalFactory {
     public abstract ManageDarPageController createManageDarPageController();
     public abstract AddDogPageController createAddDogPageController();
     //singleton
-    public static GraphicalFactory getGraphicalSingletonFactory(){
+    public static synchronized GraphicalFactory getGraphicalSingletonFactory(){
         if(instance == null){
             if(System.getProperty("user_choice").equals("GUI")){
                 instance = new GUIFactory();

@@ -26,7 +26,7 @@ public class GUILoginViewController extends LoginViewController{
     @FXML
     TextField password;
 
-    protected GUILoginViewController() {
+    private GUILoginViewController() {
         //costruttore
 
     }

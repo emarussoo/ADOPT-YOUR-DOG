@@ -50,6 +50,9 @@ public class GUIAddDogPageController extends AddDogPageController {
         dogInfo.add(dogNameField.getText());
         dogInfo.add(dogAgeField.getText());
         dogInfo.add(dogBreedField.getText());
+        dogNameField.clear();
+        dogAgeField.clear();
+        dogBreedField.clear();
         return dogInfo;
     }
 
