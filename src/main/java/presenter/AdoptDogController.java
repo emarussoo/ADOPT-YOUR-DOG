@@ -31,6 +31,7 @@ public class AdoptDogController {
             String dogNameBean = dog.getDogName();
             String dogAgeBean = String.valueOf(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
+            //String dogkKennelNameBean = "prova";
             String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
             String dogKennelIdBean = String.valueOf(dog.getKennelId());
 

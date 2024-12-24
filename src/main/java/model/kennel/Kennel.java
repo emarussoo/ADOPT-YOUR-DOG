@@ -9,6 +9,8 @@ public class Kennel {
         this.kennelName = kennelName;
     }
 
+    public Kennel(){}
+
     public int getKennelId() {
         return kennelId;
     }

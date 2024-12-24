@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import model.daofactory.DaoFactory;
+import model.dog.Dog;
 import view.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
 import view.user.windowmanager.UserWindowManager;
@@ -18,6 +20,7 @@ public class Main extends Application {
         Initialize initializer = new Initialize();
         initializer.init();
         UserWindowManager.getSingletonInstance().show();
+        //System.out.println(DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(4).getDogName());
     }
 
     public static void startGui(){

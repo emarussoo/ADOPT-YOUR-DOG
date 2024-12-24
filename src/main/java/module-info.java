@@ -5,8 +5,8 @@ module start.adoptyourdog {
     requires com.fasterxml.jackson.databind;
     requires java.desktop;
     requires org.apache.logging.log4j;
-    requires java.logging;
     requires jdk.jfr;
+    requires java.sql;
 
 
     opens start to javafx.fxml;

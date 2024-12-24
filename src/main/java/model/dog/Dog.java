@@ -16,6 +16,8 @@ public class Dog{
         this.kennelId = kennelId;
     }
 
+    public Dog(){}
+
     public int getDogId() {
         return dogId;
     }
