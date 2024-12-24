@@ -2,7 +2,6 @@ package view.login;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.testview.CLITestPageController;
 import view.user.windowmanager.UserWindowManager;
 
 import java.io.BufferedReader;

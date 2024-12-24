@@ -4,7 +4,6 @@ import bean.DogAdoptionRequestBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.kennel.windowmanager.KennelWindowManager;
-import view.user.dogspageview.CLIDogsPageController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
