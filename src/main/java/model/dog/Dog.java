@@ -8,6 +8,13 @@ public class Dog{
     private String dogBreed;
     private int kennelId;
 
+    public Dog(String dogName, int dogAge, String dogBreed, int kennelId) {
+        this.dogName = dogName;
+        this.dogAge = dogAge;
+        this.dogBreed = dogBreed;
+        this.kennelId = kennelId;
+    }
+
     public Dog(int dogId, String dogName, int dogAge, String dogBreed, int kennelId) {
         this.dogId = dogId;
         this.dogName = dogName;

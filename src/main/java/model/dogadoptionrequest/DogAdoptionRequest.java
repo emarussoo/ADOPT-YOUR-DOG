@@ -19,6 +19,15 @@ public class DogAdoptionRequest {
         this.kennelId = kennelId;
     }
 
+    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, int kennelId) {
+        this.userFirstname = userFirstname;
+        this.userLastname = userLastname;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
+        this.dogId = dogId;
+        this.kennelId = kennelId;
+    }
+
     public int getDarId() {
         return darId;
     }

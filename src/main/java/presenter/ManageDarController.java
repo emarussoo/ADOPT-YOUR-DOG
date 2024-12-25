@@ -44,12 +44,13 @@ public class ManageDarController {
         return filteredDarList;
     }
 
-    public int getCurrentDarId(){
-        return DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getCurrentId();
-    }
-
     public void removeDar(DogAdoptionRequestBean dogAdoptionRequestBean){
         int darId = Integer.parseInt(dogAdoptionRequestBean.getDarId());
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().removeDarById(darId);
+    }
+
+    public void removeAllDarByDogId(int dogId){
+        DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().removeAllDarByDogId(dogId);
+
     }
 }

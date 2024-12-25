@@ -20,16 +20,15 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
     @Override
     public void add(DogAdoptionRequest dogAdoptionRequest){
-        String query = "INSERT INTO dog_adoption_request VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO dog_adoption_request (user_firstname, user_lastname, user_email, user_phone, dog_id, kennel_id) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement darStatement = connection.prepareStatement(query)){
-            darStatement.setInt(1, dogAdoptionRequest.getDogId());
-            darStatement.setString(2, dogAdoptionRequest.getUserFirstname());
-            darStatement.setString(3, dogAdoptionRequest.getUserLastname());
-            darStatement.setString(4, dogAdoptionRequest.getUserEmail());
-            darStatement.setString(5, dogAdoptionRequest.getUserPhone());
-            darStatement.setInt(6, dogAdoptionRequest.getDogId());
-            darStatement.setInt(7, dogAdoptionRequest.getKennelId());
+            darStatement.setString(1, dogAdoptionRequest.getUserFirstname());
+            darStatement.setString(2, dogAdoptionRequest.getUserLastname());
+            darStatement.setString(3, dogAdoptionRequest.getUserEmail());
+            darStatement.setString(4, dogAdoptionRequest.getUserPhone());
+            darStatement.setInt(5, dogAdoptionRequest.getDogId());
+            darStatement.setInt(6, dogAdoptionRequest.getKennelId());
             darStatement.execute();
             currenntDarId++;
         } catch (SQLException e) {
@@ -37,9 +36,29 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         }
         //add
     }
-    public void removeDarById(int darId){
+    public void removeAllDarByDogId(int darId){
+        String query = "DELETE FROM dog_adoption_request WHERE dog_id = ?";
+        Connection connection = ConnectionHandler.getInstance().getConnection();
+        try(PreparedStatement darStatement = connection.prepareStatement(query)){
+            darStatement.setInt(1, darId);
+            darStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         //delete
     }
+
+    public void removeDarById(int darId){
+        String query = "DELETE FROM dog_adoption_request WHERE id = ?";
+        Connection connection = ConnectionHandler.getInstance().getConnection();
+        try(PreparedStatement darStatement = connection.prepareStatement(query)){
+            darStatement.setInt(1, darId);
+            darStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
         List<DogAdoptionRequest> allDars = new ArrayList<>();
         String query = "SELECT * FROM dog_adoption_request";
@@ -65,7 +84,4 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         return allDars;
     }
 
-    public int getCurrentId(){
-        return 0;
-    }
 }

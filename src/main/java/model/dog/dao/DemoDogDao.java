@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DemoDogDao extends DogDao{
-    int counter = 0;
+    int counter = 6;
 
     private static List<Dog> demoListOfDogs= new ArrayList<Dog>();
 
@@ -40,9 +40,10 @@ public class DemoDogDao extends DogDao{
     }
 
     public void add(Dog dog){
+        dog.setDogId(counter);
+        counter++;
         demoListOfDogs.add(dog);
         //demo implementation of add operation
-
     }
     public void removeDogById(int dogId){
         for(Dog dog: demoListOfDogs){

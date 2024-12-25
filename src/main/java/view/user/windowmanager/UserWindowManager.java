@@ -92,14 +92,14 @@ public class UserWindowManager {
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
         List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();
-        String darIdBean = String.valueOf(KennelWindowManager.getSingletonInstance().getManageDarController().getCurrentDarId());
+        //String darIdBean = String.valueOf(KennelWindowManager.getSingletonInstance().getManageDarController().getCurrentDarId());
         String userNameBean = dogAdoptionRequestUserInfo.get(0);
         String userSurnameBean = dogAdoptionRequestUserInfo.get(1);
         String userEmailBean = dogAdoptionRequestUserInfo.get(2);
         String userPhoneBean = dogAdoptionRequestUserInfo.get(3);
         String dogIdBean = dogProfileBean.getDogId();
         String kennelIdBean = dogProfileBean.getKennelId();
-        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(darIdBean, userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
+        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
         presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
         dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
     }

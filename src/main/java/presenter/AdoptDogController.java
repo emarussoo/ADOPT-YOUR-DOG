@@ -85,14 +85,14 @@ public class AdoptDogController {
     }
 
     public void sendDogAdoptionRequest(DogAdoptionRequestBean dogAdoptionRequestBean){
-        int darId = Integer.parseInt(dogAdoptionRequestBean.getDarId());
+        //int darId = Integer.parseInt(dogAdoptionRequestBean.getDarId());
         String userName = dogAdoptionRequestBean.getUserFirstname();
         String lastName = dogAdoptionRequestBean.getUserLastname();
         String email = dogAdoptionRequestBean.getUserEmail();
         String phone = dogAdoptionRequestBean.getUserPhone();
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
         int kennelId = Integer.parseInt(dogAdoptionRequestBean.getKennelId());
-        DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(darId, userName, lastName, email, phone, dogId, kennelId);
+        DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(userName, lastName, email, phone, dogId, kennelId);
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().add(dogAdoptionRequest);
         //this will be called by view.getDogAdoptionRequestData
     }

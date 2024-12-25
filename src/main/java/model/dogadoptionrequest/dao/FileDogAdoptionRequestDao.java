@@ -13,8 +13,11 @@ public class FileDogAdoptionRequestDao extends DogAdoptionRequestDao{
     public void add(DogAdoptionRequest dogAdoptionRequest){
         //add
     }
-    public void removeDarById(int darId){
+    public void removeAllDarByDogId(int dogId){
         //delete
+    }
+
+    public void removeDarById(int darId){
 
     }
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){

@@ -43,7 +43,7 @@ public class KennelWindowManager {
 
     public void acceptDar(){
         DogAdoptionRequestBean toAcceptDar = manageDarPage.getDarInfo();
-        manageDarController.removeDar(toAcceptDar);
+        manageDarController.removeAllDarByDogId(Integer.parseInt(toAcceptDar.getDogId()));
         manageDogsController.removeDogByDar(toAcceptDar);
         showMyDars();
         //notifica utente
@@ -58,13 +58,13 @@ public class KennelWindowManager {
 
     public void submitAdd(){
         List<String> dogInfo = addDogPage.getDogInfo();
-        String dogIdBean = String.valueOf(DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId());
+        //String dogIdBean = String.valueOf(DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId());
         String dogNameBean = dogInfo.get(0);
         String dogAgeBean = dogInfo.get(1);
         String dogBreedBean = dogInfo.get(2);
         String kennelIdBean = String.valueOf(kennelId);
         String kennelNameBean = "da cambiare";
-        DogProfileBean dogProfileBean = new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
+        DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
         manageDogsController.addDog(dogProfileBean);
         addDogPage.createMessage("Cane aggiunto correttamente");
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.sql.*;
 
 public class DbmsDogDao extends DogDao{
-    int currentDogId = 0;
+    //int currentDogId = 0;
     @Override
     public Dog getDogById(int dogId){
         Dog dog = new Dog();
@@ -41,23 +41,23 @@ public class DbmsDogDao extends DogDao{
         return dog;
     }
     public void add(Dog dog){
-        String query = "INSERT INTO DOGS VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO DOGS (name, age, breed, kennel_id) VALUES ( ?, ?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
-            dogsStatement.setInt(1, dog.getDogId());
-            dogsStatement.setString(2, dog.getDogName());
-            dogsStatement.setInt(3, dog.getDogAge());
-            dogsStatement.setString(4, dog.getDogBreed());
-            dogsStatement.setInt(5, dog.getKennelId());
+            //dogsStatement.setInt(1, dog.getDogId());
+            dogsStatement.setString(1, dog.getDogName());
+            dogsStatement.setInt(2, dog.getDogAge());
+            dogsStatement.setString(3, dog.getDogBreed());
+            dogsStatement.setInt(4, dog.getKennelId());
             dogsStatement.executeUpdate();
-            currentDogId++;
+            //currentDogId++;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }//dbms implementation of add operation
 
     }
     public void removeDogById(int dogId){
-        String query = "REMOVE FROM dogs WHERE id = ?";
+        String query = "DELETE FROM dogs WHERE id = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
             dogsStatement.setInt(1, dogId);
@@ -95,7 +95,7 @@ public class DbmsDogDao extends DogDao{
         return allDogs;
     }
 
-    public int getCurrentId(){
+    /*public int getCurrentId(){
         return currentDogId;
-    }
+    }*/
 }

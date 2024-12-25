@@ -31,9 +31,9 @@ public class ManageDogsController {
         return filteredDogsList;
     }
 
-    public int getCurrentDogId(){
+    /*public int getCurrentDogId(){
         return DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId();
-    }
+    }*/
 
     public void removeDogByDar(DogAdoptionRequestBean dogAdoptionRequestBean){
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
@@ -41,13 +41,13 @@ public class ManageDogsController {
     }
 
     public void addDog(DogProfileBean dogProfileBean){
-        int dogId = Integer.parseInt(dogProfileBean.getDogId());
+        //int dogId = Integer.parseInt(dogProfileBean.getDogId());
         String dogName = dogProfileBean.getDogName();
         int dogAge = Integer.parseInt(dogProfileBean.getDogAge());
         String dogBreed = dogProfileBean.getDogBreed();
         int kennelId = Integer.parseInt(dogProfileBean.getKennelId());
 
-        Dog toAddDog = new Dog(dogId, dogName, dogAge, dogBreed, kennelId);
+        Dog toAddDog = new Dog(dogName, dogAge, dogBreed, kennelId);
 
         DaoFactory.getDaoSingletonFactory().createDogDao().add(toAddDog);
     }

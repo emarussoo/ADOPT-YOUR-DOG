@@ -34,7 +34,7 @@ public class Initialize
                                 System.setProperty(choiceProperty, "GUI");
                             break;
             }
-            System.setProperty("persistence", "DEMO");
+            System.setProperty("persistence", "JDBC");
 
         } catch (IOException e) {
             throw new ExceptionInInitializerError(e);

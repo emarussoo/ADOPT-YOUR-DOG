@@ -17,6 +17,19 @@ public class DogProfileBean{
         this.kennelId = kennelId;
     }
 
+    public DogProfileBean(String dogName, String dogAge, String dogBreed, String kennelName, String kennelId) {
+        this.dogName = dogName;
+        this.dogAge = dogAge;
+        this.dogBreed = dogBreed;
+        this.kennelName = kennelName;
+        this.kennelId = kennelId;
+    }
+
+    public void incrementDogId() {
+        dogId += 1;
+    }
+
+
     public String getDogId() {
         return dogId;
     }
