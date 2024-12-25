@@ -68,3 +68,4 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
     public int getCurrentId(){
         return 0;
     }
+}
