@@ -11,6 +11,7 @@ import java.util.List;
 import java.sql.*;
 
 public class DbmsDogDao extends DogDao{
+    int currentDogId = 0;
     @Override
     public Dog getDogById(int dogId){
         Dog dog = new Dog();
@@ -49,18 +50,28 @@ public class DbmsDogDao extends DogDao{
             dogsStatement.setString(4, dog.getDogBreed());
             dogsStatement.setInt(5, dog.getKennelId());
             dogsStatement.executeUpdate();
+            currentDogId++;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }//dbms implementation of add operation
 
     }
     public void removeDogById(int dogId){
+        String query = "REMOVE FROM dogs WHERE id = ?";
+        Connection connection = ConnectionHandler.getInstance().getConnection();
+        try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
+            dogsStatement.setInt(1, dogId);
+            dogsStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         //dbms implementation of delete operation
     }
-    public List<Dog> searchDogsByBreed(String breed){
+    /*public List<Dog> searchDogsByBreed(String breed){
         //dbms implementation of search operation
         return new ArrayList<>();
-    }
+    }*/
     public List<Dog> getAllDogs(){
         List<Dog> allDogs = new ArrayList<>();
         String query = "SELECT * FROM DOGS";
@@ -85,6 +96,6 @@ public class DbmsDogDao extends DogDao{
     }
 
     public int getCurrentId(){
-        return 0;
+        return currentDogId;
     }
 }

@@ -12,7 +12,7 @@ public class ConnectionHandler {
         try{
             String connection_url = "jdbc:mysql://localhost:3306/adopt_your_dog";
             String user = "ispw";
-            String pass = "damettere";
+            String pass = "adoptyourdog";
 
             connection =  DriverManager.getConnection(connection_url, user, pass);
         } catch (SQLException e) {

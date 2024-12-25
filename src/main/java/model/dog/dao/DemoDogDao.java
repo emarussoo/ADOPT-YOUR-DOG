@@ -52,11 +52,11 @@ public class DemoDogDao extends DogDao{
             }
         }
     }
-    public List<Dog> searchDogsByBreed(String breed){
+    /*public List<Dog> searchDogsByBreed(String breed){
 
         //demo implementation of search operation
         return new ArrayList<>();
-    }
+    }*/
     public List<Dog> getAllDogs(){
         //demo implementation of getalldogs operation
         return demoListOfDogs;
