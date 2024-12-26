@@ -6,6 +6,7 @@ import model.dogadoptionrequest.dao.DemoDogAdoptionRequestDao;
 import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
 import model.kennel.dao.DemoKennelDao;
 import model.kennel.dao.KennelDao;
+import model.login.dao.DemoKennelUserDao;
 
 public class DemoDaoFactory extends DaoFactory {
     @Override
@@ -17,5 +18,9 @@ public class DemoDaoFactory extends DaoFactory {
     }
     public KennelDao createKennelDao(){
         return DemoKennelDao.getSingletonInstance();
+    }
+
+    public DemoKennelUserDao createKennelUserDao(){
+        return new DemoKennelUserDao();
     }
 }

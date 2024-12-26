@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -20,7 +19,7 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;">
                      <children>
-                            <TextField prefHeight="26.0" prefWidth="188.0" promptText="Enter name" style="-fx-min-width: 300px; -fx-min-height: 50px; -fx-background-color: #ebebeb;">
+                            <TextField prefHeight="26.0" prefWidth="188.0" promptText="Enter kennel name" style="-fx-min-width: 300px; -fx-min-height: 50px; -fx-background-color: #ebebeb;">
                                 <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                 </padding>
@@ -28,27 +27,7 @@
                                     <Font size="18.0" />
                                 </font>
                             </TextField>
-                            <TextField prefHeight="26.0" prefWidth="188.0" promptText="Enter surname" style="-fx-min-width: 300px; -fx-min-height: 50px; -fx-background-color: #ebebeb;">
-                                <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                </padding>
-                                <font>
-                                    <Font size="18.0" />
-                                </font>
-                            </TextField>
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;">
-                     <children>
                         <TextField prefHeight="26.0" prefWidth="188.0" promptText="Enter username" style="-fx-min-width: 300px; -fx-min-height: 50px; -fx-background-color: #ebebeb;">
-                           <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </padding>
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField prefHeight="26.0" prefWidth="188.0" promptText="Enter email" style="-fx-min-width: 300px; -fx-min-height: 50px; -fx-background-color: #ebebeb;">
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
@@ -78,12 +57,7 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;">
-                     <children>
-                        <ComboBox prefWidth="150.0" promptText="Select country" style="-fx-min-width: 300px; -fx-min-height: 50px;" />
-                        <ComboBox prefWidth="150.0" promptText="Select city" style="-fx-min-width: 300px; -fx-min-height: 50px;" />
-                     </children>
-                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                             <Button mnemonicParsing="false" style="-fx-background-color: #2cc61e; -fx-min-height: 40px; -fx-min-width: 400px; -fx-font-size: 20PX;" text="REGISTER" textAlignment="CENTER" textFill="WHITE">
