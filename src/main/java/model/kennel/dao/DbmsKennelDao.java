@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class DbmsKennelDao extends KennelDao{
     public Kennel getKennelById(int kennelId) {
         Kennel kennel = new Kennel();
-        String query = "SELECT * FROM kennels WHERE ID = ?";
+        String query = "SELECT id,name FROM kennels WHERE ID = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement kennelStatement = connection.prepareStatement(query)){
             kennelStatement.setString(1, Integer.toString(kennelId));

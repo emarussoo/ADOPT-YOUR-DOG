@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class DbmsKennelUserDao extends KennelUserDao {
     public boolean check(KennelUser user) {
-        String query = "SELECT * FROM user WHERE username = ? AND pw = ?";
+        String query = "SELECT kennel_id FROM user WHERE username = ? AND pw = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement kennelUserStatement = connection.prepareStatement(query)){
             kennelUserStatement.setString(1, user.getUsername());
