@@ -37,7 +37,6 @@ public class LoginManager {
         LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
         auth = logInController.auth(loginBean);
         if(auth){
-            kennelWindowManager.setKennelId(96);
             kennelWindowManager.show();
         }else{
             loginViewController.showErrorMessage("Errore");

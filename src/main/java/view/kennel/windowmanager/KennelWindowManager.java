@@ -32,12 +32,12 @@ public class KennelWindowManager {
     }
 
     public void showMyDars(){
-        List<DogAdoptionRequestBean> listOfAllDarBean = manageDarController.getDarsWithKennelId(96);
+        List<DogAdoptionRequestBean> listOfAllDarBean = manageDarController.getDarsWithKennelId(kennelId);
         manageDarPage.createDarList(listOfAllDarBean);
     }
 
     public void showMyDogs(){
-        List<DogProfileBean> myDogs = manageDogsController.getDogsWithKennelId(96);
+        List<DogProfileBean> myDogs = manageDogsController.getDogsWithKennelId(kennelId);
         myDogsPage.createMyDogsList(myDogs);
     }
 

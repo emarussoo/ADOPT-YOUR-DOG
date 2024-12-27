@@ -21,6 +21,6 @@ public class DemoDaoFactory extends DaoFactory {
     }
 
     public DemoKennelUserDao createKennelUserDao(){
-        return new DemoKennelUserDao();
+        return DemoKennelUserDao.getInstance();
     }
 }

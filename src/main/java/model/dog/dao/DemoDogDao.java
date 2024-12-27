@@ -6,18 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DemoDogDao extends DogDao{
-    int counter = 6;
+    int counter = 3;
 
     private static List<Dog> demoListOfDogs= new ArrayList<Dog>();
 
     static DemoDogDao instance = null;
 
     protected DemoDogDao() {
-        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco", 34));
-        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano", 90));
-        demoListOfDogs.add(new Dog(3, "paperino", 2, "husky", 96));
-        demoListOfDogs.add(new Dog(4, "rambo", 2, "maremmano", 96));
-        demoListOfDogs.add(new Dog(5, "rocky", 2, "setter", 96));
+        demoListOfDogs.add(new Dog(1, "pippo", 2, "pastore tedesco", 1));
+        demoListOfDogs.add(new Dog(2, "pluto", 2, "maremmano", 2));
 
     }
 

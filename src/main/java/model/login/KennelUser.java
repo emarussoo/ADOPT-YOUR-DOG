@@ -31,4 +31,12 @@ public class KennelUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getKennelId() {
+        return kennelId;
+    }
+
+    public void setKennelId(int kennelId) {
+        this.kennelId = kennelId;
+    }
 }

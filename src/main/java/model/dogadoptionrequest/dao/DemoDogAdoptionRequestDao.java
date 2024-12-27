@@ -33,11 +33,14 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
         //add
     }
     public void removeAllDarByDogId(int dogId){
+        List<DogAdoptionRequest> newList = new ArrayList<>();
         for(DogAdoptionRequest dar: demoListOfDogAdoptionRequest){
-            if(dar.getDogId() == dogId){
-                demoListOfDogAdoptionRequest.remove(dar);
+            if(dar.getDogId() != dogId){
+                newList.add(dar);
             }
         }
+
+        demoListOfDogAdoptionRequest = newList;
         //delete
     }
 

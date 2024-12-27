@@ -36,11 +36,11 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         }
         //add
     }
-    public void removeAllDarByDogId(int darId){
+    public void removeAllDarByDogId(int dogId){
         String query = "DELETE FROM dog_adoption_request WHERE dog_id = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement darStatement = connection.prepareStatement(query)){
-            darStatement.setInt(1, darId);
+            darStatement.setInt(1, dogId);
             darStatement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

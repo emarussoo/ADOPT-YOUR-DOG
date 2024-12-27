@@ -9,9 +9,8 @@ public class DemoKennelDao extends KennelDao{
     private static List<Kennel> demoListOfKennels= new ArrayList<Kennel>();
     private static DemoKennelDao instance = null;
     private DemoKennelDao(){
-        demoListOfKennels.add(new Kennel(34, "Yourbestdogs"));
-        demoListOfKennels.add(new Kennel(90, "Tor Vergata's kennel"));
-        demoListOfKennels.add(new Kennel(96, "Generic kennel"));
+        demoListOfKennels.add(new Kennel(1, "John Doe Kennel"));
+        demoListOfKennels.add(new Kennel(2, "Francesco totti kennel"));
     }
 
     public static KennelDao getSingletonInstance() {
