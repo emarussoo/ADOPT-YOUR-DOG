@@ -9,7 +9,9 @@ import view.kennel.mydogsview.MyDogsPageController;
 import view.kennel.windowmanager.CLIKennelMenuController;
 import view.kennel.windowmanager.KennelMenuController;
 import view.login.CLILoginViewController;
+import view.login.CLIRegisterViewController;
 import view.login.LoginViewController;
+import view.login.RegisterViewController;
 import view.user.dogadoptionrequestview.CLIDogAdoptionRequestPageController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.CLIDogsPageController;
@@ -43,6 +45,12 @@ public class CLIFactory extends GraphicalFactory{
     public LoginViewController createLoginPageController(){
         return new CLILoginViewController();
     }
+
+    @Override
+    public RegisterViewController createRegisterPageController(){
+        return new CLIRegisterViewController();
+    }
+
     public KennelMenuController createKennelMenuController(){
         return new CLIKennelMenuController();
     }

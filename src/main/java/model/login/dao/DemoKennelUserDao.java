@@ -28,4 +28,8 @@ public class DemoKennelUserDao extends KennelUserDao {
         //vedi se esiste e imposta il kennel id dell'entità passata
         return false;
     }
+
+    public void add(KennelUser user) {
+        kennelUsers.add(user);
+    }
 }

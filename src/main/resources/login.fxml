@@ -45,7 +45,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
-                        <Text fill="#009dff" strokeType="OUTSIDE" strokeWidth="0.0" text="here ">
+                        <Text fill="#009dff" onMouseClicked="#goToRegister" strokeType="OUTSIDE" strokeWidth="0.0" text="here ">
                            <font>
                               <Font size="18.0" />
                            </font>

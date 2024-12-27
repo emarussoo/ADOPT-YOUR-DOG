@@ -9,7 +9,9 @@ import view.kennel.mydogsview.MyDogsPageController;
 import view.kennel.windowmanager.GUIKennelMenuController;
 import view.kennel.windowmanager.KennelMenuController;
 import view.login.GUILoginViewController;
+import view.login.GUIRegisterViewController;
 import view.login.LoginViewController;
+import view.login.RegisterViewController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogadoptionrequestview.GUIDogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
@@ -42,6 +44,11 @@ public class GUIFactory extends GraphicalFactory{
     @Override
     public LoginViewController createLoginPageController(){
         return GUILoginViewController.getSingletonInstance();
+    }
+
+    @Override
+    public RegisterViewController createRegisterPageController(){
+        return GUIRegisterViewController.getInstance();
     }
 
     @Override

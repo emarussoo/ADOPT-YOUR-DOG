@@ -9,6 +9,10 @@ public class Kennel {
         this.kennelName = kennelName;
     }
 
+    public Kennel(String kennelName) {
+        this.kennelName = kennelName;
+    }
+
     public Kennel(){}
 
     public int getKennelId() {

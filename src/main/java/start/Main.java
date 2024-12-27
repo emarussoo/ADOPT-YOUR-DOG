@@ -22,6 +22,7 @@ public class Main extends Application {
         //System.out.println(DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(1).getKennelName());
         UserWindowManager.getSingletonInstance().show();
         //System.out.println(DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(4).getDogName());
+
     }
 
     public static void startGui(){

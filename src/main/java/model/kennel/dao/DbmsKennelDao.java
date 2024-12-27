@@ -30,4 +30,22 @@ public class DbmsKennelDao extends KennelDao{
         //dbms implementation of load operation
         return kennel;
     }
+
+    public int addKennel(Kennel kennel) {
+        int addedKennelId = -1;
+        String query = "INSERT INTO kennels (name) VALUES (?)";
+        Connection connection = ConnectionHandler.getInstance().getConnection();
+        try(PreparedStatement kennelStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
+            //dogsStatement.setInt(1, dog.getDogId());
+            kennelStatement.setString(1, kennel.getKennelName());
+            kennelStatement.executeUpdate();
+            ResultSet generatedKeys = kennelStatement.getGeneratedKeys();
+            if(generatedKeys.next()){
+                addedKennelId = generatedKeys.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return addedKennelId;
+    }
 }

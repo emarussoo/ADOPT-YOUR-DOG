@@ -5,6 +5,7 @@ import view.kennel.managedogadoptionrequestview.ManageDarPageController;
 import view.kennel.mydogsview.MyDogsPageController;
 import view.kennel.windowmanager.KennelMenuController;
 import view.login.LoginViewController;
+import view.login.RegisterViewController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestPageController;
@@ -22,6 +23,7 @@ public abstract class GraphicalFactory {
     public abstract DogsPageController createDogsPageController();
     public abstract DogAdoptionRequestPageController createDogAdoptionRequestController();
     public abstract LoginViewController createLoginPageController();
+    public abstract RegisterViewController createRegisterPageController();
     public abstract KennelMenuController createKennelMenuController();
 
 

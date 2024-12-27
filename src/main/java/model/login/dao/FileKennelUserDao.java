@@ -6,4 +6,8 @@ public class FileKennelUserDao extends KennelUserDao {
     public boolean check(KennelUser user) {
         return true;
     }
+
+    public void add(KennelUser user) {
+
+    }
 }

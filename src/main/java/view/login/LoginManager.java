@@ -6,8 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.daofactory.DaoFactory;
+import model.kennel.Kennel;
+import model.login.KennelUser;
 import presenter.LogInController;
 import view.GraphicalController;
+import view.StageHandler;
 import view.factory.GraphicalFactory;
 import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;
@@ -20,6 +24,7 @@ public class LoginManager {
     private UserWindowManager userWindowManager = UserWindowManager.getSingletonInstance();
     private KennelWindowManager kennelWindowManager = KennelWindowManager.getSingletonInstance();
     private LoginViewController loginViewController = GraphicalFactory.getGraphicalSingletonFactory().createLoginPageController();
+    private RegisterViewController registerViewController = GraphicalFactory.getGraphicalSingletonFactory().createRegisterPageController();
     private LogInController logInController = new LogInController();
 
     private static LoginManager instance = null;
@@ -33,7 +38,7 @@ public class LoginManager {
 
     public void authenticate() {
         boolean auth = false;
-        List<String> credentials = loginViewController.getCredentials();
+        List<String> credentials = loginViewController.getLoginCredentials();
         LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
         auth = logInController.auth(loginBean);
         if(auth){
@@ -43,7 +48,27 @@ public class LoginManager {
         }
     }
 
+    public void register(){
+        List<String> credentials = registerViewController.getRegisterCredentials();
+        //controllo pw
+        Kennel kennel = new Kennel(credentials.get(0));
+        int kennelId = DaoFactory.getDaoSingletonFactory().createKennelDao().addKennel(kennel);
+        kennel.setKennelId(kennelId);
+        KennelUser newUser = new KennelUser(credentials.get(1), credentials.get(2), kennelId);
+        DaoFactory.getDaoSingletonFactory().createKennelUserDao().add(newUser);
+        System.out.println("Utente registrato");
+        try {
+            StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void logout(){
         loginViewController.backToUserPage();
+    }
+
+    public RegisterViewController getRegisterViewController() {
+        return registerViewController;
     }
 }

@@ -55,7 +55,7 @@ public class GUILoginViewController extends LoginViewController{
 
 
     @Override
-    public List<String> getCredentials(){
+    public List<String> getLoginCredentials(){
         List<String> credentials = new ArrayList<>();
         String insertedUsername = this.username.getText();
         String insertedPassword = this.password.getText();
@@ -64,7 +64,18 @@ public class GUILoginViewController extends LoginViewController{
         return credentials;
     }
 
+    @FXML
+    public void goToRegister(){
+        GUIRegisterViewController controller = GUIRegisterViewController.getInstance();
+        try {
+            StageHandler.getSingletonInstance().loadPage(controller, "/register.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void showErrorMessage(String message){
         //ci dovrà essere l'errore
     }
+
 }

@@ -17,7 +17,7 @@ public class CLILoginViewController extends LoginViewController{
     }
 
     @Override
-    public List<String> getCredentials(){
+    public List<String> getLoginCredentials(){
         List<String> credentials = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         String username;
