@@ -24,6 +24,7 @@ public class CLIUserMenuController extends UserMenuController {
             logger.info("3. Search dogs by breed");
             logger.info("4. Send dog adoption request");
             logger.info("5. Login");
+            logger.info("6. Register");
 
             BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
             try{
@@ -46,6 +47,8 @@ public class CLIUserMenuController extends UserMenuController {
                     case 5:
                         login();
                         break;
+                    case 6:
+                        register();
                     default:
                         break;
 
@@ -85,6 +88,10 @@ public class CLIUserMenuController extends UserMenuController {
 
     public void login(){
         LoginManager.getSingletonInstance().authenticate();
+    }
+
+    public void register(){
+        LoginManager.getSingletonInstance().register();
     }
 
 

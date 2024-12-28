@@ -2,6 +2,7 @@ package presenter;
 
 import bean.LoginBean;
 import model.daofactory.DaoFactory;
+import model.kennel.Kennel;
 import model.login.KennelUser;
 import model.login.dao.KennelUserDao;
 import view.kennel.windowmanager.KennelWindowManager;
@@ -18,5 +19,12 @@ public class LogInController {
             return true;
         }
         return false;
+    }
+
+    public void ultimateRegistration(Kennel kennel, KennelUser kennelUser){
+        int kennelId = DaoFactory.getDaoSingletonFactory().createKennelDao().addKennel(kennel);
+        kennel.setKennelId(kennelId);
+        DaoFactory.getDaoSingletonFactory().createKennelUserDao().add(kennelUser);
+        kennelUser.setKennelId(kennelId);
     }
 }

@@ -51,11 +51,14 @@ public class LoginManager {
     public void register(){
         List<String> credentials = registerViewController.getRegisterCredentials();
         //controllo pw
-        Kennel kennel = new Kennel(credentials.get(0));
-        int kennelId = DaoFactory.getDaoSingletonFactory().createKennelDao().addKennel(kennel);
-        kennel.setKennelId(kennelId);
-        KennelUser newUser = new KennelUser(credentials.get(1), credentials.get(2), kennelId);
-        DaoFactory.getDaoSingletonFactory().createKennelUserDao().add(newUser);
+        String kennelName = credentials.get(0);
+        Kennel kennel = new Kennel(kennelName);
+
+        String username = credentials.get(1);
+        String password = credentials.get(2);
+        /////////////
+        KennelUser newUser = new KennelUser(username, password);
+        logInController.ultimateRegistration(kennel, newUser);
         System.out.println("Utente registrato");
         try {
             StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
