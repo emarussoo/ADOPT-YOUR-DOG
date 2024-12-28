@@ -8,7 +8,6 @@ import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.user.windowmanager.UserMenuController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

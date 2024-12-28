@@ -28,15 +28,15 @@ public class Initialize
             switch(choice){
                 case 1:
                     prop.setProperty(choiceProperty, "GUI");
-                    prop.store(new FileOutputStream(configFilePath), "choice updated");
+                    prop.store(new FileOutputStream(configFilePath), "case gui");
                     break;
                     case 2:
                         prop.setProperty(choiceProperty, "CLI");
-                        prop.store(new FileOutputStream(configFilePath), "choice updated");
+                        prop.store(new FileOutputStream(configFilePath), "case cli");
                         break;
                         default:
-                                prop.setProperty(choiceProperty, "GUI");
-                            prop.store(new FileOutputStream(configFilePath), "choice updated");
+                            prop.setProperty(choiceProperty, "GUI");
+                            prop.store(new FileOutputStream(configFilePath), "default(gui)");
                             break;
             }
         } catch (IOException e) {
