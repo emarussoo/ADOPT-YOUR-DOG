@@ -9,8 +9,6 @@ public abstract class DaoFactory {
     public abstract DogDao createDogDao();
     public abstract DogAdoptionRequestDao createDogAdoptionRequestDao();
     public abstract KennelDao createKennelDao();
-
-
     public abstract KennelUserDao createKennelUserDao();
 
     private static DaoFactory instance = null;

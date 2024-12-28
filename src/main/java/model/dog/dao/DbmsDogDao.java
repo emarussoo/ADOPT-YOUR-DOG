@@ -3,19 +3,16 @@ package model.dog.dao;
 import model.dog.Dog;
 import utils.ConnectionHandler;
 
-import java.beans.Statement;
-import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
 public class DbmsDogDao extends DogDao{
-    //int currentDogId = 0;
     @Override
     public Dog getDogById(int dogId){
         Dog dog = new Dog();
-        String query = "SELECT * FROM DOGS WHERE ID = ?";
+        String query = "SELECT id, name, age, breed, kennel_id FROM DOGS WHERE ID = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
             dogsStatement.setString(1, Integer.toString(dogId));
@@ -44,13 +41,11 @@ public class DbmsDogDao extends DogDao{
         String query = "INSERT INTO DOGS (name, age, breed, kennel_id) VALUES ( ?, ?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
-            //dogsStatement.setInt(1, dog.getDogId());
             dogsStatement.setString(1, dog.getDogName());
             dogsStatement.setInt(2, dog.getDogAge());
             dogsStatement.setString(3, dog.getDogBreed());
             dogsStatement.setInt(4, dog.getKennelId());
             dogsStatement.executeUpdate();
-            //currentDogId++;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }//dbms implementation of add operation
@@ -68,13 +63,9 @@ public class DbmsDogDao extends DogDao{
 
         //dbms implementation of delete operation
     }
-    /*public List<Dog> searchDogsByBreed(String breed){
-        //dbms implementation of search operation
-        return new ArrayList<>();
-    }*/
     public List<Dog> getAllDogs(){
         List<Dog> allDogs = new ArrayList<>();
-        String query = "SELECT * FROM DOGS";
+        String query = "SELECT id, name, age, breed, kennel_id FROM DOGS";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
             try(ResultSet dogsResultSet = dogsStatement.executeQuery()){
@@ -95,7 +86,4 @@ public class DbmsDogDao extends DogDao{
         return allDogs;
     }
 
-    /*public int getCurrentId(){
-        return currentDogId;
-    }*/
 }

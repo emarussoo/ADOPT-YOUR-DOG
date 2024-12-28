@@ -15,12 +15,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.valueOf;
 
 public class AdoptDogController {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
-    UserMenuController view;
     public List<DogProfileBean> getAllDogs(){
         List<Dog> listOfAllDogs;
         listOfAllDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
@@ -31,7 +29,6 @@ public class AdoptDogController {
             String dogNameBean = dog.getDogName();
             String dogAgeBean = String.valueOf(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
-            //String dogkKennelNameBean = "prova";
             String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
             String dogKennelIdBean = String.valueOf(dog.getKennelId());
 
@@ -54,7 +51,7 @@ public class AdoptDogController {
     }
 
     public AdoptDogController() {
-        //controllore
+        //costruttore
     }
 
     public BreedBean processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
@@ -85,7 +82,6 @@ public class AdoptDogController {
     }
 
     public void sendDogAdoptionRequest(DogAdoptionRequestBean dogAdoptionRequestBean){
-        //int darId = Integer.parseInt(dogAdoptionRequestBean.getDarId());
         String userName = dogAdoptionRequestBean.getUserFirstname();
         String lastName = dogAdoptionRequestBean.getUserLastname();
         String email = dogAdoptionRequestBean.getUserEmail();

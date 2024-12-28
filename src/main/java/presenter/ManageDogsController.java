@@ -31,17 +31,12 @@ public class ManageDogsController {
         return filteredDogsList;
     }
 
-    /*public int getCurrentDogId(){
-        return DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId();
-    }*/
-
     public void removeDogByDar(DogAdoptionRequestBean dogAdoptionRequestBean){
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
         DaoFactory.getDaoSingletonFactory().createDogDao().removeDogById(dogId);
     }
 
     public void addDog(DogProfileBean dogProfileBean){
-        //int dogId = Integer.parseInt(dogProfileBean.getDogId());
         String dogName = dogProfileBean.getDogName();
         int dogAge = Integer.parseInt(dogProfileBean.getDogAge());
         String dogBreed = dogProfileBean.getDogBreed();

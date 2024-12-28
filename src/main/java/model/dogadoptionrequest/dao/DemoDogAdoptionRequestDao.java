@@ -8,7 +8,7 @@ import java.util.List;
 
 public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
-    private static List<DogAdoptionRequest> demoListOfDogAdoptionRequest= new ArrayList<DogAdoptionRequest>();
+    private List<DogAdoptionRequest> demoListOfDogAdoptionRequest= new ArrayList<DogAdoptionRequest>();
     static DemoDogAdoptionRequestDao instance = null;
     private int counter = 0;
 

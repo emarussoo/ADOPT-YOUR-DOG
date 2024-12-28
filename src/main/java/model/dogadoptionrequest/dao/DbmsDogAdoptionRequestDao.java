@@ -1,6 +1,5 @@
 package model.dogadoptionrequest.dao;
 
-import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import utils.ConnectionHandler;
 
@@ -61,7 +60,7 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
 
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
         List<DogAdoptionRequest> allDars = new ArrayList<>();
-        String query = "SELECT * FROM dog_adoption_request";
+        String query = "SELECT id, user_firstname, user_lastname, user_email, user_phone, dog_id, kennel_id FROM dog_adoption_request";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
             try(ResultSet darResultSet = dogsStatement.executeQuery()){

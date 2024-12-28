@@ -1,6 +1,5 @@
 package model.kennel.dao;
 
-import model.dog.Dog;
 import model.kennel.Kennel;
 import utils.ConnectionHandler;
 
@@ -36,7 +35,6 @@ public class DbmsKennelDao extends KennelDao{
         String query = "INSERT INTO kennels (name) VALUES (?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement kennelStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
-            //dogsStatement.setInt(1, dog.getDogId());
             kennelStatement.setString(1, kennel.getKennelName());
             kennelStatement.executeUpdate();
             ResultSet generatedKeys = kennelStatement.getGeneratedKeys();

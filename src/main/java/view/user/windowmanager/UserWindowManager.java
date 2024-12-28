@@ -2,7 +2,6 @@ package view.user.windowmanager;
 
 import bean.*;
 import presenter.AdoptDogController;
-import view.kennel.windowmanager.KennelWindowManager;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.factory.GraphicalFactory;
@@ -92,7 +91,6 @@ public class UserWindowManager {
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
         List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();
-        //String darIdBean = String.valueOf(KennelWindowManager.getSingletonInstance().getManageDarController().getCurrentDarId());
         String userNameBean = dogAdoptionRequestUserInfo.get(0);
         String userSurnameBean = dogAdoptionRequestUserInfo.get(1);
         String userEmailBean = dogAdoptionRequestUserInfo.get(2);

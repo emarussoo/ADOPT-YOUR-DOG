@@ -30,8 +30,7 @@ public class DbmsKennelUserDao extends KennelUserDao {
     public void add(KennelUser user) {
         String query = "INSERT INTO user (username, pw, kennel_id) VALUES (?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
-        try(PreparedStatement userStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
-            //dogsStatement.setInt(1, dog.getDogId());
+        try(PreparedStatement userStatement = connection.prepareStatement(query)){
             userStatement.setString(1, user.getUsername());
             userStatement.setString(2, user.getPassword());
             userStatement.setInt(3, user.getKennelId());

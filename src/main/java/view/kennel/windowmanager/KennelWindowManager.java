@@ -2,7 +2,6 @@ package view.kennel.windowmanager;
 
 import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
-import model.daofactory.DaoFactory;
 import presenter.ManageDarController;
 import presenter.ManageDogsController;
 import view.factory.GraphicalFactory;
@@ -58,7 +57,6 @@ public class KennelWindowManager {
 
     public void submitAdd(){
         List<String> dogInfo = addDogPage.getDogInfo();
-        //String dogIdBean = String.valueOf(DaoFactory.getDaoSingletonFactory().createDogDao().getCurrentId());
         String dogNameBean = dogInfo.get(0);
         String dogAgeBean = dogInfo.get(1);
         String dogBreedBean = dogInfo.get(2);

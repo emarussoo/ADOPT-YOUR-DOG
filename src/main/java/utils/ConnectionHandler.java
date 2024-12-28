@@ -1,6 +1,5 @@
 package utils;
 
-import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
@@ -10,11 +9,11 @@ public class ConnectionHandler {
     Connection connection;
     private ConnectionHandler() {
         try{
-            String connection_url = "jdbc:mysql://localhost:3306/adopt_your_dog";
+            String connectionUrl = "jdbc:mysql://localhost:3306/adopt_your_dog";
             String user = "ispw";
             String pass = "adoptyourdog";
 
-            connection =  DriverManager.getConnection(connection_url, user, pass);
+            connection =  DriverManager.getConnection(connectionUrl, user, pass);
         } catch (SQLException e) {
             e.printStackTrace();
         }

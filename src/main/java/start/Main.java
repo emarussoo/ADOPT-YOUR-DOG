@@ -19,9 +19,7 @@ public class Main extends Application {
     public static void main(String[] args){
         Initialize initializer = new Initialize();
         initializer.init();
-        //System.out.println(DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(1).getKennelName());
         UserWindowManager.getSingletonInstance().show();
-        //System.out.println(DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(4).getDogName());
 
     }
 

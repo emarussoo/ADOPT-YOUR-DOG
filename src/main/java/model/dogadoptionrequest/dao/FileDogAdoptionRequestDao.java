@@ -18,6 +18,7 @@ public class FileDogAdoptionRequestDao extends DogAdoptionRequestDao{
     }
 
     public void removeDarById(int darId){
+        //rimuove dato un id
 
     }
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){

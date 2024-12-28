@@ -49,6 +49,7 @@ public class CLIUserMenuController extends UserMenuController {
                         break;
                     case 6:
                         register();
+                        break;
                     default:
                         break;
 
