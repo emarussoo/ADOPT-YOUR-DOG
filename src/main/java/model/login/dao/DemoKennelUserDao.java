@@ -8,7 +8,8 @@ import java.util.List;
 public class DemoKennelUserDao extends KennelUserDao {
     private static DemoKennelUserDao instance = null;
     private List<KennelUser> kennelUsers = new ArrayList<KennelUser>();
-    private DemoKennelUserDao() {
+
+    protected DemoKennelUserDao() {
         kennelUsers.add(new KennelUser("John", "Doe", 1));
         kennelUsers.add(new KennelUser("Francesco", "Totti", 2));
     }

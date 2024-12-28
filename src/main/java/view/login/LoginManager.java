@@ -29,6 +29,10 @@ public class LoginManager {
 
     private static LoginManager instance = null;
 
+    protected LoginManager() {
+
+    }
+
     public static LoginManager getSingletonInstance(){
         if(instance == null){
             instance = new LoginManager();

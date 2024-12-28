@@ -20,7 +20,8 @@ public class KennelWindowManager {
     private ManageDarController manageDarController = new ManageDarController();
     private ManageDogsController manageDogsController = new ManageDogsController();
     private static KennelWindowManager instance;
-    private KennelWindowManager() {}
+
+    protected KennelWindowManager() {}
 
     public void show(){
         kennelMenuController.show();
