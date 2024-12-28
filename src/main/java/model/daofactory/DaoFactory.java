@@ -18,6 +18,10 @@ public abstract class DaoFactory {
 
     private static DaoFactory instance = null;
 
+    protected DaoFactory(){
+
+    }
+
     public static DaoFactory getDaoSingletonFactory(){
         Properties prop = new Properties();
         try(FileInputStream config = new FileInputStream("src/main/resources/config.properties")){
