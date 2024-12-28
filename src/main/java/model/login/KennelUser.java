@@ -1,35 +1,35 @@
 package model.login;
 
 public class KennelUser {
-    private String username;
-    private String password;
+    private String kennelUsername;
+    private String kennelPassword;
     private int kennelId;
 
-    public KennelUser(String username, String password, int kennelId) {
-        this.username = username;
-        this.password = password;
+    public KennelUser(String kennelUsername, String kennelPassword, int kennelId) {
+        this.kennelUsername = kennelUsername;
+        this.kennelPassword = kennelPassword;
         this.kennelId = kennelId;
     }
 
-    public KennelUser(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public KennelUser(String kennelUsername, String kennelPassword) {
+        this.kennelUsername = kennelUsername;
+        this.kennelPassword = kennelPassword;
     }
 
-    public String getUsername() {
-        return username;
+    public String getKennelUsername() {
+        return kennelUsername;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setKennelUsername(String kennelUsername) {
+        this.kennelUsername = kennelUsername;
     }
 
-    public String getPassword() {
-        return password;
+    public String getKennelPassword() {
+        return kennelPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setKennelPassword(String kennelPassword) {
+        this.kennelPassword = kennelPassword;
     }
 
     public int getKennelId() {

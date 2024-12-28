@@ -21,7 +21,7 @@ public class DemoKennelUserDao extends KennelUserDao {
     }
     public boolean check(KennelUser user) {
         for (KennelUser kennelUser : kennelUsers) {
-            if (kennelUser.getUsername().equals(user.getUsername()) && kennelUser.getPassword().equals(user.getPassword())) {
+            if (kennelUser.getKennelUsername().equals(user.getKennelUsername()) && kennelUser.getKennelPassword().equals(user.getKennelPassword())) {
                 user.setKennelId(kennelUser.getKennelId());
                 return true;
             }
