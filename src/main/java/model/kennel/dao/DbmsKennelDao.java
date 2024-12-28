@@ -3,10 +3,7 @@ package model.kennel.dao;
 import model.kennel.Kennel;
 import utils.ConnectionHandler;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DbmsKennelDao extends KennelDao{
     public Kennel getKennelById(int kennelId) {
@@ -34,7 +31,7 @@ public class DbmsKennelDao extends KennelDao{
         int addedKennelId = -1;
         String query = "INSERT INTO kennels (name) VALUES (?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
-        try(PreparedStatement kennelStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)){
+        try(PreparedStatement kennelStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
             kennelStatement.setString(1, kennel.getKennelName());
             kennelStatement.executeUpdate();
             ResultSet generatedKeys = kennelStatement.getGeneratedKeys();

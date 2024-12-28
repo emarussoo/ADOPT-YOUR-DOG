@@ -11,6 +11,11 @@ import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestPageController;
 import view.user.windowmanager.UserMenuController;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public abstract class GraphicalFactory {
 
     private static GraphicalFactory instance = null;
@@ -32,14 +37,23 @@ public abstract class GraphicalFactory {
     public abstract AddDogPageController createAddDogPageController();
     //singleton
     public static synchronized GraphicalFactory getGraphicalSingletonFactory(){
-        if(instance == null){
-            if(System.getProperty("user_choice").equals("GUI")){
-                instance = new GUIFactory();
-            }
+        Properties prop = new Properties();
 
-            if(System.getProperty("user_choice").equals("CLI")){
-                instance = new CLIFactory();
+        try (FileInputStream fis = new FileInputStream("src/main/resources/config.properties")) {
+            prop.load(fis);
+            if(instance == null){
+                if(prop.getProperty("user_choice").equals("GUI")){
+                    instance = new GUIFactory();
+                }
+
+                if(prop.getProperty("user_choice").equals("CLI")){
+                    instance = new CLIFactory();
+                }
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return instance;
     }

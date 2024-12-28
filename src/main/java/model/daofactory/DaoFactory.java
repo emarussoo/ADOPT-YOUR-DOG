@@ -5,6 +5,11 @@ import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
 import model.kennel.dao.KennelDao;
 import model.login.dao.KennelUserDao;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+
 public abstract class DaoFactory {
     public abstract DogDao createDogDao();
     public abstract DogAdoptionRequestDao createDogAdoptionRequestDao();
@@ -14,19 +19,29 @@ public abstract class DaoFactory {
     private static DaoFactory instance = null;
 
     public static DaoFactory getDaoSingletonFactory(){
-        String persistence = System.getProperty("persistence");
-        if(instance == null){
-            if(persistence.equals("DEMO")){
-                instance = new DemoDaoFactory();
+        Properties prop = new Properties();
+        try(FileInputStream config = new FileInputStream("src/main/resources/config.properties")){
+            prop.load(config);
+            String persistence = prop.getProperty("persistence");
+
+            if(instance == null){
+                if(persistence.equals("DEMO")){
+                    instance = new DemoDaoFactory();
+                }
+
+                if(persistence.equals("JDBC")){
+                    instance = new DbmsDaoFactory();
+                }
+
+                if(persistence.equals("FILE")){
+                    instance = new FileDaoFactory();
+                }
             }
 
-            if(persistence.equals("JDBC")){
-                instance = new DbmsDaoFactory();
-            }
-
-            if(persistence.equals("FILE")){
-                instance = new FileDaoFactory();
-            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return instance;
     }

@@ -3,9 +3,8 @@ package start;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.Properties;
 
 public class Initialize
 {
@@ -15,27 +14,31 @@ public class Initialize
     }
 
     public void init(){
+        String configFilePath = "src/main/resources/config.properties";
         int choice;
+        Properties prop = new Properties();
         logger.info("SCEGLI LA MODALITA' GRAFICA:");
         logger.info("1. GUI");
         logger.info("2. CLI");
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        try {
+        try (FileInputStream configFile = new FileInputStream(configFilePath)) {
+            prop.load(configFile);
             String choiceProperty = "user_choice";
             choice = Integer.parseInt(reader.readLine());
             switch(choice){
                 case 1:
-                    System.setProperty(choiceProperty, "GUI");
+                    prop.setProperty(choiceProperty, "GUI");
+                    prop.store(new FileOutputStream(configFilePath), "choice updated");
                     break;
                     case 2:
-                        System.setProperty(choiceProperty, "CLI");
+                        prop.setProperty(choiceProperty, "CLI");
+                        prop.store(new FileOutputStream(configFilePath), "choice updated");
                         break;
                         default:
-                                System.setProperty(choiceProperty, "GUI");
+                                prop.setProperty(choiceProperty, "GUI");
+                            prop.store(new FileOutputStream(configFilePath), "choice updated");
                             break;
             }
-            System.setProperty("persistence", "JDBC");
-
         } catch (IOException e) {
             throw new ExceptionInInitializerError(e);
         }
