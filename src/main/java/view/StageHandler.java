@@ -11,7 +11,9 @@ import java.io.IOException;
 public class StageHandler {
     private static StageHandler instance;
     private Stage stage;
-    private StageHandler(){}
+
+    protected StageHandler(){}
+
     public static StageHandler getSingletonInstance(){
         if(instance == null){
             instance = new StageHandler();
