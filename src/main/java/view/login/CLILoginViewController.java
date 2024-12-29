@@ -30,7 +30,7 @@ public class CLILoginViewController extends LoginViewController{
             logger.info("Inserisci password: ");
             password = reader.readLine();
             if(username.isEmpty() || password.isEmpty()){
-                throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+                throw new EmptyFieldsException("One or more fields are empty");
             }
             credentials.add(username);
             credentials.add(password);

@@ -16,16 +16,16 @@ public class CLITestPageController extends TestPageController {
     @Override
     public void createTest(){
         for (int i = 0; i < TestQuestions.values().length; i++){
-            logger.info("Domanda {}: {}", i, TestQuestions.values()[i].getTesto());
+            logger.info("question {}: {}", i, TestQuestions.values()[i].getTesto());
         }
     }
 
     public List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException {
         List<String> answersList = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
-        logger.info("=====================Inserisci risposte=====================");
+        logger.info("Insert answers");
         for (int i = 0; i < TestQuestions.values().length; i++){
-            logger.info("domanda {}: {}", i, TestQuestions.values()[i].getTesto());
+            logger.info("question {}: {}", i, TestQuestions.values()[i].getTesto());
             try{
                 String answer = reader.readLine();
                 answersList.add(answer);
@@ -37,7 +37,7 @@ public class CLITestPageController extends TestPageController {
     }
 
     public void createTestResult(BreedBean breedBean){
-        logger.info("=====================Test result=====================");
+        logger.info("Test result: ");
         logger.info("dog image link: {}", breedBean.getImageLink());
         logger.info("dog name: {}", breedBean.getName());
         logger.info("dog coat length: {}", breedBean.getCoatLength());

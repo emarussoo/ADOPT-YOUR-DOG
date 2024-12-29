@@ -69,7 +69,7 @@ public class KennelWindowManager {
             String kennelNameBean = "da cambiare";
             DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
             manageDogsController.addDog(dogProfileBean);
-            addDogPage.createMessage("Cane aggiunto correttamente");
+            addDogPage.createMessage("Dog added");
         }catch(EmptyFieldsException | InvalidFieldException e) {
             addDogPage.createMessage(e.getMessage());
         }

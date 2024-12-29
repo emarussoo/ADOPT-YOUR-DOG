@@ -28,7 +28,7 @@ public class GUIManageDarPageController extends ManageDarPageController {
         header.add(new Label("Surname"), 2, 0);
         header.add(new Label("Email"), 3, 0);
         header.add(new Label("Phone"), 4, 0);
-        header.add(new Label("dog id"), 5, 0);
+        header.add(new Label("Dog id"), 5, 0);
         header.setStyle("-fx-font-weight: bold; -fx-padding: 5px;");
         listView.setStyle("-fx-alignment: center; -fx-font-size: 15px");
 

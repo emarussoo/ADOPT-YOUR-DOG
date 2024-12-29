@@ -39,7 +39,7 @@ public class GUITestPageController extends TestPageController {
         for (int i = 0; i < TestQuestions.values().length; i++) {
             VBox singleQuestionBox = new VBox(10);
 
-            Label questionLabel = new Label("Domanda " + i + ": "+TestQuestions.values()[i].getTesto());
+            Label questionLabel = new Label("question " + i + ": "+TestQuestions.values()[i].getTesto());
             questionLabel.setStyle("-fx-font-size: 16px");
 
             ToggleGroup group = new ToggleGroup();

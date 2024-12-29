@@ -57,7 +57,7 @@ public class GUILoginViewController extends LoginViewController{
         String insertedUsername = this.username.getText();
         String insertedPassword = this.password.getText();
         if(insertedUsername.isEmpty() || insertedPassword.isEmpty()){
-            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+            throw new EmptyFieldsException("One or more fields are empty");
         }
         credentials.add(insertedUsername);
         credentials.add(insertedPassword);

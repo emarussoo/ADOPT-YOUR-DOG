@@ -13,7 +13,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox prefHeight="718.0" prefWidth="923.0">
+      <VBox alignment="CENTER" prefHeight="718.0" prefWidth="923.0">
          <children>
             <VBox alignment="CENTER" prefHeight="578.0" prefWidth="879.0" style="-fx-spacing: 30px;">
                <children>
@@ -33,6 +33,11 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <Text fx:id="errorMessageField" fill="#eb0f0f" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
                   <Button mnemonicParsing="false" onAction="#authentication" style="-fx-background-color: #2cc61e; -fx-min-height: 40px; -fx-min-width: 400px; -fx-font-size: 20PX;" text="LOGIN" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="24.0" />
@@ -57,11 +62,6 @@
                         </Text>
                      </children>
                   </HBox>
-                  <Text fx:id="errorMessageField" fill="#eb0f0f" strokeType="OUTSIDE" strokeWidth="0.0">
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Text>
                   <Button mnemonicParsing="false" onAction="#backToUserPage" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-min-width: 200px; -fx-min-height: 40px;" text="BACK TO USER PAGE" textFill="#2cc61e" />
                </children>
             </VBox>

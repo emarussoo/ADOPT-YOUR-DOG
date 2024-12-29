@@ -13,9 +13,9 @@
 
 <BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <VBox prefHeight="718.0" prefWidth="923.0">
+      <VBox alignment="CENTER" prefHeight="718.0" prefWidth="923.0">
           <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 50px;">
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-spacing: 30px;">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;">
                      <children>
@@ -79,6 +79,11 @@
                   <Insets top="70.0" />
                </padding>
             </VBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
+               <children>
+                   <Button mnemonicParsing="false" onAction="#backToUserPage" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-min-width: 200px; -fx-min-height: 40px;" text="BACK TO USER PAGE" textFill="#2cc61e" />
+               </children>
+            </HBox>
           </children>
       </VBox>
    </center>

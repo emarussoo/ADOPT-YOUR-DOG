@@ -22,7 +22,7 @@ public class StageHandler {
     public void loadPage(GraphicalController graphicalController, String path) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(path));
         fxmlLoader.setController(graphicalController);
-        Scene scene = new Scene(fxmlLoader.load(), 925, 745);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 745);
         Stage currentStage = this.stage;
         currentStage.resizableProperty().setValue(Boolean.FALSE);
         currentStage.setTitle("LOGIN");

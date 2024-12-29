@@ -44,16 +44,20 @@ public class GUIRegisterViewController extends RegisterViewController {
     public List<String> getRegisterCredentials(){
         List<String> registerCredentials = new ArrayList<>();
         if(!confirmPassword.getText().equals(password.getText())){
-            throw new PasswordConfirmationException("I campi password e conferma password non corrispondono");
+            throw new PasswordConfirmationException("The fields password and confirm password do not match");
         }
         if(kennelName.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty() || confirmPassword.getText().isEmpty()){
-            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+            throw new EmptyFieldsException("One or more fields are empty");
         }
         registerCredentials.add(kennelName.getText());
         registerCredentials.add(username.getText());
         registerCredentials.add(password.getText());
         registerCredentials.add(confirmPassword.getText());
         return registerCredentials;
+    }
+
+    public void backToUserPage(){
+        GUILoginViewController.getSingletonInstance().backToUserPage();
     }
 
     public void showErrorMessage(String message){

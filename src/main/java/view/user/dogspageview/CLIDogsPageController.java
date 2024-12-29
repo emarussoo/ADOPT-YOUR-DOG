@@ -22,7 +22,7 @@ public class CLIDogsPageController extends DogsPageController{
     public String getInsertedBreed() throws GenericSystemException{
         String insertedBreed;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
-        logger.info("=====================Inserisci razza da cercare=====================");
+        logger.info("Insert the breed to search");
         try {
             insertedBreed = reader.readLine();
         } catch (IOException e) {
@@ -34,7 +34,7 @@ public class CLIDogsPageController extends DogsPageController{
     public DogProfileBean getDogInfo() throws GenericSystemException{
         int insertedId;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
-        logger.info("=====================Inserisci l'id del cane a cui vorresti mandare la richiesta di adozione=====================");
+        logger.info("Insert the id of the dog you want to adopt");
         try {
             insertedId = Integer.parseInt(reader.readLine());
         } catch (IOException e) {

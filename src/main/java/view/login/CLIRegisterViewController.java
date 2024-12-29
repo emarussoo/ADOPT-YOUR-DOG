@@ -1,6 +1,8 @@
 package view.login;
 
+import exceptions.EmptyFieldsException;
 import exceptions.GenericSystemException;
+import exceptions.PasswordConfirmationException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +30,14 @@ public class CLIRegisterViewController extends RegisterViewController {
             password = reader.readLine();
             logger.info("Conferma password: ");
             confirmPassword = reader.readLine();
+
+            if(kennelName.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()){
+                throw new EmptyFieldsException("One or more fields are empty");
+            }
+
+            if(!confirmPassword.equals(password)){
+                throw new PasswordConfirmationException("The fields password and confirm password do not match");
+            }
             credentials.add(kennelName);
             credentials.add(username);
             credentials.add(password);

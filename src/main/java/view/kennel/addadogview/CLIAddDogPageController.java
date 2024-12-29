@@ -2,6 +2,7 @@ package view.kennel.addadogview;
 
 import exceptions.EmptyFieldsException;
 import exceptions.GenericSystemException;
+import exceptions.InvalidFieldException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,17 +21,23 @@ public class CLIAddDogPageController extends AddDogPageController {
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         logger.info("Inserisci i dati del cane");
         try {
-            logger.info("Nome del cane:");
+            logger.info("Dog name:");
             String dogName = reader.readLine();
             dogInfo.add(dogName);
-            logger.info("Eta del cane:");
+            logger.info("Dog age:");
             String dogAge = reader.readLine();
+
+            try{
+                Integer.parseInt(dogAge);
+            }catch(NumberFormatException e){
+                throw new InvalidFieldException("Make sure that dog age is valid");
+            }
             dogInfo.add(dogAge);
-            logger.info("Razza del cane:");
+            logger.info("Dog breed:");
             String dogBreed = reader.readLine();
             dogInfo.add(dogBreed);
             if(dogName.equals("")||dogAge.equals("")||dogBreed.equals("")){
-                throw new EmptyFieldsException("Uno o più campi sono vuoti");
+                throw new EmptyFieldsException("One or more fields are empty");
             }
         } catch (Exception e) {
             throw new GenericSystemException(e.getMessage());

@@ -14,13 +14,35 @@
    <center>
       <VBox prefHeight="718.0" prefWidth="923.0">
           <children>
-            <AnchorPane fx:id="ap" prefHeight="766.0" prefWidth="923.0">
+            <AnchorPane fx:id="ap" prefHeight="718.0" prefWidth="884.0">
                <children>
-                  <Text layoutX="395.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ciao">
-                     <font>
-                        <Font size="55.0" />
-                     </font>
-                  </Text>
+                  <VBox layoutY="136.0" prefHeight="334.0" prefWidth="845.0" style="-fx-spacing: 30px;">
+                     <children>
+                        <HBox prefHeight="269.0" prefWidth="823.0" style="-fx-alignment: center;">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME">
+                                 <font>
+                                    <Font size="49.0" />
+                                 </font>
+                              </Text>
+                              <ImageView fitHeight="206.0" fitWidth="336.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/user-home.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-alignment: center;">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Now it's time to save a dog!">
+                                 <font>
+                                    <Font size="26.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
           </children>
@@ -53,7 +75,7 @@
                         </Text>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" prefHeight="97.0" prefWidth="578.0" style="-fx-padding: 20px;">
+                <HBox alignment="CENTER_RIGHT" prefHeight="118.0" prefWidth="572.0" style="-fx-padding: 20px;">
                <children>
                   <Button fx:id="loginButton" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #2cc61e; -fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 24px; -fx-font-weight: bold;" text="LOGIN" textFill="WHITE">
                      <font>

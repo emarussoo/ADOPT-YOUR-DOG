@@ -102,7 +102,7 @@ public class UserWindowManager {
             String kennelIdBean = dogProfileBean.getKennelId();
             DogAdoptionRequestBean dogAdoptionRequestBean = new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
             presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
-            dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
+            dogAdoptionRequestPage.createMessage("Request sent");
         }catch(EmptyFieldsException | InvalidFieldException e){
             dogAdoptionRequestPage.createMessage(e.getMessage());
         }

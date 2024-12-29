@@ -23,7 +23,7 @@ public class GUIDogsPageController extends DogsPageController{
         title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
 
         HBox searchBar = new HBox(10);
-        breedSearchField.setPromptText("Inserisci la razza");
+        breedSearchField.setPromptText("Insert breed");
         breedSearchField.setStyle("-fx-min-height: 38px; -fx-font-size: 16px;");
         Button searchButton = new Button("Search");
         searchButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");

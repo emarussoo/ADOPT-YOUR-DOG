@@ -45,7 +45,7 @@ public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
         dogNameValue.setStyle(labelTextFormat);
         Label dogAgeLabel = new Label("Dog age:");
         dogAgeLabel.setStyle(labelTextFormat);
-        Label dogAgeValue = new Label(dogProfileBean.getDogAge()+" anni");
+        Label dogAgeValue = new Label(dogProfileBean.getDogAge()+" years old");
         dogAgeValue.setStyle(labelTextFormat);
         Label dogBreedLabel = new Label("Dog breed:");
         dogBreedLabel.setStyle(labelTextFormat);
@@ -58,10 +58,10 @@ public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
 
 
 
-        userNameField.setPromptText("Inserisci nome");
-        userSurnameField.setPromptText("Inserisci cognome");
-        userEmailField.setPromptText("Inserisci email");
-        userPhoneField.setPromptText("Inserisci numero di telefono");
+        userNameField.setPromptText("Insert name");
+        userSurnameField.setPromptText("Insert surname");
+        userEmailField.setPromptText("Insert email");
+        userPhoneField.setPromptText("Insert phone number");
 
         Button cancelButton = new Button("CANCEL");
         cancelButton.setStyle("-fx-background-color: red; -fx-font-size: 20px; -fx-min-width: 250px");
@@ -111,13 +111,13 @@ public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
     public List<String> getUserInfo() throws EmptyFieldsException, InvalidFieldException {
         List<String> dogAdoptionRequestInfo = new ArrayList<>();
         if(userNameField.getText().isEmpty() || userSurnameField.getText().isEmpty() || userEmailField.getText().isEmpty() || userPhoneField.getText().isEmpty()) {
-            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+            throw new EmptyFieldsException("Make sure that every field is filled");
         }
 
         try{
             Integer.parseInt(userPhoneField.getText());
         }catch(NumberFormatException e){
-            throw new InvalidFieldException("Inserisci numero di telefono valido");
+            throw new InvalidFieldException("Insert a valid phone number");
         }
 
         dogAdoptionRequestInfo.add(userNameField.getText());

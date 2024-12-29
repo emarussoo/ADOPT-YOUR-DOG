@@ -29,9 +29,9 @@ public class GUIAddDogPageController extends AddDogPageController {
         VBox vbox = new VBox();
         vbox.setSpacing(30);
         vbox.setAlignment(Pos.CENTER);
-        dogNameField.setPromptText("Nome del cane");
-        dogAgeField.setPromptText("Età del cane");
-        dogBreedField.setPromptText("Razza del cane");
+        dogNameField.setPromptText("Dog name");
+        dogAgeField.setPromptText("Dog Age");
+        dogBreedField.setPromptText("Dog breed");
 
         Button addButton = new Button();
         addButton.setText("AGGIUNGI");
@@ -53,7 +53,7 @@ public class GUIAddDogPageController extends AddDogPageController {
         try{
             Integer.parseInt(dogAgeField.getText());
         }catch(NumberFormatException e){
-            throw new InvalidFieldException("Assicurati di aver inserito nel campo età un numero");
+            throw new InvalidFieldException("Make sure that dog age is valid");
         }
 
         dogInfo.add(dogNameField.getText());
