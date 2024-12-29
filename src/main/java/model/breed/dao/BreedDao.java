@@ -16,7 +16,6 @@ import java.net.http.HttpResponse;
 import java.util.List;
 
 
-//TODO variazione con ritorno lista di razze e scelta numero visualizzazione in controller
 public class BreedDao {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 

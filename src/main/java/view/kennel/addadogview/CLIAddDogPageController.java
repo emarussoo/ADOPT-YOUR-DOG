@@ -2,7 +2,6 @@ package view.kennel.addadogview;
 
 import exceptions.EmptyFieldsException;
 import exceptions.GenericSystemException;
-import exceptions.InvalidFieldException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

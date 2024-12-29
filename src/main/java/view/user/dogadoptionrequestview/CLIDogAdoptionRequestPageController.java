@@ -2,7 +2,6 @@ package view.user.dogadoptionrequestview;
 
 import bean.DogProfileBean;
 import exceptions.GenericSystemException;
-import exceptions.InvalidFieldException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
