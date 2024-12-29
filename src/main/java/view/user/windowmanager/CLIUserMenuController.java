@@ -6,6 +6,8 @@ import org.apache.logging.log4j.Logger;
 import view.login.LoginManager;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
 
 public class CLIUserMenuController extends UserMenuController {
@@ -65,7 +67,7 @@ public class CLIUserMenuController extends UserMenuController {
         UserWindowManager.getSingletonInstance().showTest();
     }
 
-    public void submitTest(){
+    public void submitTest() throws URISyntaxException, IOException, InterruptedException {
         UserWindowManager.getSingletonInstance().submitTest();
     }
 

@@ -1,6 +1,7 @@
 package view.user.testview;
 
 import bean.BreedBean;
+import exceptions.GenericSystemException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -65,7 +66,11 @@ public class GUITestPageController extends TestPageController {
         Button submitButton = new Button("SUBMIT");
         submitButton.setStyle("-fx-min-height: 40px; -fx-min-width: 400px; -fx-background-color:  #2cc61e; -fx-font-size: 20px;");
         submitButton.setOnAction(actionEvent -> {
-            UserWindowManager.getSingletonInstance().submitTest();
+            try {
+                UserWindowManager.getSingletonInstance().submitTest();
+            } catch (URISyntaxException | InterruptedException | IOException e) {
+                throw new GenericSystemException(e.getMessage());
+            }
         });
         questionContainer.getChildren().add(submitButton);
 

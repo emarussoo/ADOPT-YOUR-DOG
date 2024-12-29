@@ -22,6 +22,7 @@ public class UserWindowManager {
     private final AdoptDogController presenter = new AdoptDogController();
 
     private static UserWindowManager instance = null;
+    private boolean launched = false;
 
     protected UserWindowManager() {
         // Inizializzazione se necessaria
@@ -43,7 +44,7 @@ public class UserWindowManager {
             showTestResult(resultBreed);
 
         } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw e;
+            throw new GenericSystemException(e.getMessage());
         }
     }
 
