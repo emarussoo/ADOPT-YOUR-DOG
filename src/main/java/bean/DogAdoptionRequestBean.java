@@ -21,12 +21,7 @@ public class DogAdoptionRequestBean{
     }
 
     public DogAdoptionRequestBean(String userFirstname, String userLastname, String userEmail, String userPhone, String dogId, String kennelId) {
-        this.userFirstname = userFirstname;
-        this.userLastname = userLastname;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
-        this.dogId = dogId;
-        this.kennelId = kennelId;
+        this(null, userFirstname, userLastname, userEmail, userPhone, dogId, kennelId);
     }
 
     public String getDarId() {

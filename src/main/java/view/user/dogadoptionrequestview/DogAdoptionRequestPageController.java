@@ -11,7 +11,7 @@ public abstract class DogAdoptionRequestPageController {
     public abstract void createMessage(String message);
     public void validatePhoneNumber(String phoneNumber) {
         try{
-            Integer.parseInt(phoneNumber);
+            Double.parseDouble(phoneNumber);
         }catch(NumberFormatException e){
             throw new InvalidFieldException("Insert a valid phone number");
         }
