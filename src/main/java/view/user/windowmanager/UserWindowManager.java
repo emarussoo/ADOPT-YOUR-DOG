@@ -43,10 +43,8 @@ public class UserWindowManager {
             BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
             showTestResult(resultBreed);
 
-        } catch (URISyntaxException | IOException | InterruptedException e) {
-            if (e instanceof InterruptedException) {
-                Thread.currentThread().interrupt(); // Ri-interrompe il thread
-            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 

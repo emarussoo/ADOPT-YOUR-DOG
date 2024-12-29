@@ -26,12 +26,7 @@ public class CLIAddDogPageController extends AddDogPageController {
             dogInfo.add(dogName);
             logger.info("Dog age:");
             String dogAge = reader.readLine();
-
-            try{
-                Integer.parseInt(dogAge);
-            }catch(NumberFormatException e){
-                throw new InvalidFieldException("Make sure that dog age is valid");
-            }
+            validateDogAge(dogAge);
             dogInfo.add(dogAge);
             logger.info("Dog breed:");
             String dogBreed = reader.readLine();

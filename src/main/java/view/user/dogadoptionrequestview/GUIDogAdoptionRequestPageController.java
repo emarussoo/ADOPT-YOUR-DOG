@@ -114,11 +114,7 @@ public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
             throw new EmptyFieldsException("Make sure that every field is filled");
         }
 
-        try{
-            Integer.parseInt(userPhoneField.getText());
-        }catch(NumberFormatException e){
-            throw new InvalidFieldException("Insert a valid phone number");
-        }
+        validatePhoneNumber(userPhoneField.getText());
 
         dogAdoptionRequestInfo.add(userNameField.getText());
         dogAdoptionRequestInfo.add(userSurnameField.getText());

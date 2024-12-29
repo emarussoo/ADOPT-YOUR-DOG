@@ -34,11 +34,9 @@ public class CLIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
             userInfo.add(email);
             logger.info("Phone number: ");
             String phone = reader.readLine();
-            Integer.parseInt(phone);
+            validatePhoneNumber(phone);
             userInfo.add(phone);
-        }catch (NumberFormatException e){
-            throw new InvalidFieldException("Insert a valid phone number");
-        } catch (IOException e) {
+        }catch (IOException e) {
             throw new GenericSystemException(e.getMessage());
         }
         return userInfo;

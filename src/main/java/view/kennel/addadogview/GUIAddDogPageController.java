@@ -50,11 +50,8 @@ public class GUIAddDogPageController extends AddDogPageController {
         if(dogNameField.getText().equals("") || dogAgeField.getText().equals("") || dogBreedField.getText().equals("")){
             throw new EmptyFieldsException("One or more fields are empty");
         }
-        try{
-            Integer.parseInt(dogAgeField.getText());
-        }catch(NumberFormatException e){
-            throw new InvalidFieldException("Make sure that dog age is valid");
-        }
+
+        validateDogAge(dogAgeField.getText());
 
         dogInfo.add(dogNameField.getText());
         dogInfo.add(dogAgeField.getText());
