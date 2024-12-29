@@ -21,6 +21,4 @@ module start.adoptyourdog {
     exports utils;
     opens utils to javafx.fxml;
     opens view.login to javafx.fxml;
-    exports view;
-    opens view to javafx.fxml;
 }

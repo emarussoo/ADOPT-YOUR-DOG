@@ -57,6 +57,11 @@
                         </Text>
                      </children>
                   </HBox>
+                  <Text fx:id="errorMessageField" fill="#eb0f0f" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
                   <Button mnemonicParsing="false" onAction="#backToUserPage" style="-fx-background-color: WHITE; -fx-border-color: #2cc61e; -fx-min-width: 200px; -fx-min-height: 40px;" text="BACK TO USER PAGE" textFill="#2cc61e" />
                </children>
             </VBox>

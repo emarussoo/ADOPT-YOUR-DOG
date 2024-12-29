@@ -1,13 +1,14 @@
 package presenter;
 
 import bean.LoginBean;
+import exceptions.IncorrectCredentialsException;
 import model.daofactory.DaoFactory;
 import model.kennel.Kennel;
 import model.login.KennelUser;
 import view.kennel.windowmanager.KennelWindowManager;
 
 public class LogInController {
-    public boolean auth(LoginBean loginBean){
+    public void auth(LoginBean loginBean) throws IncorrectCredentialsException {
         String username = loginBean.getUsername();
         String password = loginBean.getPassword();
 
@@ -15,9 +16,9 @@ public class LogInController {
         if(DaoFactory.getDaoSingletonFactory().createKennelUserDao().check(kennelUser)){
             KennelWindowManager.getSingletonInstance().setKennelId(kennelUser.getKennelId());
             System.out.println(kennelUser.getKennelId());
-            return true;
+        }else{
+            throw  new IncorrectCredentialsException("Incorrect Credentials");
         }
-        return false;
     }
 
     public void ultimateRegistration(Kennel kennel, KennelUser kennelUser){

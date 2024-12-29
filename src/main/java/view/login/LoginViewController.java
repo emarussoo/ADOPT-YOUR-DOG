@@ -1,6 +1,6 @@
 package view.login;
 
-import view.GraphicalController;
+import utils.GraphicalController;
 
 import java.util.List;
 

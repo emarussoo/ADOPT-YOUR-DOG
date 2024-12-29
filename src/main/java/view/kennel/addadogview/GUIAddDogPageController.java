@@ -1,13 +1,13 @@
 package view.kennel.addadogview;
 
+import exceptions.EmptyFieldsException;
+import exceptions.InvalidFieldException;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import view.kennel.windowmanager.KennelWindowManager;
-import view.user.windowmanager.UserWindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +45,17 @@ public class GUIAddDogPageController extends AddDogPageController {
         KennelWindowManager.getSingletonInstance().getKennelMenuController().setCentralView(vbox);
     }
 
-    public List<String> getDogInfo(){
+    public List<String> getDogInfo() throws EmptyFieldsException, InvalidFieldException {
         List<String> dogInfo = new ArrayList<>();
+        if(dogNameField.getText().equals("") || dogAgeField.getText().equals("") || dogBreedField.getText().equals("")){
+            throw new EmptyFieldsException("One or more fields are empty");
+        }
+        try{
+            Integer.parseInt(dogAgeField.getText());
+        }catch(NumberFormatException e){
+            throw new InvalidFieldException("Assicurati di aver inserito nel campo età un numero");
+        }
+
         dogInfo.add(dogNameField.getText());
         dogInfo.add(dogAgeField.getText());
         dogInfo.add(dogBreedField.getText());

@@ -1,5 +1,6 @@
 package view.login;
 
+import exceptions.EmptyFieldsException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.user.windowmanager.UserWindowManager;
@@ -17,7 +18,7 @@ public class CLILoginViewController extends LoginViewController{
     }
 
     @Override
-    public List<String> getLoginCredentials(){
+    public List<String> getLoginCredentials() throws EmptyFieldsException {
         List<String> credentials = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         String username;
@@ -27,6 +28,9 @@ public class CLILoginViewController extends LoginViewController{
             username = reader.readLine();
             logger.info("Inserisci password: ");
             password = reader.readLine();
+            if(username.isEmpty() || password.isEmpty()){
+                throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+            }
             credentials.add(username);
             credentials.add(password);
         } catch (IOException e) {

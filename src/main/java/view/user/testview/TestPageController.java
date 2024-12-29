@@ -1,7 +1,7 @@
 package view.user.testview;
 
 import bean.BreedBean;
-import view.GraphicalController;
+import utils.GraphicalController;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

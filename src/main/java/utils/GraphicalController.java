@@ -1,4 +1,4 @@
-package view;
+package utils;
 
 public interface GraphicalController {
 }

@@ -1,11 +1,9 @@
-package view;
+package utils;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 
 public class StageHandler {

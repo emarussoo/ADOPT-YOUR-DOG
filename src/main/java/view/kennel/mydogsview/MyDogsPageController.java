@@ -1,7 +1,7 @@
 package view.kennel.mydogsview;
 
 import bean.DogProfileBean;
-import view.GraphicalController;
+import utils.GraphicalController;
 
 import java.util.List;
 

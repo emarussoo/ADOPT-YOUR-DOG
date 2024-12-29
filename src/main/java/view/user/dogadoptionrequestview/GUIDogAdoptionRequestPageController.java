@@ -1,6 +1,8 @@
 package view.user.dogadoptionrequestview;
 
 import bean.DogProfileBean;
+import exceptions.EmptyFieldsException;
+import exceptions.InvalidFieldException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -106,8 +108,18 @@ public class GUIDogAdoptionRequestPageController extends DogAdoptionRequestPageC
         UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(dogAdoptionRequestContainer);
     }
 
-    public List<String> getUserInfo(){
+    public List<String> getUserInfo() throws EmptyFieldsException, InvalidFieldException {
         List<String> dogAdoptionRequestInfo = new ArrayList<>();
+        if(userNameField.getText().isEmpty() || userSurnameField.getText().isEmpty() || userEmailField.getText().isEmpty() || userPhoneField.getText().isEmpty()) {
+            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+        }
+
+        try{
+            Integer.parseInt(userPhoneField.getText());
+        }catch(NumberFormatException e){
+            throw new InvalidFieldException("Inserisci numero di telefono valido");
+        }
+
         dogAdoptionRequestInfo.add(userNameField.getText());
         dogAdoptionRequestInfo.add(userSurnameField.getText());
         dogAdoptionRequestInfo.add(userEmailField.getText());

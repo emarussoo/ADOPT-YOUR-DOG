@@ -1,20 +1,13 @@
 package view.login;
 
-import bean.LoginBean;
-import javafx.event.ActionEvent;
+import exceptions.EmptyFieldsException;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import presenter.LogInController;
-import view.StageHandler;
+import javafx.scene.text.Text;
+import utils.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
 import view.user.windowmanager.UserMenuController;
-import view.user.windowmanager.UserWindowManager;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +19,8 @@ public class GUILoginViewController extends LoginViewController{
     @FXML
     TextField password;
 
+    @FXML
+    Text errorMessageField;
     private GUILoginViewController() {
         //costruttore
 
@@ -50,15 +45,19 @@ public class GUILoginViewController extends LoginViewController{
 
     @FXML
     public void authentication(){
+        errorMessageField.setText("");
         LoginManager.getSingletonInstance().authenticate();
     }
 
 
     @Override
-    public List<String> getLoginCredentials(){
+    public List<String> getLoginCredentials() throws EmptyFieldsException {
         List<String> credentials = new ArrayList<>();
         String insertedUsername = this.username.getText();
         String insertedPassword = this.password.getText();
+        if(insertedUsername.isEmpty() || insertedPassword.isEmpty()){
+            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+        }
         credentials.add(insertedUsername);
         credentials.add(insertedPassword);
         return credentials;
@@ -75,7 +74,7 @@ public class GUILoginViewController extends LoginViewController{
     }
 
     public void showErrorMessage(String message){
-        //ci dovrà essere l'errore
+        errorMessageField.setText(message);
     }
 
 }

@@ -2,6 +2,8 @@ package view.kennel.windowmanager;
 
 import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
+import exceptions.EmptyFieldsException;
+import exceptions.InvalidFieldException;
 import presenter.ManageDarController;
 import presenter.ManageDogsController;
 import view.factory.GraphicalFactory;
@@ -57,15 +59,20 @@ public class KennelWindowManager {
     }
 
     public void submitAdd(){
-        List<String> dogInfo = addDogPage.getDogInfo();
-        String dogNameBean = dogInfo.get(0);
-        String dogAgeBean = dogInfo.get(1);
-        String dogBreedBean = dogInfo.get(2);
-        String kennelIdBean = String.valueOf(kennelId);
-        String kennelNameBean = "da cambiare";
-        DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
-        manageDogsController.addDog(dogProfileBean);
-        addDogPage.createMessage("Cane aggiunto correttamente");
+        List<String> dogInfo;
+        try {
+            dogInfo = addDogPage.getDogInfo();
+            String dogNameBean = dogInfo.get(0);
+            String dogAgeBean = dogInfo.get(1);
+            String dogBreedBean = dogInfo.get(2);
+            String kennelIdBean = String.valueOf(kennelId);
+            String kennelNameBean = "da cambiare";
+            DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
+            manageDogsController.addDog(dogProfileBean);
+            addDogPage.createMessage("Cane aggiunto correttamente");
+        }catch(EmptyFieldsException | InvalidFieldException e) {
+            addDogPage.createMessage(e.getMessage());
+        }
 
     }
     public static KennelWindowManager getSingletonInstance() {

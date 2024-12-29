@@ -1,7 +1,7 @@
 package view.kennel.managedogadoptionrequestview;
 
 import bean.DogAdoptionRequestBean;
-import view.GraphicalController;
+import utils.GraphicalController;
 
 import java.util.List;
 

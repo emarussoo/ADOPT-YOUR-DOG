@@ -4,9 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import view.StageHandler;
+import utils.StageHandler;
 import view.login.LoginManager;
-import view.user.windowmanager.UserWindowManager;
 
 import java.io.IOException;
 

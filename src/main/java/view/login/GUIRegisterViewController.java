@@ -1,11 +1,14 @@
 package view.login;
 
+import exceptions.EmptyFieldsException;
+import exceptions.PasswordConfirmationException;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import view.kennel.windowmanager.KennelWindowManager;
 
 import java.util.ArrayList;
@@ -21,6 +24,8 @@ public class GUIRegisterViewController extends RegisterViewController {
     TextField password;
     @FXML
     TextField confirmPassword;
+    @FXML
+    Text errorMessageField;
 
     private static GUIRegisterViewController instance = null;
     private GUIRegisterViewController() {}
@@ -38,11 +43,21 @@ public class GUIRegisterViewController extends RegisterViewController {
 
     public List<String> getRegisterCredentials(){
         List<String> registerCredentials = new ArrayList<>();
+        if(!confirmPassword.getText().equals(password.getText())){
+            throw new PasswordConfirmationException("I campi password e conferma password non corrispondono");
+        }
+        if(kennelName.getText().isEmpty() || username.getText().isEmpty() || password.getText().isEmpty() || confirmPassword.getText().isEmpty()){
+            throw new EmptyFieldsException("Assicurati di aver riempito tutti i campi");
+        }
         registerCredentials.add(kennelName.getText());
         registerCredentials.add(username.getText());
         registerCredentials.add(password.getText());
         registerCredentials.add(confirmPassword.getText());
         return registerCredentials;
+    }
+
+    public void showErrorMessage(String message){
+        errorMessageField.setText(message);
     }
 
 }

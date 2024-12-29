@@ -1,6 +1,8 @@
 package view.user.windowmanager;
 
 import bean.*;
+import exceptions.EmptyFieldsException;
+import exceptions.InvalidFieldException;
 import presenter.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
@@ -90,16 +92,20 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
-        List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();
-        String userNameBean = dogAdoptionRequestUserInfo.get(0);
-        String userSurnameBean = dogAdoptionRequestUserInfo.get(1);
-        String userEmailBean = dogAdoptionRequestUserInfo.get(2);
-        String userPhoneBean = dogAdoptionRequestUserInfo.get(3);
-        String dogIdBean = dogProfileBean.getDogId();
-        String kennelIdBean = dogProfileBean.getKennelId();
-        DogAdoptionRequestBean dogAdoptionRequestBean= new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
-        presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
-        dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
+        try {
+            List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();
+            String userNameBean = dogAdoptionRequestUserInfo.get(0);
+            String userSurnameBean = dogAdoptionRequestUserInfo.get(1);
+            String userEmailBean = dogAdoptionRequestUserInfo.get(2);
+            String userPhoneBean = dogAdoptionRequestUserInfo.get(3);
+            String dogIdBean = dogProfileBean.getDogId();
+            String kennelIdBean = dogProfileBean.getKennelId();
+            DogAdoptionRequestBean dogAdoptionRequestBean = new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
+            presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
+            dogAdoptionRequestPage.createMessage("Richiesta inviata correttamente");
+        }catch(EmptyFieldsException | InvalidFieldException e){
+            dogAdoptionRequestPage.createMessage(e.getMessage());
+        }
     }
 
 

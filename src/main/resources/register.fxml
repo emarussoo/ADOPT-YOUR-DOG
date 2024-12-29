@@ -57,7 +57,14 @@
                         </TextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-spacing: 50px;">
+                     <children>
+                        <Text fx:id="errorMessageField" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Text>
+                     </children></HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
                             <Button mnemonicParsing="false" onAction="#register" style="-fx-background-color: #2cc61e; -fx-min-height: 40px; -fx-min-width: 400px; -fx-font-size: 20PX;" text="REGISTER" textAlignment="CENTER" textFill="WHITE">

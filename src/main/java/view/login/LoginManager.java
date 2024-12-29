@@ -1,22 +1,17 @@
 package view.login;
 
 import bean.LoginBean;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import model.daofactory.DaoFactory;
+import exceptions.EmptyFieldsException;
+import exceptions.IncorrectCredentialsException;
+import exceptions.PasswordConfirmationException;
 import model.kennel.Kennel;
 import model.login.KennelUser;
 import presenter.LogInController;
-import view.GraphicalController;
-import view.StageHandler;
+import utils.StageHandler;
 import view.factory.GraphicalFactory;
 import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -41,33 +36,34 @@ public class LoginManager {
     }
 
     public void authenticate() {
-        boolean auth = false;
-        List<String> credentials = loginViewController.getLoginCredentials();
-        LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
-        auth = logInController.auth(loginBean);
-        if(auth){
+        try {
+            List<String> credentials = loginViewController.getLoginCredentials();
+            LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
+            logInController.auth(loginBean);
             kennelWindowManager.show();
-        }else{
-            loginViewController.showErrorMessage("Errore");
+        }catch(EmptyFieldsException | IncorrectCredentialsException e){
+            loginViewController.showErrorMessage(e.getMessage());
         }
     }
 
     public void register(){
-        List<String> credentials = registerViewController.getRegisterCredentials();
-        //controllo pw
-        String kennelName = credentials.get(0);
-        Kennel kennel = new Kennel(kennelName);
-
-        String username = credentials.get(1);
-        String password = credentials.get(2);
-        /////////////
-        KennelUser newUser = new KennelUser(username, password);
-        logInController.ultimateRegistration(kennel, newUser);
-        System.out.println("Utente registrato");
         try {
-            StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            List<String> credentials = registerViewController.getRegisterCredentials();
+            String kennelName = credentials.get(0);
+            Kennel kennel = new Kennel(kennelName);
+
+            String username = credentials.get(1);
+            String password = credentials.get(2);
+            KennelUser newUser = new KennelUser(username, password);
+            logInController.ultimateRegistration(kennel, newUser);
+            System.out.println("Utente registrato");
+            try {
+                StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }catch(EmptyFieldsException | PasswordConfirmationException e){
+            registerViewController.showErrorMessage(e.getMessage());
         }
     }
 

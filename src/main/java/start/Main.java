@@ -1,17 +1,11 @@
 package start;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import model.daofactory.DaoFactory;
-import model.dog.Dog;
-import view.StageHandler;
+import utils.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
 import view.user.windowmanager.UserWindowManager;
-
-import java.io.File;
 
 
 public class Main extends Application {
@@ -19,7 +13,7 @@ public class Main extends Application {
     public static void main(String[] args){
         Initialize initializer = new Initialize();
         initializer.init();
-        UserWindowManager.getSingletonInstance().show();
+       UserWindowManager.getSingletonInstance().show();
 
     }
 

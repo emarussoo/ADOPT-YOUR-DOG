@@ -37,4 +37,8 @@ public class CLIRegisterViewController extends RegisterViewController {
         return credentials;
 
     }
+
+    public void showErrorMessage(String message){
+        logger.info(message);
+    }
 }

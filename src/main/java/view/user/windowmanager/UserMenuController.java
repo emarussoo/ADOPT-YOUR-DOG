@@ -2,7 +2,7 @@ package view.user.windowmanager;
 
 
 import javafx.scene.Node;
-import view.GraphicalController;
+import utils.GraphicalController;
 
 
 public abstract class UserMenuController implements GraphicalController {
