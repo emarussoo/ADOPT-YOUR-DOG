@@ -46,7 +46,7 @@ public class KennelWindowManager {
 
     public void acceptDar(){
         DogAdoptionRequestBean toAcceptDar = manageDarPage.getDarInfo();
-        manageDarController.removeAllDarByDogId(Integer.parseInt(toAcceptDar.getDogId()));
+        manageDarController.removeAllDarByDogId(Integer.parseInt(toAcceptDar.getDogIdBean()));
         manageDogsController.removeDogByDar(toAcceptDar);
         showMyDars();
         //notifica utente

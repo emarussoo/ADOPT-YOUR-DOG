@@ -2,86 +2,91 @@ package bean;
 
 public class DogAdoptionRequestBean{
 
-    private String darId;
-    private String userFirstname;
-    private String userLastname;
-    private String userEmail;
-    private String userPhone;
-    private String dogId;
-    private String kennelId;
+    private String darIdBean;
+    private String userFirstnameBean;
+    private String userLastnameBean;
+    private String userEmailBean;
+    private String userPhoneBean;
+    private String dogIdBean;
+    private String kennelIdBean;
 
-    public DogAdoptionRequestBean(String darId, String userFirstname, String userLastname, String userEmail, String userPhone, String dogId, String kennelId) {
-        this.darId = darId;
-        this.userFirstname = userFirstname;
-        this.userLastname = userLastname;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
-        this.dogId = dogId;
-        this.kennelId = kennelId;
+    public DogAdoptionRequestBean(String darIdBean, String userFirstnameBean, String userLastnameBean, String userEmailBean, String userPhoneBean, String dogIdBean, String kennelIdBean) {
+        this.darIdBean = darIdBean;
+        this.userFirstnameBean = userFirstnameBean;
+        this.userLastnameBean = userLastnameBean;
+        this.userEmailBean = userEmailBean;
+        this.userPhoneBean = userPhoneBean;
+        this.dogIdBean = dogIdBean;
+        this.kennelIdBean = kennelIdBean;
     }
 
-    public DogAdoptionRequestBean(String userFirstname, String userLastname, String userEmail, String userPhone, String dogId, String kennelId) {
-        this(null, userFirstname, userLastname, userEmail, userPhone, dogId, kennelId);
+    public DogAdoptionRequestBean(String userFirstnameBean, String userLastnameBean, String userEmailBean, String userPhoneBean, String dogIdBean, String kennelIdBean) {
+        this.userFirstnameBean = userFirstnameBean;
+        this.userLastnameBean = userLastnameBean;
+        this.userEmailBean = userEmailBean;
+        this.userPhoneBean = userPhoneBean;
+        this.dogIdBean = dogIdBean;
+        this.kennelIdBean = kennelIdBean;
     }
 
-    public String getDarId() {
-        return darId;
+    public String getDarIdBean() {
+        return darIdBean;
     }
 
-    public void setDarId(String darId) {
-        this.darId = darId;
+    public void setDarIdBean(String darIdBean) {
+        this.darIdBean = darIdBean;
     }
 
-    public String getUserFirstname() {
-        return userFirstname;
+    public String getUserFirstnameBean() {
+        return userFirstnameBean;
     }
 
-    public void setUserFirstname(String userFirstname) {
-        this.userFirstname = userFirstname;
+    public void setUserFirstnameBean(String userFirstnameBean) {
+        this.userFirstnameBean = userFirstnameBean;
     }
 
-    public String getUserLastname() {
-        return userLastname;
+    public String getUserLastnameBean() {
+        return userLastnameBean;
     }
 
-    public void setUserLastname(String userLastname) {
-        this.userLastname = userLastname;
+    public void setUserLastnameBean(String userLastnameBean) {
+        this.userLastnameBean = userLastnameBean;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getUserEmailBean() {
+        return userEmailBean;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setUserEmailBean(String userEmailBean) {
+        this.userEmailBean = userEmailBean;
     }
 
-    public String getUserPhone() {
-        return userPhone;
+    public String getUserPhoneBean() {
+        return userPhoneBean;
     }
 
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
+    public void setUserPhoneBean(String userPhoneBean) {
+        this.userPhoneBean = userPhoneBean;
     }
 
-    public String getDogId() {
-        return dogId;
+    public String getDogIdBean() {
+        return dogIdBean;
     }
 
-    public void setDogId(String dogId) {
-        this.dogId = dogId;
+    public void setDogIdBean(String dogIdBean) {
+        this.dogIdBean = dogIdBean;
     }
 
-    public String getKennelId() {
-        return kennelId;
+    public String getKennelIdBean() {
+        return kennelIdBean;
     }
 
-    public void setKennelId(String kennelId) {
-        this.kennelId = kennelId;
+    public void setKennelIdBean(String kennelIdBean) {
+        this.kennelIdBean = kennelIdBean;
     }
 
     @Override
     public String toString(){
-        return String.format("%-25s %-25s %-25s %-45s %-30s %-25s", getDarId(), getUserFirstname(), getUserLastname(), getUserEmail(), getUserPhone(), getDogId());
+        return String.format("%-25s %-25s %-25s %-45s %-30s %-25s", getDarIdBean(), getUserFirstnameBean(), getUserLastnameBean(), getUserEmailBean(), getUserPhoneBean(), getDogIdBean());
     }
 }

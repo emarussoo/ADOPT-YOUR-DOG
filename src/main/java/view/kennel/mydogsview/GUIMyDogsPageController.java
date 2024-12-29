@@ -3,15 +3,11 @@ package view.kennel.mydogsview;
 import bean.DogProfileBean;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import view.kennel.windowmanager.KennelWindowManager;
-import view.user.windowmanager.UserWindowManager;
 
 import java.util.List;
 

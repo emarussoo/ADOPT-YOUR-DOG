@@ -32,7 +32,7 @@ public class ManageDogsController {
     }
 
     public void removeDogByDar(DogAdoptionRequestBean dogAdoptionRequestBean){
-        int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogId());
+        int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogIdBean());
         DaoFactory.getDaoSingletonFactory().createDogDao().removeDogById(dogId);
     }
 

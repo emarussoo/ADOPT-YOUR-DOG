@@ -1,7 +1,6 @@
 package view.kennel.managedogadoptionrequestview;
 
 import bean.DogAdoptionRequestBean;
-import bean.DogProfileBean;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -10,7 +9,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import view.kennel.windowmanager.KennelWindowManager;
-import view.user.windowmanager.UserWindowManager;
 
 import java.util.List;
 

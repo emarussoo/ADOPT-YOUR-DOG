@@ -15,7 +15,7 @@ public class CLIManageDarPageController extends ManageDarPageController {
 
     public void createDarList(List<DogAdoptionRequestBean> listOfDarsBean) {
         for(DogAdoptionRequestBean dar: listOfDarsBean){
-            logger.info("{}, {}, {}, {}, {}", dar.getDarId(), dar.getUserFirstname(), dar.getUserLastname(), dar.getUserEmail(), dar.getUserPhone());
+            logger.info("{}, {}, {}, {}, {}", dar.getDarIdBean(), dar.getUserFirstnameBean(), dar.getUserLastnameBean(), dar.getUserEmailBean(), dar.getUserPhoneBean());
         }
     }
 
