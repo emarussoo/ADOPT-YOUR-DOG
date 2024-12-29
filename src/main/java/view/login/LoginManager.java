@@ -57,7 +57,6 @@ public class LoginManager {
             String password = credentials.get(2);
             KennelUser newUser = new KennelUser(username, password);
             logInController.ultimateRegistration(kennel, newUser);
-            System.out.println("Utente registrato");
             try {
                 StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
             } catch (IOException e) {

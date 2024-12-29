@@ -21,7 +21,7 @@ public class FileKennelDao extends KennelDao{
             }
             kennel = null;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
 
         return kennel;
@@ -52,7 +52,7 @@ public class FileKennelDao extends KennelDao{
             writer.newLine();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return maxId;
     }

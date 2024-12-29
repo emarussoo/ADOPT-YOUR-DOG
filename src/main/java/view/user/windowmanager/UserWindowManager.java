@@ -35,7 +35,7 @@ public class UserWindowManager {
         testPage.createTest();
     }
 
-    public void submitTest() throws GenericSystemException {
+    public void submitTest() throws GenericSystemException, URISyntaxException, IOException, InterruptedException {
         try {
             List<String> listOfAnswers = testPage.getTestAnswers();
             TestBean testAnswers = new TestBean(listOfAnswers);
@@ -43,7 +43,7 @@ public class UserWindowManager {
             showTestResult(resultBreed);
 
         } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new GenericSystemException(e.getMessage());
+            throw e;
         }
     }
 

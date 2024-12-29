@@ -40,7 +40,7 @@ public class GUILoginViewController extends LoginViewController{
         try {
             StageHandler.getSingletonInstance().loadPage(controller, "/user-view.fxml");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
     }
 
