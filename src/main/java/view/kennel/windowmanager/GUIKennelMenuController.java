@@ -1,5 +1,6 @@
 package view.kennel.windowmanager;
 
+import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -28,12 +29,12 @@ public class GUIKennelMenuController extends KennelMenuController{
     private static GUIKennelMenuController instance = null;
 
     private GUIKennelMenuController() {}
-    public void show() {
+    public void show() throws GenericSystemException {
 
         try {
             StageHandler.getSingletonInstance().loadPage(GUIKennelMenuController.getSingletonInstance(), "/kennel-view.fxml");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
 
     }

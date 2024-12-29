@@ -1,5 +1,6 @@
 package model.kennel.dao;
 
+import exceptions.GenericSystemException;
 import model.kennel.Kennel;
 
 import java.io.*;
@@ -26,7 +27,7 @@ public class FileKennelDao extends KennelDao{
         return kennel;
     }
 
-    public int addKennel(Kennel kennel){
+    public int addKennel(Kennel kennel) throws GenericSystemException {
         int maxId = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(this.filepath))) {
             String line;
@@ -38,9 +39,9 @@ public class FileKennelDao extends KennelDao{
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
 
         maxId = maxId + 1;

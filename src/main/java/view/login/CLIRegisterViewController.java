@@ -1,5 +1,6 @@
 package view.login;
 
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class CLIRegisterViewController extends RegisterViewController {
     private static final Logger logger = LogManager.getLogger(CLIRegisterViewController.class.getName());
-    public List<String> getRegisterCredentials(){
+    public List<String> getRegisterCredentials() throws GenericSystemException {
         List<String> credentials = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         String kennelName;
@@ -32,7 +33,7 @@ public class CLIRegisterViewController extends RegisterViewController {
             credentials.add(password);
             credentials.add(confirmPassword);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return credentials;
 

@@ -2,6 +2,7 @@ package view.user.windowmanager;
 
 import bean.*;
 import exceptions.EmptyFieldsException;
+import exceptions.GenericSystemException;
 import exceptions.InvalidFieldException;
 import presenter.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
@@ -34,19 +35,15 @@ public class UserWindowManager {
         testPage.createTest();
     }
 
-    public void submitTest(){
+    public void submitTest() throws GenericSystemException {
         try {
             List<String> listOfAnswers = testPage.getTestAnswers();
             TestBean testAnswers = new TestBean(listOfAnswers);
             BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
             showTestResult(resultBreed);
 
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        } catch (URISyntaxException | IOException | InterruptedException e) {
+            throw new GenericSystemException(e.getMessage());
         }
     }
 

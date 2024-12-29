@@ -1,5 +1,6 @@
 package view.user.windowmanager;
 
+import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -67,7 +68,7 @@ public class GUIUserMenuController extends UserMenuController {
         try {
             StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException();
         }
     }
 }

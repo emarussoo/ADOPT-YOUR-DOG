@@ -1,5 +1,6 @@
 package model.login.dao;
 
+import exceptions.GenericSystemException;
 import model.login.KennelUser;
 import utils.ConnectionHandler;
 
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DbmsKennelUserDao extends KennelUserDao {
-    public boolean check(KennelUser user) {
+    public boolean check(KennelUser user) throws GenericSystemException {
         String query = "SELECT kennel_id FROM user WHERE username = ? AND pw = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement kennelUserStatement = connection.prepareStatement(query)){
@@ -22,12 +23,12 @@ public class DbmsKennelUserDao extends KennelUserDao {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return false;
     }
 
-    public void add(KennelUser user) {
+    public void add(KennelUser user) throws GenericSystemException {
         String query = "INSERT INTO user (username, pw, kennel_id) VALUES (?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement userStatement = connection.prepareStatement(query)){
@@ -36,7 +37,7 @@ public class DbmsKennelUserDao extends KennelUserDao {
             userStatement.setInt(3, user.getKennelId());
             userStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
     }
 }

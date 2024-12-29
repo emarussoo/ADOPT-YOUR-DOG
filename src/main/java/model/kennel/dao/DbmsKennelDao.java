@@ -1,12 +1,13 @@
 package model.kennel.dao;
 
+import exceptions.GenericSystemException;
 import model.kennel.Kennel;
 import utils.ConnectionHandler;
 
 import java.sql.*;
 
 public class DbmsKennelDao extends KennelDao{
-    public Kennel getKennelById(int kennelId) {
+    public Kennel getKennelById(int kennelId) throws GenericSystemException {
         Kennel kennel = new Kennel();
         String query = "SELECT id,name FROM kennels WHERE ID = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
@@ -21,13 +22,13 @@ public class DbmsKennelDao extends KennelDao{
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //dbms implementation of load operation
         return kennel;
     }
 
-    public int addKennel(Kennel kennel) {
+    public int addKennel(Kennel kennel) throws GenericSystemException {
         int addedKennelId = -1;
         String query = "INSERT INTO kennels (name) VALUES (?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
@@ -39,7 +40,7 @@ public class DbmsKennelDao extends KennelDao{
                 addedKennelId = generatedKeys.getInt(1);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return addedKennelId;
     }

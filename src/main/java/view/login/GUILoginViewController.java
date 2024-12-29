@@ -1,6 +1,7 @@
 package view.login;
 
 import exceptions.EmptyFieldsException;
+import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -64,12 +65,12 @@ public class GUILoginViewController extends LoginViewController{
     }
 
     @FXML
-    public void goToRegister(){
+    public void goToRegister() throws GenericSystemException {
         GUIRegisterViewController controller = GUIRegisterViewController.getInstance();
         try {
             StageHandler.getSingletonInstance().loadPage(controller, "/register.fxml");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
     }
 

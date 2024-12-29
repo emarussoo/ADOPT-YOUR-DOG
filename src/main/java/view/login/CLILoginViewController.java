@@ -1,6 +1,7 @@
 package view.login;
 
 import exceptions.EmptyFieldsException;
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.user.windowmanager.UserWindowManager;
@@ -18,7 +19,7 @@ public class CLILoginViewController extends LoginViewController{
     }
 
     @Override
-    public List<String> getLoginCredentials() throws EmptyFieldsException {
+    public List<String> getLoginCredentials() throws EmptyFieldsException, GenericSystemException {
         List<String> credentials = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         String username;
@@ -34,7 +35,7 @@ public class CLILoginViewController extends LoginViewController{
             credentials.add(username);
             credentials.add(password);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return credentials;
     }

@@ -2,6 +2,7 @@ package view.login;
 
 import bean.LoginBean;
 import exceptions.EmptyFieldsException;
+import exceptions.GenericSystemException;
 import exceptions.IncorrectCredentialsException;
 import exceptions.PasswordConfirmationException;
 import model.kennel.Kennel;
@@ -46,7 +47,7 @@ public class LoginManager {
         }
     }
 
-    public void register(){
+    public void register() throws GenericSystemException {
         try {
             List<String> credentials = registerViewController.getRegisterCredentials();
             String kennelName = credentials.get(0);
@@ -60,7 +61,7 @@ public class LoginManager {
             try {
                 StageHandler.getSingletonInstance().loadPage(loginViewController, "/login.fxml");
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                throw new GenericSystemException(e.getMessage());
             }
         }catch(EmptyFieldsException | PasswordConfirmationException e){
             registerViewController.showErrorMessage(e.getMessage());

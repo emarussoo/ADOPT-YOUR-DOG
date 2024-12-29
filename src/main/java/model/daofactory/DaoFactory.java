@@ -1,5 +1,6 @@
 package model.daofactory;
 
+import exceptions.GenericSystemException;
 import model.dog.dao.DogDao;
 import model.dogadoptionrequest.dao.DogAdoptionRequestDao;
 import model.kennel.dao.KennelDao;
@@ -22,7 +23,7 @@ public abstract class DaoFactory {
 
     }
 
-    public static DaoFactory getDaoSingletonFactory() throws RuntimeException{
+    public static DaoFactory getDaoSingletonFactory() throws GenericSystemException {
         Properties prop = new Properties();
         try(FileInputStream config = new FileInputStream("src/main/resources/config.properties")){
             prop.load(config);
@@ -43,9 +44,9 @@ public abstract class DaoFactory {
             }
 
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return instance;
     }

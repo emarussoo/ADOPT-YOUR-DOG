@@ -1,6 +1,7 @@
 package view.kennel.addadogview;
 
 import exceptions.EmptyFieldsException;
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,7 +15,7 @@ public class CLIAddDogPageController extends AddDogPageController {
         logger.info("Stai inserendo un nuovo cane che sarà possibile adottare");
     }
 
-    public List<String> getDogInfo() throws EmptyFieldsException {
+    public List<String> getDogInfo() throws EmptyFieldsException, GenericSystemException {
         List<String> dogInfo = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         logger.info("Inserisci i dati del cane");
@@ -32,7 +33,7 @@ public class CLIAddDogPageController extends AddDogPageController {
                 throw new EmptyFieldsException("Uno o più campi sono vuoti");
             }
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return dogInfo;
     }

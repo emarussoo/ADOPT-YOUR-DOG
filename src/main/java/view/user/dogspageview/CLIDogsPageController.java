@@ -1,6 +1,7 @@
 package view.user.dogspageview;
 
 import bean.DogProfileBean;
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.user.windowmanager.UserWindowManager;
@@ -18,26 +19,26 @@ public class CLIDogsPageController extends DogsPageController{
         }
     }
 
-    public String getInsertedBreed(){
+    public String getInsertedBreed() throws GenericSystemException{
         String insertedBreed;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         logger.info("=====================Inserisci razza da cercare=====================");
         try {
             insertedBreed = reader.readLine();
         } catch (IOException e) {
-            throw new IllegalStateException();
+            throw new GenericSystemException(e.getMessage());
         }
         return insertedBreed;
     }
 
-    public DogProfileBean getDogInfo(){
+    public DogProfileBean getDogInfo() throws GenericSystemException{
         int insertedId;
         BufferedReader reader = new BufferedReader(new java.io.InputStreamReader(System.in));
         logger.info("=====================Inserisci l'id del cane a cui vorresti mandare la richiesta di adozione=====================");
         try {
             insertedId = Integer.parseInt(reader.readLine());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return UserWindowManager.getSingletonInstance().getPresenter().getDogById(insertedId);
     }

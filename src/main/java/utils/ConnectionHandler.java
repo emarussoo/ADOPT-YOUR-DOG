@@ -1,5 +1,7 @@
 package utils;
 
+import exceptions.GenericSystemException;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,7 +14,7 @@ public class ConnectionHandler {
     private static ConnectionHandler instance = null;
     Properties prop = new Properties();
     Connection connection;
-    private ConnectionHandler() {
+    private ConnectionHandler() throws GenericSystemException {
         try(FileInputStream dbInfoFile = new FileInputStream("src/main/resources/database.properties")){
             prop.load(dbInfoFile);
             String connectionUrl = prop.getProperty("url");
@@ -21,11 +23,11 @@ public class ConnectionHandler {
 
             connection =  DriverManager.getConnection(connectionUrl, user, pass);
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new GenericSystemException(e.getMessage());
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
     }
 

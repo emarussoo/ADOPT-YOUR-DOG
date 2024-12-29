@@ -1,5 +1,6 @@
 package model.dog.dao;
 
+import exceptions.GenericSystemException;
 import model.dog.Dog;
 import utils.ConnectionHandler;
 
@@ -10,7 +11,7 @@ import java.sql.*;
 
 public class DbmsDogDao extends DogDao{
     @Override
-    public Dog getDogById(int dogId){
+    public Dog getDogById(int dogId) throws GenericSystemException {
         Dog dog = new Dog();
         String query = "SELECT id, name, age, breed, kennel_id FROM DOGS WHERE ID = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
@@ -32,12 +33,12 @@ public class DbmsDogDao extends DogDao{
 
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //dbms implementation of load operation
         return dog;
     }
-    public void add(Dog dog){
+    public void add(Dog dog) throws GenericSystemException {
         String query = "INSERT INTO DOGS (name, age, breed, kennel_id) VALUES ( ?, ?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
@@ -47,23 +48,23 @@ public class DbmsDogDao extends DogDao{
             dogsStatement.setInt(4, dog.getKennelId());
             dogsStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }//dbms implementation of add operation
 
     }
-    public void removeDogById(int dogId){
+    public void removeDogById(int dogId) throws GenericSystemException {
         String query = "DELETE FROM dogs WHERE id = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement dogsStatement = connection.prepareStatement(query)){
             dogsStatement.setInt(1, dogId);
             dogsStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
 
         //dbms implementation of delete operation
     }
-    public List<Dog> getAllDogs(){
+    public List<Dog> getAllDogs() throws GenericSystemException {
         List<Dog> allDogs = new ArrayList<>();
         String query = "SELECT id, name, age, breed, kennel_id FROM DOGS";
         Connection connection = ConnectionHandler.getInstance().getConnection();
@@ -80,7 +81,7 @@ public class DbmsDogDao extends DogDao{
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //dbms implementation of getalldogs operation
         return allDogs;

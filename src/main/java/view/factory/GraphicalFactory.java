@@ -1,5 +1,6 @@
 package view.factory;
 
+import exceptions.GenericSystemException;
 import view.kennel.addadogview.AddDogPageController;
 import view.kennel.managedogadoptionrequestview.ManageDarPageController;
 import view.kennel.mydogsview.MyDogsPageController;
@@ -36,7 +37,7 @@ public abstract class GraphicalFactory {
     public abstract ManageDarPageController createManageDarPageController();
     public abstract AddDogPageController createAddDogPageController();
     //singleton
-    public static synchronized GraphicalFactory getGraphicalSingletonFactory(){
+    public static synchronized GraphicalFactory getGraphicalSingletonFactory() throws GenericSystemException {
         Properties prop = new Properties();
 
         try (FileInputStream fis = new FileInputStream("src/main/resources/config.properties")) {
@@ -51,9 +52,9 @@ public abstract class GraphicalFactory {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         return instance;
     }

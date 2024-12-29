@@ -1,5 +1,6 @@
 package model.dogadoptionrequest.dao;
 
+import exceptions.GenericSystemException;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import utils.ConnectionHandler;
 
@@ -18,7 +19,7 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
     }
 
     @Override
-    public void add(DogAdoptionRequest dogAdoptionRequest){
+    public void add(DogAdoptionRequest dogAdoptionRequest) throws GenericSystemException {
         String query = "INSERT INTO dog_adoption_request (user_firstname, user_lastname, user_email, user_phone, dog_id, kennel_id) VALUES (?, ?, ?, ?, ?, ?)";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement darStatement = connection.prepareStatement(query)){
@@ -31,34 +32,34 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
             darStatement.execute();
             currenntDarId++;
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //add
     }
-    public void removeAllDarByDogId(int dogId){
+    public void removeAllDarByDogId(int dogId) throws GenericSystemException {
         String query = "DELETE FROM dog_adoption_request WHERE dog_id = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement darStatement = connection.prepareStatement(query)){
             darStatement.setInt(1, dogId);
             darStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //delete
     }
 
-    public void removeDarById(int darId){
+    public void removeDarById(int darId) throws GenericSystemException {
         String query = "DELETE FROM dog_adoption_request WHERE id = ?";
         Connection connection = ConnectionHandler.getInstance().getConnection();
         try(PreparedStatement darStatement = connection.prepareStatement(query)){
             darStatement.setInt(1, darId);
             darStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
     }
 
-    public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
+    public List<DogAdoptionRequest> getAllDogAdoptionRequest() throws GenericSystemException {
         List<DogAdoptionRequest> allDars = new ArrayList<>();
         String query = "SELECT id, user_firstname, user_lastname, user_email, user_phone, dog_id, kennel_id FROM dog_adoption_request";
         Connection connection = ConnectionHandler.getInstance().getConnection();
@@ -77,7 +78,7 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new GenericSystemException(e.getMessage());
         }
         //dbms implementation of getalldogs operation
         return allDars;
