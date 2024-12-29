@@ -59,7 +59,9 @@ public class CLIUserMenuController extends UserMenuController {
                 }
 
             }catch(Exception e){
-                throw new GenericSystemException(e.getMessage());
+                if (e instanceof InterruptedException) {
+                    Thread.currentThread().interrupt(); // Ri-interrompe il thread
+                }
             }
         }
     }

@@ -44,7 +44,9 @@ public class UserWindowManager {
             showTestResult(resultBreed);
 
         } catch (URISyntaxException | IOException | InterruptedException e) {
-            throw new GenericSystemException(e.getMessage());
+            if (e instanceof InterruptedException) {
+                Thread.currentThread().interrupt(); // Ri-interrompe il thread
+            }
         }
     }
 
