@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import utils.StageHandler;
 import view.login.LoginManager;
 
@@ -12,27 +13,32 @@ import java.io.IOException;
 
 public class GUIKennelMenuController extends KennelMenuController{
     @FXML
-    Button addDogButton;
+    private Button addDogButton;
 
     @FXML
-    Button darButton;
+    private Button darButton;
 
     @FXML
-    Button myDogsButton;
+    private Button myDogsButton;
 
     @FXML
-    BorderPane bp;
+    private BorderPane bp;
+
+    @FXML
+    private Text kennelName;
 
     private String unselectedButtonStyle = "-fx-background-color: white; -fx-border-color:  #2cc61e";
     private String selectedButtonStyle = "-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e";
 
     private static GUIKennelMenuController instance = null;
 
-    private GUIKennelMenuController() {}
+    private GUIKennelMenuController() {
+    }
     public void show() throws GenericSystemException {
 
         try {
-            StageHandler.getSingletonInstance().loadPage(GUIKennelMenuController.getSingletonInstance(), "/kennel-view.fxml");
+            StageHandler.getSingletonInstance().loadPage(this, "/kennel-view.fxml");
+            kennelName.setText(KennelWindowManager.getSingletonInstance().getKennelName());
         } catch (IOException e) {
             throw new GenericSystemException(e.getMessage());
         }

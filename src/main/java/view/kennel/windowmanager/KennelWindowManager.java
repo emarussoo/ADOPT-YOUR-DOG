@@ -4,6 +4,7 @@ import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import exceptions.EmptyFieldsException;
 import exceptions.InvalidFieldException;
+import model.daofactory.DaoFactory;
 import presenter.ManageDarController;
 import presenter.ManageDogsController;
 import view.factory.GraphicalFactory;
@@ -96,6 +97,10 @@ public class KennelWindowManager {
 
     public int getKennelId() {
         return kennelId;
+    }
+
+    public String getKennelName(){
+        return DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelId).getKennelName();
     }
 
     public void setKennelId(int kennelId) {

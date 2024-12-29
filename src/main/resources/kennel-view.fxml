@@ -15,13 +15,31 @@
         <VBox prefHeight="718.0" prefWidth="923.0">
             <children>
                 <AnchorPane fx:id="ap" prefHeight="766.0" prefWidth="923.0">
-                    <children>
-                        <Text layoutX="395.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ciao">
-                            <font>
-                                <Font size="55.0" />
-                            </font>
-                        </Text>
-                    </children>
+               <children>
+                  <HBox prefHeight="716.0" prefWidth="922.0" style="-fx-alignment: center; -fx-max-width: 800px; -fx-max-height: 600px;">
+                     <children>
+                        <VBox minWidth="306.0" prefHeight="716.0" prefWidth="306.0" style="-fx-min-width: 250px; -fx-alignment: center; -fx-padding: 30px;">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WELCOME BACK">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="kennelName" fill="#2cc61e" strokeType="OUTSIDE" strokeWidth="0.0" text="name">
+                                 <font>
+                                    <Font size="39.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="186.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/kennel-home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
                 </AnchorPane>
             </children>
         </VBox>
@@ -53,7 +71,7 @@
                         </Text>
                     </children>
                 </HBox>
-                <HBox alignment="CENTER_RIGHT" prefHeight="97.0" prefWidth="578.0" style="-fx-padding: 20px;">
+                <HBox alignment="CENTER_RIGHT" prefHeight="118.0" prefWidth="499.0" style="-fx-padding: 20px;">
                     <children>
                         <Button fx:id="logout" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: RED; -fx-min-width: 100px; -fx-min-height: 50px; -fx-font-size: 24px; -fx-font-weight: bold;" text="LOGOUT" textFill="WHITE">
                             <font>

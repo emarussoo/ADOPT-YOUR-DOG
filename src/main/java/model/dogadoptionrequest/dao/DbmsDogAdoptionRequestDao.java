@@ -15,7 +15,27 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
     int currenntDarId = 0;
     @Override
     public DogAdoptionRequest getDarById(int darId){
-        return null;
+        DogAdoptionRequest dar = null;
+        String query = "SELECT id, user_firstname, user_lastname, user_email, user_phone, dog_id, kennel_id FROM dog_adoption_request WHERE id = ?";
+        Connection connection = ConnectionHandler.getInstance().getConnection();
+        try(PreparedStatement darStatement = connection.prepareStatement(query)){
+            darStatement.setInt(1, darId);
+            try(ResultSet rs = darStatement.executeQuery()){
+                if(rs.next()){
+                    int id = rs.getInt("id");
+                    String userFirstname = rs.getString("user_firstname");
+                    String userLastname = rs.getString("user_lastname");
+                    String userEmail = rs.getString("user_email");
+                    String userPhone = rs.getString("user_phone");
+                    int dogId = rs.getInt("dog_id");
+                    int kennelId = rs.getInt("kennel_id");
+                    dar = new DogAdoptionRequest(id, userFirstname, userLastname, userEmail, userPhone, dogId, kennelId);
+                }
+            }
+        } catch (SQLException e) {
+            throw new GenericSystemException(e.getMessage());
+        }
+        return dar;
     }
 
     @Override
