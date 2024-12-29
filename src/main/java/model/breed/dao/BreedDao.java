@@ -2,6 +2,7 @@ package model.breed.dao;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import exceptions.GenericSystemException;
 import model.breed.Breed;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -73,8 +74,7 @@ public class BreedDao {
             return new Breed(imageLink, name, coatLength, playfulness, protectiveness, energy, barking);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new GenericSystemException(e.getMessage());
         }
-    return null;
     }
 }

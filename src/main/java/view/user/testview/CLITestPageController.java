@@ -1,6 +1,7 @@
 package view.user.testview;
 
 import bean.BreedBean;
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
@@ -30,7 +31,7 @@ public class CLITestPageController extends TestPageController {
                 String answer = reader.readLine();
                 answersList.add(answer);
             }catch(Exception e){
-                e.printStackTrace();
+                throw new GenericSystemException(e.getMessage());
             }
         }
         return answersList;

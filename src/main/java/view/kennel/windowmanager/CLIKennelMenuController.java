@@ -1,5 +1,6 @@
 package view.kennel.windowmanager;
 
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.login.LoginManager;
@@ -47,7 +48,7 @@ public class CLIKennelMenuController extends KennelMenuController{
                 }
 
             }catch(Exception e){
-                e.printStackTrace();
+                throw new GenericSystemException(e.getMessage());
             }
         }
     }
