@@ -22,7 +22,7 @@ public abstract class DaoFactory {
 
     }
 
-    public static DaoFactory getDaoSingletonFactory(){
+    public static DaoFactory getDaoSingletonFactory() throws RuntimeException{
         Properties prop = new Properties();
         try(FileInputStream config = new FileInputStream("src/main/resources/config.properties")){
             prop.load(config);
