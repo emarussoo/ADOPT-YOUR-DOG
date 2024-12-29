@@ -1,6 +1,7 @@
 package view.user.windowmanager;
 
 import bean.DogProfileBean;
+import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.login.LoginManager;
@@ -58,7 +59,7 @@ public class CLIUserMenuController extends UserMenuController {
                 }
 
             }catch(Exception e){
-                e.printStackTrace();
+                throw new GenericSystemException(e.getMessage());
             }
         }
     }
