@@ -54,7 +54,9 @@ public class KennelWindowManager {
 
     public void rejectDar(){
         DogAdoptionRequestBean toRemoveDar = manageDarPage.getDarInfo();
+        String email = toRemoveDar.getUserEmailBean();
         manageDarController.removeDar(toRemoveDar);
+        manageDarController.sendEmail(email);
         //notifica utente
         showMyDars();
     }

@@ -53,4 +53,8 @@ public class ManageDarController {
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().removeAllDarByDogId(dogId);
 
     }
+
+    public void sendEmail(String email){
+        //send email to user email
+    }
 }
