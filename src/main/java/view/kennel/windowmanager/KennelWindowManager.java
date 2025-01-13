@@ -74,6 +74,7 @@ public class KennelWindowManager {
         DogAdoptionRequestBean toAcceptDar = manageDarPage.getDarInfo();
         manageDarController.removeAllDarByDogId(Integer.parseInt(toAcceptDar.getDogIdBean()));
         manageDogsController.removeDogByDar(toAcceptDar);
+        loggedKennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(loggedKennel.getKennelId());
         showMyDars();
         //notifica utente
     }
@@ -84,6 +85,7 @@ public class KennelWindowManager {
         manageDarController.removeDar(toRemoveDar);
         manageDarController.sendEmail(email);
         //notifica utente
+        loggedKennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(loggedKennel.getKennelId());
         showMyDars();
     }
 
@@ -97,6 +99,7 @@ public class KennelWindowManager {
             String kennelIdBean = String.valueOf(loggedKennel.getKennelId());
             DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean);
             manageDogsController.addDog(dogProfileBean);
+            loggedKennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(loggedKennel.getKennelId());
             addDogPage.createMessage("Dog added");
         }catch(EmptyFieldsException | InvalidFieldException e) {
             addDogPage.createMessage(e.getMessage());
