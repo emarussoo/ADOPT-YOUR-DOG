@@ -13,7 +13,7 @@ public class Main extends Application {
     public static void main(String[] args){
         Initialize initializer = new Initialize();
         initializer.init();
-       UserWindowManager.getSingletonInstance().show();
+        UserWindowManager.getSingletonInstance().show();
 
     }
 

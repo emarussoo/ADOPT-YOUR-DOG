@@ -5,6 +5,7 @@ import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import model.kennel.Kennel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class KennelDao {
@@ -15,18 +16,23 @@ public abstract class KennelDao {
         List<Dog> kennelDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
         List<DogAdoptionRequest> kennelRequests = DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getAllDogAdoptionRequest();
 
+        List <Dog> newDogsList = new ArrayList<>();
+        List<DogAdoptionRequest> newDarList = new ArrayList<>();
+
         for (Dog kennelDog : kennelDogs) {
-            if(kennelDog.getKennelId() == kennelId){
-                kennel.addDog(kennelDog);
+            if(kennelDog.getKennel().getKennelId() == kennelId){
+                newDogsList.add(kennelDog);
             }
         }
 
         for (DogAdoptionRequest kennelRequest : kennelRequests) {
-            if(kennelRequest.getKennelId() == kennelId){
-                kennel.addRequest(kennelRequest);
+            if(kennelRequest.getKennel().getKennelId() == kennelId){
+                newDarList.add(kennelRequest);
             }
         }
 
+        kennel.setKennelDogs(newDogsList);
+        kennel.setKennelRequests(newDarList);
         return kennel;
     }
 }

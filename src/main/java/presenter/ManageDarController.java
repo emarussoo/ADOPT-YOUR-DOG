@@ -19,8 +19,8 @@ public class ManageDarController {
         String userLastNameBean = dogAdoptionRequest.getUserLastname();
         String userEmailBean = dogAdoptionRequest.getUserEmail();
         String userPhoneBean = dogAdoptionRequest.getUserPhone();
-        String dogIdBean = Integer.toString(dogAdoptionRequest.getDogId());
-        String kennelIdBean = Integer.toString(dogAdoptionRequest.getKennelId());
+        String dogIdBean = Integer.toString(dogAdoptionRequest.getDog().getDogId());
+        String kennelIdBean = Integer.toString(dogAdoptionRequest.getKennel().getKennelId());
         return new DogAdoptionRequestBean(darIdBean, userFirstNameBean, userLastNameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
     }
 
@@ -29,14 +29,14 @@ public class ManageDarController {
         List<DogAdoptionRequestBean> filteredDarList = new ArrayList<>();
         listOfDar = DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().getAllDogAdoptionRequest();
         for(DogAdoptionRequest dar : listOfDar){
-            if(dar.getKennelId() == kennelId){
+            if(dar.getKennel().getKennelId() == kennelId){
                 String darIdBean = Integer.toString(dar.getDarId());
                 String userFirstNameBean = dar.getUserFirstname();
                 String userLastNameBean = dar.getUserLastname();
                 String userEmailBean = dar.getUserEmail();
                 String userPhoneBean = dar.getUserPhone();
-                String dogIdBean = Integer.toString(dar.getDogId());
-                String kennelIdBean = Integer.toString(dar.getKennelId());
+                String dogIdBean = Integer.toString(dar.getDog().getDogId());
+                String kennelIdBean = Integer.toString(dar.getKennel().getKennelId());
                 filteredDarList.add(new DogAdoptionRequestBean(darIdBean, userFirstNameBean, userLastNameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean));
             }
         }

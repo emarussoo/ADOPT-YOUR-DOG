@@ -17,11 +17,18 @@ public class DogProfileBean{
         this.kennelId = kennelId;
     }
 
-    public DogProfileBean(String dogName, String dogAge, String dogBreed, String kennelName, String kennelId) {
+    public DogProfileBean(String dogId, String dogName, String dogAge, String dogBreed, String kennelId) {
+        this.dogId = dogId;
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
-        this.kennelName = kennelName;
+        this.kennelId = kennelId;
+    }
+
+    public DogProfileBean(String dogName, String dogAge, String dogBreed, String kennelId) {
+        this.dogName = dogName;
+        this.dogAge = dogAge;
+        this.dogBreed = dogBreed;
         this.kennelId = kennelId;
     }
 

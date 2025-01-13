@@ -35,7 +35,7 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
     public void removeAllDarByDogId(int dogId){
         List<DogAdoptionRequest> newList = new ArrayList<>();
         for(DogAdoptionRequest dar: demoListOfDogAdoptionRequest){
-            if(dar.getDogId() != dogId){
+            if(dar.getDog().getDogId() != dogId){
                 newList.add(dar);
             }
         }

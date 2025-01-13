@@ -1,6 +1,7 @@
 package model.dog.dao;
 
 import exceptions.GenericSystemException;
+import model.daofactory.DaoFactory;
 import model.dog.Dog;
 import utils.ConnectionHandler;
 
@@ -28,7 +29,7 @@ public class DbmsDogDao extends DogDao{
                     dog.setDogName(dogNameResult);
                     dog.setDogAge(dogAgeResult);
                     dog.setDogBreed(dogBreedResult);
-                    dog.setKennelId(dogKennelIdResult);
+                    dog.setKennelId(DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dogKennelIdResult));
                 }
 
             }
@@ -45,7 +46,7 @@ public class DbmsDogDao extends DogDao{
             dogsStatement.setString(1, dog.getDogName());
             dogsStatement.setInt(2, dog.getDogAge());
             dogsStatement.setString(3, dog.getDogBreed());
-            dogsStatement.setInt(4, dog.getKennelId());
+            dogsStatement.setInt(4, dog.getKennel().getKennelId());
             dogsStatement.executeUpdate();
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
@@ -76,7 +77,7 @@ public class DbmsDogDao extends DogDao{
                     int dogAgeResult = dogsResultSet.getInt("age");
                     String dogBreedResult = dogsResultSet.getString("breed");
                     int dogKennelIdResult = dogsResultSet.getInt("kennel_id");
-                    Dog dog = new Dog(dogIdResult, dogNameResult, dogAgeResult, dogBreedResult, dogKennelIdResult);
+                    Dog dog = new Dog(dogIdResult, dogNameResult, dogAgeResult, dogBreedResult, DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dogKennelIdResult));
                     allDogs.add(dog);
                 }
             }

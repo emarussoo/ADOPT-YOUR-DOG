@@ -1,6 +1,7 @@
 package model.dogadoptionrequest.dao;
 
 import exceptions.GenericSystemException;
+import model.daofactory.DaoFactory;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import utils.ConnectionHandler;
 
@@ -29,7 +30,7 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
                     String userPhone = rs.getString("user_phone");
                     int dogId = rs.getInt("dog_id");
                     int kennelId = rs.getInt("kennel_id");
-                    dar = new DogAdoptionRequest(id, userFirstname, userLastname, userEmail, userPhone, dogId, kennelId);
+                    dar = new DogAdoptionRequest(id, userFirstname, userLastname, userEmail, userPhone, DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(dogId), DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelId));
                 }
             }
         } catch (SQLException e) {
@@ -47,8 +48,8 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
             darStatement.setString(2, dogAdoptionRequest.getUserLastname());
             darStatement.setString(3, dogAdoptionRequest.getUserEmail());
             darStatement.setString(4, dogAdoptionRequest.getUserPhone());
-            darStatement.setInt(5, dogAdoptionRequest.getDogId());
-            darStatement.setInt(6, dogAdoptionRequest.getKennelId());
+            darStatement.setInt(5, dogAdoptionRequest.getDog().getDogId());
+            darStatement.setInt(6, dogAdoptionRequest.getKennel().getKennelId());
             darStatement.execute();
             currenntDarId++;
         } catch (SQLException e) {
@@ -93,7 +94,7 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
                     String darUserPhone = darResultSet.getString("user_phone");
                     int darDogId = darResultSet.getInt("dog_id");
                     int darKennelId = darResultSet.getInt("kennel_id");
-                    DogAdoptionRequest dar = new DogAdoptionRequest(darIdResult, darUserFirstName, darUserLastName, darUserEmail, darUserPhone, darDogId, darKennelId);
+                    DogAdoptionRequest dar = new DogAdoptionRequest(darIdResult, darUserFirstName, darUserLastName, darUserEmail, darUserPhone, DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(darDogId), DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(darKennelId));
                     allDars.add(dar);
                 }
             }

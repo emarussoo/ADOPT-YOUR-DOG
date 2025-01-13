@@ -4,6 +4,7 @@ import bean.DogAdoptionRequestBean;
 import bean.DogProfileBean;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
+import model.kennel.Kennel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class ManageDogsController {
         //costruttore
     }
 
-    public List<DogProfileBean> getDogsWithKennelId(int kennelId){
+    /*public List<DogProfileBean> getDogsWithKennelId(int kennelId){
         List<Dog> listOfAllDogs;
         List<DogProfileBean> filteredDogsList = new ArrayList<>();
         listOfAllDogs = DaoFactory.getDaoSingletonFactory().createDogDao().getAllDogs();
@@ -29,7 +30,7 @@ public class ManageDogsController {
             }
         }
         return filteredDogsList;
-    }
+    }*/
 
     public void removeDogByDar(DogAdoptionRequestBean dogAdoptionRequestBean){
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogIdBean());
@@ -41,8 +42,9 @@ public class ManageDogsController {
         int dogAge = Integer.parseInt(dogProfileBean.getDogAge());
         String dogBreed = dogProfileBean.getDogBreed();
         int kennelId = Integer.parseInt(dogProfileBean.getKennelId());
+        Kennel kennel = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelId);
 
-        Dog toAddDog = new Dog(dogName, dogAge, dogBreed, kennelId);
+        Dog toAddDog = new Dog(dogName, dogAge, dogBreed, kennel);
 
         DaoFactory.getDaoSingletonFactory().createDogDao().add(toAddDog);
     }

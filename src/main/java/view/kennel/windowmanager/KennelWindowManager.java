@@ -48,8 +48,8 @@ public class KennelWindowManager {
             String userLastNameBean = dar.getUserLastname();
             String userEmailBean = dar.getUserEmail();
             String userPhoneBean = dar.getUserPhone();
-            String dogIdBean = Integer.toString(dar.getDogId());
-            String kennelIdBean = Integer.toString(dar.getKennelId());
+            String dogIdBean = Integer.toString(dar.getDog().getDogId());
+            String kennelIdBean = Integer.toString(dar.getKennel().getKennelId());
 
             listOfAllDarBean.add(new DogAdoptionRequestBean(darIdBean, userFirstNameBean, userLastNameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean));
         }
@@ -63,9 +63,9 @@ public class KennelWindowManager {
             String dogNameBean = dog.getDogName();
             String dogAgeBean = Integer.toString(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
-            String kennelIdBean = Integer.toString(dog.getKennelId());
+            String kennelIdBean = Integer.toString(dog.getKennel().getKennelId());
             String kennelNameBean = loggedKennel.getKennelName();
-            listOfMyDogs.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean, kennelNameBean));
+            listOfMyDogs.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean));
         }
         myDogsPage.createMyDogsList(listOfMyDogs);
     }
@@ -95,8 +95,7 @@ public class KennelWindowManager {
             String dogAgeBean = dogInfo.get(1);
             String dogBreedBean = dogInfo.get(2);
             String kennelIdBean = String.valueOf(loggedKennel.getKennelId());
-            String kennelNameBean = "da cambiare";
-            DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
+            DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean);
             manageDogsController.addDog(dogProfileBean);
             addDogPage.createMessage("Dog added");
         }catch(EmptyFieldsException | InvalidFieldException e) {

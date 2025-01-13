@@ -1,31 +1,36 @@
 package model.dogadoptionrequest;
 
+import model.dog.Dog;
+import model.kennel.Kennel;
+
 public class DogAdoptionRequest {
     private int darId;
     private String userFirstname;
     private String userLastname;
     private String userEmail;
     private String userPhone;
-    private int dogId;
-    private int kennelId;
+    private Kennel kennel;
+    private Dog dog;
+    /*private int dogId;
+    private int kennelId;*/
 
-    public DogAdoptionRequest(int darId, String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, int kennelId) {
+    public DogAdoptionRequest(int darId, String userFirstname, String userLastname, String userEmail, String userPhone, Dog dog, Kennel kennel) {
         this.darId = darId;
         this.userFirstname = userFirstname;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
-        this.dogId = dogId;
-        this.kennelId = kennelId;
+        this.dog = dog;
+        this.kennel = kennel;
     }
 
-    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, int dogId, int kennelId) {
+    public DogAdoptionRequest(String userFirstname, String userLastname, String userEmail, String userPhone, Dog dog, Kennel kennel) {
         this.userFirstname = userFirstname;
         this.userLastname = userLastname;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
-        this.dogId = dogId;
-        this.kennelId = kennelId;
+        this.dog = dog;
+        this.kennel = kennel;
     }
 
     public int getDarId() {
@@ -68,20 +73,20 @@ public class DogAdoptionRequest {
         this.userPhone = userPhone;
     }
 
-    public int getDogId() {
-        return dogId;
+    public Dog getDog() {
+        return dog;
     }
 
-    public void setDogId(int dogId) {
-        this.dogId = dogId;
+    public void setDog(Dog dog) {
+        this.dog = dog;
     }
 
-    public int getKennelId() {
-        return kennelId;
+    public Kennel getKennel() {
+        return kennel;
     }
 
-    public void setKennelId(int kennelId) {
-        this.kennelId = kennelId;
+    public void setKennel(Kennel kennel) {
+        this.kennel = kennel;
     }
 
     @Override
@@ -90,7 +95,6 @@ public class DogAdoptionRequest {
                 ", userLastname='" + userLastname + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userPhone='" + userPhone + '\'' +
-                ", dogId=" + dogId +
-                ", kennelId=" + kennelId;
+                ", dogId=" + dog.getDogId();
     }
 }

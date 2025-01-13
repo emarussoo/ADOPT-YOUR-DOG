@@ -28,8 +28,8 @@ public class AdoptDogController {
             String dogNameBean = dog.getDogName();
             String dogAgeBean = String.valueOf(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
-            String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
-            String dogKennelIdBean = String.valueOf(dog.getKennelId());
+            String dogkKennelNameBean = dog.getKennel().getKennelName();
+            String dogKennelIdBean = String.valueOf(dog.getKennel().getKennelId());
 
             listOfAllDogsBean.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean));
         }
@@ -74,10 +74,10 @@ public class AdoptDogController {
         String dogNameBean = dog.getDogName();
         String dogAgeBean = String.valueOf(dog.getDogAge());
         String dogBreedBean = dog.getDogBreed();
-        String dogkKennelNameBean = DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(dog.getKennelId()).getKennelName();
-        String dogKennelIdBean = String.valueOf(dog.getKennelId());
+        String dogkKennelNameBean = dog.getKennel().getKennelName();
+        String dogKennelIdBean = String.valueOf(dog.getKennel().getKennelId());
 
-        return new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, dogkKennelNameBean, dogKennelIdBean);
+        return new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean,dogkKennelNameBean, dogKennelIdBean);
     }
 
     public void sendDogAdoptionRequest(DogAdoptionRequestBean dogAdoptionRequestBean){
@@ -87,7 +87,7 @@ public class AdoptDogController {
         String phone = dogAdoptionRequestBean.getUserPhoneBean();
         int dogId = Integer.parseInt(dogAdoptionRequestBean.getDogIdBean());
         int kennelId = Integer.parseInt(dogAdoptionRequestBean.getKennelIdBean());
-        DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(userName, lastName, email, phone, dogId, kennelId);
+        DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(userName, lastName, email, phone, DaoFactory.getDaoSingletonFactory().createDogDao().getDogById(dogId), DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelId));
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().add(dogAdoptionRequest);
     }
 }

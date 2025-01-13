@@ -1,26 +1,28 @@
 package model.dog;
 
+import model.kennel.Kennel;
+
 public class Dog{
 
     private int dogId;
     private String dogName;
     private int dogAge;
     private String dogBreed;
-    private int kennelId;
+    private Kennel kennel;
 
-    public Dog(String dogName, int dogAge, String dogBreed, int kennelId) {
+    public Dog(String dogName, int dogAge, String dogBreed, Kennel kennel) {
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
-        this.kennelId = kennelId;
+        this.kennel = kennel;
     }
 
-    public Dog(int dogId, String dogName, int dogAge, String dogBreed, int kennelId) {
+    public Dog(int dogId, String dogName, int dogAge, String dogBreed, Kennel kennel) {
         this.dogId = dogId;
         this.dogName = dogName;
         this.dogAge = dogAge;
         this.dogBreed = dogBreed;
-        this.kennelId = kennelId;
+        this.kennel = kennel;
     }
 
     public Dog(){}
@@ -57,11 +59,11 @@ public class Dog{
         this.dogBreed = dogBreed;
     }
 
-    public int getKennelId() {
-        return kennelId;
+    public Kennel getKennel() {
+        return kennel;
     }
 
-    public void setKennelId(int kennelId) {
-        this.kennelId = kennelId;
+    public void setKennelId(Kennel kennel) {
+        this.kennel = kennel;
     }
 }
