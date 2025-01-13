@@ -14,7 +14,7 @@ public class LogInController {
 
         KennelUser kennelUser = new KennelUser(username, password);
         if(DaoFactory.getDaoSingletonFactory().createKennelUserDao().check(kennelUser)){
-            Kennel kennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(kennelUser.getKennelId());
+            Kennel kennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(kennelUser.getKennel().getKennelId());
             KennelWindowManager.getSingletonInstance().setKennel(kennel);
         }else{
             throw  new IncorrectCredentialsException("Incorrect Credentials");
@@ -24,7 +24,7 @@ public class LogInController {
     public void ultimateRegistration(Kennel kennel, KennelUser kennelUser){
         int kennelId = DaoFactory.getDaoSingletonFactory().createKennelDao().addKennel(kennel);
         kennel.setKennelId(kennelId);
-        kennelUser.setKennelId(kennelId);
+        kennelUser.setKennel(kennel);
         DaoFactory.getDaoSingletonFactory().createKennelUserDao().add(kennelUser);
     }
 }

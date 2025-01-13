@@ -1,14 +1,16 @@
 package model.login;
 
+import model.kennel.Kennel;
+
 public class KennelUser {
     private String kennelUsername;
     private String kennelPassword;
-    private int kennelId;
+    private Kennel kennel;
 
-    public KennelUser(String kennelUsername, String kennelPassword, int kennelId) {
+    public KennelUser(String kennelUsername, String kennelPassword, Kennel kennel) {
         this.kennelUsername = kennelUsername;
         this.kennelPassword = kennelPassword;
-        this.kennelId = kennelId;
+        this.kennel = kennel;
     }
 
     public KennelUser(String kennelUsername, String kennelPassword) {
@@ -32,11 +34,11 @@ public class KennelUser {
         this.kennelPassword = kennelPassword;
     }
 
-    public int getKennelId() {
-        return kennelId;
+    public Kennel getKennel() {
+        return kennel;
     }
 
-    public void setKennelId(int kennelId) {
-        this.kennelId = kennelId;
+    public void setKennel(Kennel kennel) {
+        this.kennel = kennel;
     }
 }

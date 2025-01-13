@@ -10,8 +10,6 @@ public class DemoKennelUserDao extends KennelUserDao {
     private List<KennelUser> kennelUsers = new ArrayList<KennelUser>();
 
     protected DemoKennelUserDao() {
-        kennelUsers.add(new KennelUser("John", "Doe", 1));
-        kennelUsers.add(new KennelUser("Francesco", "Totti", 2));
     }
     public static DemoKennelUserDao getInstance() {
         if (instance == null) {
@@ -22,7 +20,7 @@ public class DemoKennelUserDao extends KennelUserDao {
     public boolean check(KennelUser user) {
         for (KennelUser kennelUser : kennelUsers) {
             if (kennelUser.getKennelUsername().equals(user.getKennelUsername()) && kennelUser.getKennelPassword().equals(user.getKennelPassword())) {
-                user.setKennelId(kennelUser.getKennelId());
+                user.setKennel(kennelUser.getKennel());
                 return true;
             }
         }
@@ -33,4 +31,5 @@ public class DemoKennelUserDao extends KennelUserDao {
     public void add(KennelUser user) {
         kennelUsers.add(user);
     }
+
 }

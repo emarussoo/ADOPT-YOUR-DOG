@@ -1,6 +1,7 @@
 package model.login.dao;
 
 import exceptions.GenericSystemException;
+import model.daofactory.DaoFactory;
 import model.login.KennelUser;
 import utils.ConnectionHandler;
 
@@ -18,7 +19,7 @@ public class DbmsKennelUserDao extends KennelUserDao {
             kennelUserStatement.setString(2, user.getKennelPassword());
             try(ResultSet kennelUserResultSet = kennelUserStatement.executeQuery()){
                 while(kennelUserResultSet.next()){
-                    user.setKennelId(kennelUserResultSet.getInt("kennel_id"));
+                    user.setKennel(DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelUserResultSet.getInt("kennel_id")));
                     return true;
                 }
             }
@@ -34,7 +35,7 @@ public class DbmsKennelUserDao extends KennelUserDao {
         try(PreparedStatement userStatement = connection.prepareStatement(query)){
             userStatement.setString(1, user.getKennelUsername());
             userStatement.setString(2, user.getKennelPassword());
-            userStatement.setInt(3, user.getKennelId());
+            userStatement.setInt(3, user.getKennel().getKennelId());
             userStatement.executeUpdate();
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
