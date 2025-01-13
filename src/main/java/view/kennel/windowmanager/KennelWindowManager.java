@@ -5,6 +5,9 @@ import bean.DogProfileBean;
 import exceptions.EmptyFieldsException;
 import exceptions.InvalidFieldException;
 import model.daofactory.DaoFactory;
+import model.dog.Dog;
+import model.dogadoptionrequest.DogAdoptionRequest;
+import model.kennel.Kennel;
 import presenter.ManageDarController;
 import presenter.ManageDogsController;
 import view.factory.GraphicalFactory;
@@ -12,10 +15,12 @@ import view.kennel.addadogview.AddDogPageController;
 import view.kennel.managedogadoptionrequestview.ManageDarPageController;
 import view.kennel.mydogsview.MyDogsPageController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class KennelWindowManager {
-    int kennelId;
+    //int kennelId;
+    Kennel loggedKennel;
     private AddDogPageController addDogPage = GraphicalFactory.getGraphicalSingletonFactory().createAddDogPageController();
     private ManageDarPageController manageDarPage = GraphicalFactory.getGraphicalSingletonFactory().createManageDarPageController();
     private MyDogsPageController myDogsPage = GraphicalFactory.getGraphicalSingletonFactory().createMyDogsPageController();
@@ -35,13 +40,34 @@ public class KennelWindowManager {
     }
 
     public void showMyDars(){
-        List<DogAdoptionRequestBean> listOfAllDarBean = manageDarController.getDarsWithKennelId(kennelId);
+
+        List<DogAdoptionRequestBean> listOfAllDarBean = new ArrayList<>();
+        for(DogAdoptionRequest dar : loggedKennel.getKennelRequests()){
+            String darIdBean = Integer.toString(dar.getDarId());
+            String userFirstNameBean = dar.getUserFirstname();
+            String userLastNameBean = dar.getUserLastname();
+            String userEmailBean = dar.getUserEmail();
+            String userPhoneBean = dar.getUserPhone();
+            String dogIdBean = Integer.toString(dar.getDogId());
+            String kennelIdBean = Integer.toString(dar.getKennelId());
+
+            listOfAllDarBean.add(new DogAdoptionRequestBean(darIdBean, userFirstNameBean, userLastNameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean));
+        }
         manageDarPage.createDarList(listOfAllDarBean);
     }
 
     public void showMyDogs(){
-        List<DogProfileBean> myDogs = manageDogsController.getDogsWithKennelId(kennelId);
-        myDogsPage.createMyDogsList(myDogs);
+        List<DogProfileBean> listOfMyDogs = new ArrayList<>();
+        for(Dog dog: loggedKennel.getKennelDogs()){
+            String dogIdBean = Integer.toString(dog.getDogId());
+            String dogNameBean = dog.getDogName();
+            String dogAgeBean = Integer.toString(dog.getDogAge());
+            String dogBreedBean = dog.getDogBreed();
+            String kennelIdBean = Integer.toString(dog.getKennelId());
+            String kennelNameBean = loggedKennel.getKennelName();
+            listOfMyDogs.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean, kennelNameBean));
+        }
+        myDogsPage.createMyDogsList(listOfMyDogs);
     }
 
     public void acceptDar(){
@@ -68,7 +94,7 @@ public class KennelWindowManager {
             String dogNameBean = dogInfo.get(0);
             String dogAgeBean = dogInfo.get(1);
             String dogBreedBean = dogInfo.get(2);
-            String kennelIdBean = String.valueOf(kennelId);
+            String kennelIdBean = String.valueOf(loggedKennel.getKennelId());
             String kennelNameBean = "da cambiare";
             DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelNameBean, kennelIdBean);
             manageDogsController.addDog(dogProfileBean);
@@ -98,15 +124,15 @@ public class KennelWindowManager {
     }
 
     public int getKennelId() {
-        return kennelId;
+        return loggedKennel.getKennelId();
     }
 
     public String getKennelName(){
-        return DaoFactory.getDaoSingletonFactory().createKennelDao().getKennelById(kennelId).getKennelName();
+        return loggedKennel.getKennelName();
     }
 
-    public void setKennelId(int kennelId) {
-        this.kennelId = kennelId;
+    public void setKennel(Kennel kennel) {
+        this.loggedKennel = kennel;
     }
 
 }

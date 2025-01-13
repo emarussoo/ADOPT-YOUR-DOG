@@ -14,7 +14,8 @@ public class LogInController {
 
         KennelUser kennelUser = new KennelUser(username, password);
         if(DaoFactory.getDaoSingletonFactory().createKennelUserDao().check(kennelUser)){
-            KennelWindowManager.getSingletonInstance().setKennelId(kennelUser.getKennelId());
+            Kennel kennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(kennelUser.getKennelId());
+            KennelWindowManager.getSingletonInstance().setKennel(kennel);
         }else{
             throw  new IncorrectCredentialsException("Incorrect Credentials");
         }

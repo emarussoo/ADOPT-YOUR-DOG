@@ -1,14 +1,13 @@
 package baseclasses;
 
 public class BreedBase {
-    String imageLink;
+    private String imageLink;
     private String name;
     private String coatLength; //lunghezza pelliccia
     private String playfulness;
     private String protectiveness;
     private String energy;
     private String barking;
-    private String maxHeightMale;
 
     public BreedBase(String imageLink,
                      String name,

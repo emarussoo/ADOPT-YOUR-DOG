@@ -89,6 +89,5 @@ public class AdoptDogController {
         int kennelId = Integer.parseInt(dogAdoptionRequestBean.getKennelIdBean());
         DogAdoptionRequest dogAdoptionRequest = new DogAdoptionRequest(userName, lastName, email, phone, dogId, kennelId);
         DaoFactory.getDaoSingletonFactory().createDogAdoptionRequestDao().add(dogAdoptionRequest);
-        //this will be called by view.getDogAdoptionRequestData
     }
 }
