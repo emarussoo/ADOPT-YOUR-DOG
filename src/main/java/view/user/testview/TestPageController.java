@@ -11,4 +11,5 @@ public abstract class TestPageController implements GraphicalController {
     public abstract void createTest();
     public abstract List<String> getTestAnswers() throws URISyntaxException, IOException, InterruptedException;
     public abstract void createTestResult(BreedBean breedBean);
+    public abstract void createMessage(String message);
 }

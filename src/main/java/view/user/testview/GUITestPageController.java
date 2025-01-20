@@ -13,6 +13,7 @@ import javafx.stage.Popup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
+import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;
 
 import java.io.IOException;
@@ -174,5 +175,22 @@ public class GUITestPageController extends TestPageController {
         vbox.getChildren().addAll(imageView, infoGrid);
 
         UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(vbox);
+    }
+
+    public void createMessage(String message){
+        VBox messageContainer = new VBox();
+        messageContainer.setSpacing(30);
+        messageContainer.setAlignment(Pos.CENTER);
+        Label messageLabel = new Label(message);
+        messageLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
+
+        Button okButton = new Button("OK");
+        okButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
+        okButton.setOnAction(actionEvent -> {
+            UserWindowManager.getSingletonInstance().getUserMenuController().showTest();
+        });
+
+        messageContainer.getChildren().addAll(messageLabel, okButton);
+        UserWindowManager.getSingletonInstance().getUserMenuController().setCentralView(messageContainer);
     }
 }

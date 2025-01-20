@@ -1,6 +1,7 @@
 package view.user.windowmanager;
 
 import bean.*;
+import exceptions.DogNotFoundException;
 import exceptions.EmptyFieldsException;
 import exceptions.GenericSystemException;
 import exceptions.InvalidFieldException;
@@ -45,6 +46,9 @@ public class UserWindowManager {
 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+        } catch (DogNotFoundException e){
+            UserWindowManager.getSingletonInstance().getTestView().createMessage(e.getMessage());
+
         }
     }
 

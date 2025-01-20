@@ -1,6 +1,7 @@
 package presenter;
 
 import bean.*;
+import exceptions.DogNotFoundException;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
 import model.daofactory.DaoFactory;
@@ -8,6 +9,7 @@ import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import view.user.windowmanager.UserWindowManager;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -55,7 +57,12 @@ public class AdoptDogController {
 
     public BreedBean processTestAnswers(TestBean userAnswer) throws URISyntaxException, IOException, InterruptedException {
         BreedDao breedDao = new BreedDao();
-        Breed resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
+        Breed resultBreed = null;
+        try {
+            resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
+        }catch(DogNotFoundException e){
+            throw new DogNotFoundException(e.getMessage());
+        }
 
         String resultBreedImage = resultBreed.getImageLink();
         String resultBreedName = resultBreed.getName();

@@ -47,4 +47,8 @@ public class CLITestPageController extends TestPageController {
         logger.info("dog barking: {}", breedBean.getBarking());
         logger.info("dog protectiveness: {}", breedBean.getProtectiveness());
     }
+
+    public void createMessage(String message){
+        logger.info(message);
+    }
 }
