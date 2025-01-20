@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KennelWindowManager {
-    //int kennelId;
     Kennel loggedKennel;
     private AddDogPageController addDogPage = GraphicalFactory.getGraphicalSingletonFactory().createAddDogPageController();
     private ManageDarPageController manageDarPage = GraphicalFactory.getGraphicalSingletonFactory().createManageDarPageController();
@@ -64,7 +63,6 @@ public class KennelWindowManager {
             String dogAgeBean = Integer.toString(dog.getDogAge());
             String dogBreedBean = dog.getDogBreed();
             String kennelIdBean = Integer.toString(dog.getKennel().getKennelId());
-            String kennelNameBean = loggedKennel.getKennelName();
             listOfMyDogs.add(new DogProfileBean(dogIdBean, dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean));
         }
         myDogsPage.createMyDogsList(listOfMyDogs);

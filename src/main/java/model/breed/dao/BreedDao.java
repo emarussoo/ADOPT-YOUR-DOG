@@ -3,7 +3,6 @@ package model.breed.dao;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.DogNotFoundException;
-import exceptions.GenericSystemException;
 import model.breed.Breed;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -76,7 +75,6 @@ public class BreedDao {
 
         } catch (Exception e) {
             throw new DogNotFoundException("A dog who meets your needs does not exists");
-            //throw new GenericSystemException(e.getMessage());
         }
     }
 }

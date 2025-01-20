@@ -11,8 +11,6 @@ public class DogAdoptionRequest {
     private String userPhone;
     private Kennel kennel;
     private Dog dog;
-    /*private int dogId;
-    private int kennelId;*/
 
     public DogAdoptionRequest(int darId, String userFirstname, String userLastname, String userEmail, String userPhone, Dog dog, Kennel kennel) {
         this.darId = darId;
