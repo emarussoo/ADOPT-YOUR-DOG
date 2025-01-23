@@ -1,3 +1,5 @@
+package ConnectionHandler;
+
 import exceptions.GenericSystemException;
 import org.junit.jupiter.api.Test;
 import utils.ConnectionHandler;

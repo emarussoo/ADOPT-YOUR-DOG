@@ -1,3 +1,5 @@
+package BreedDao;
+
 import exceptions.DogNotFoundException;
 import exceptions.InvalidBreedTestInput;
 import model.breed.dao.BreedDao;
