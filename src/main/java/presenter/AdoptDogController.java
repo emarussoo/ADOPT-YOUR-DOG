@@ -2,6 +2,7 @@ package presenter;
 
 import bean.*;
 import exceptions.DogNotFoundException;
+import exceptions.InvalidBreedTestInput;
 import model.breed.Breed;
 import model.breed.dao.BreedDao;
 import model.daofactory.DaoFactory;
@@ -59,7 +60,7 @@ public class AdoptDogController {
         Breed resultBreed = null;
         try {
             resultBreed = breedDao.getBreedByAnswers(userAnswer.getUserAnswers());
-        }catch(DogNotFoundException e){
+        }catch(DogNotFoundException |InvalidBreedTestInput e){
             throw new DogNotFoundException(e.getMessage());
         }
 

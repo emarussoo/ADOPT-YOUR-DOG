@@ -23,7 +23,7 @@ public class GUIMyDogsPageController extends MyDogsPageController {
         ListView listView = new ListView<>();
 
         GridPane header = new GridPane();
-        header.setHgap(140); // Spaziatura orizzontale tra le colonne
+        header.setHgap(130); // Spaziatura orizzontale tra le colonne
         header.add(new Label(" ID"), 0, 0);
         header.add(new Label("Name"), 1, 0);
         header.add(new Label("Age"), 2, 0);

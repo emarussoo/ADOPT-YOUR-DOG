@@ -1,10 +1,7 @@
 package view.user.windowmanager;
 
 import bean.*;
-import exceptions.DogNotFoundException;
-import exceptions.EmptyFieldsException;
-import exceptions.GenericSystemException;
-import exceptions.InvalidFieldException;
+import exceptions.*;
 import presenter.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
@@ -46,7 +43,7 @@ public class UserWindowManager {
 
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-        } catch (DogNotFoundException e){
+        } catch (DogNotFoundException | InvalidBreedTestInput e){
             UserWindowManager.getSingletonInstance().getTestView().createMessage(e.getMessage());
 
         }

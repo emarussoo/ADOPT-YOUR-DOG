@@ -3,6 +3,7 @@ package model.breed.dao;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.DogNotFoundException;
+import exceptions.InvalidBreedTestInput;
 import model.breed.Breed;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,7 +21,12 @@ import java.util.List;
 public class BreedDao {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
-    public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException {
+    public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException, InvalidBreedTestInput, DogNotFoundException {
+
+        if(answers.size() != TestQuestions.values().length){
+            throw new InvalidBreedTestInput("Please answer all the questions of the breed test!");
+        }
+
         String jsonResponse;
         HttpClient client = HttpClient
                 .newBuilder()

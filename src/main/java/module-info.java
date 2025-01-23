@@ -18,6 +18,8 @@ module start.adoptyourdog {
 
     exports view.kennel.windowmanager;
 
+    exports model.breed.dao;
+    exports exceptions;
     exports utils;
     opens utils to javafx.fxml;
     opens view.login to javafx.fxml;
