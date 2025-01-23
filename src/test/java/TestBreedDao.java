@@ -1,6 +1,5 @@
 import exceptions.DogNotFoundException;
 import exceptions.InvalidBreedTestInput;
-import model.breed.Breed;
 import model.breed.dao.BreedDao;
 import org.junit.jupiter.api.Test;
 

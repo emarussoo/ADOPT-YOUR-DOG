@@ -14,7 +14,6 @@ public class Main extends Application {
         Initialize initializer = new Initialize();
         initializer.init();
         UserWindowManager.getSingletonInstance().show();
-
     }
 
     public static void startGui(){

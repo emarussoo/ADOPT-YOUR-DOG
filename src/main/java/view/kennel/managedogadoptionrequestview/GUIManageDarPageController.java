@@ -19,15 +19,6 @@ public class GUIManageDarPageController extends ManageDarPageController {
         Label title = new Label("Manage dog adoption requests");
         title.setStyle("-fx-font-weight: bold; -fx-font-size: 30px");
 
-        /*GridPane header = new GridPane();
-        header.setHgap(90); // Spaziatura orizzontale tra le colonne
-        header.add(new Label("ID"), 0, 0);
-        header.add(new Label(" Name"), 1, 0);
-        header.add(new Label("Surname"), 2, 0);
-        header.add(new Label("Email"), 3, 0);
-        header.add(new Label("Phone"), 4, 0);
-        header.add(new Label("Dog id"), 5, 0);
-        header.setStyle("-fx-font-weight: bold; -fx-padding: 5px;");*/
         listView.setStyle("-fx-alignment: center; -fx-font-size: 15px");
 
 
@@ -35,7 +26,6 @@ public class GUIManageDarPageController extends ManageDarPageController {
         dogContainer.setSpacing(30);
         dogContainer.setStyle("-fx-padding: 30px");
         dogContainer.setAlignment(Pos.TOP_CENTER);
-        //VBox.setMargin(header, new Insets(0, 0, -15, 0)); // Ridotto il margine inferiore per l'header
         VBox.setMargin(listView, new Insets(-15, 0, 0, 0));
 
         listView.getItems().clear();
