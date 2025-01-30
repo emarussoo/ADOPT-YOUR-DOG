@@ -52,7 +52,6 @@ public class GUIUserMenuController extends UserMenuController {
         testButton.setStyle("-fx-background-color: white; -fx-border-color:  #2cc61e");
         dogsButton.setStyle("-fx-background-color: #d4ffd4; -fx-border-color:  #2cc61e");
         UserWindowManager.getSingletonInstance().showAllDogs();
-        //it will call presenter.getDogsByBreed with empty params
     }
 
     public void setCentralView(Node component) {

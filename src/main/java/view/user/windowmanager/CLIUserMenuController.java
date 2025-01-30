@@ -75,8 +75,7 @@ public class CLIUserMenuController extends UserMenuController {
     }
 
     public void submitSearch(){
-        List<DogProfileBean> toFilterList = UserWindowManager.getSingletonInstance().getAllDogs();
-        UserWindowManager.getSingletonInstance().submitSearch(toFilterList);
+        UserWindowManager.getSingletonInstance().submitSearch();
 
     }
 

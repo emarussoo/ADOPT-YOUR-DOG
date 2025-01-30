@@ -32,11 +32,6 @@ public class DogProfileBean{
         this.kennelId = kennelId;
     }
 
-    public void incrementDogId() {
-        dogId += 1;
-    }
-
-
     public String getDogId() {
         return dogId;
     }

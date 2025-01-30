@@ -59,10 +59,10 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    public void submitSearch(List<DogProfileBean> listOfDogs){
+    public void submitSearch(){
         String insertedBreed = dogsPage.getInsertedBreed();
         DogBreedSearchBean dogBreedSearchBean = new DogBreedSearchBean(insertedBreed);
-        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(listOfDogs, dogBreedSearchBean);
+        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(dogBreedSearchBean);
         showListOfDogs(filteredDogs);
     }
 

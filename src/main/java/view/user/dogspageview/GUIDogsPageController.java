@@ -28,7 +28,7 @@ public class GUIDogsPageController extends DogsPageController{
         Button searchButton = new Button("Search");
         searchButton.setStyle("-fx-background-color:  #2cc61e; -fx-font-size: 16px;");
         searchButton.setOnAction(event -> {
-            UserWindowManager.getSingletonInstance().submitSearch(listOfDogs);
+            UserWindowManager.getSingletonInstance().submitSearch();
         });
 
 

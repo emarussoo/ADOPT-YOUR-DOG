@@ -38,13 +38,17 @@ public class AdoptDogController {
         return listOfAllDogsBean;
     }
 
-    public List<DogProfileBean> getDogsByBreed(List<DogProfileBean> beforeDogs, DogBreedSearchBean dogBreedSearchBean){
+    public List<DogProfileBean> getDogsByBreed(DogBreedSearchBean dogBreedSearchBean){
+
+        List<DogProfileBean> allDogs;
+        allDogs = getAllDogs();
+
         if(dogBreedSearchBean.getName().equals("")){
-            return getAllDogs();
+            return allDogs;
         }
         List<DogProfileBean> filteredDogsList = new ArrayList<>();
-        for(DogProfileBean dog : beforeDogs){
-            if(dog.getDogBreed().equals(dogBreedSearchBean.getName())){
+        for(DogProfileBean dog : allDogs){
+            if(dog.getDogBreed().contains(dogBreedSearchBean.getName())){
                 filteredDogsList.add(dog);
             }
         }
