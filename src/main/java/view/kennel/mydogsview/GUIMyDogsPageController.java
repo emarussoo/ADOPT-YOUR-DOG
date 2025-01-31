@@ -1,5 +1,4 @@
 package view.kennel.mydogsview;
-
 import bean.DogProfileBean;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -8,7 +7,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import view.kennel.windowmanager.KennelWindowManager;
-
 import java.util.List;
 
 
@@ -23,7 +21,7 @@ public class GUIMyDogsPageController extends MyDogsPageController {
         ListView listView = new ListView<>();
 
         GridPane header = new GridPane();
-        header.setHgap(130); // Spaziatura orizzontale tra le colonne
+        header.setHgap(130);
         header.add(new Label(" ID"), 0, 0);
         header.add(new Label("Name"), 1, 0);
         header.add(new Label("Age"), 2, 0);

@@ -1,5 +1,4 @@
 package view.factory;
-
 import view.kennel.addadogview.AddDogPageController;
 import view.kennel.addadogview.GUIAddDogPageController;
 import view.kennel.managedogadoptionrequestview.GUIManageDarPageController;
@@ -41,6 +40,9 @@ public class GUIFactory extends GraphicalFactory{
         return new GUIDogAdoptionRequestPageController();
     }
 
+
+
+
     @Override
     public LoginViewController createLoginPageController(){
         return GUILoginViewController.getSingletonInstance();
@@ -50,6 +52,9 @@ public class GUIFactory extends GraphicalFactory{
     public RegisterViewController createRegisterPageController(){
         return GUIRegisterViewController.getInstance();
     }
+
+
+
 
     @Override
     public KennelMenuController createKennelMenuController(){

@@ -30,8 +30,8 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
         dogAdoptionRequest.setDarId(counter);
         counter++;
         demoListOfDogAdoptionRequest.add(dogAdoptionRequest);
-        //add
     }
+
     public void removeAllDarByDogId(int dogId){
         List<DogAdoptionRequest> newList = new ArrayList<>();
         for(DogAdoptionRequest dar: demoListOfDogAdoptionRequest){
@@ -41,7 +41,6 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
         }
 
         demoListOfDogAdoptionRequest = newList;
-        //delete
     }
 
     public void removeDarById(int darId){
@@ -51,7 +50,6 @@ public class DemoDogAdoptionRequestDao extends DogAdoptionRequestDao{
                 return;
             }
         }
-
     }
 
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){

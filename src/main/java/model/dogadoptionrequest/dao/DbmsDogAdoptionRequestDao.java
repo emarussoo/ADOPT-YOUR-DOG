@@ -55,7 +55,6 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //add
     }
     public void removeAllDarByDogId(int dogId) throws GenericSystemException {
         String query = "DELETE FROM dog_adoption_request WHERE dog_id = ?";
@@ -66,7 +65,6 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //delete
     }
 
     public void removeDarById(int darId) throws GenericSystemException {
@@ -101,7 +99,6 @@ public class DbmsDogAdoptionRequestDao extends DogAdoptionRequestDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //dbms implementation of getalldogs operation
         return allDars;
     }
 

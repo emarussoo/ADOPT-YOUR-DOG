@@ -1,10 +1,8 @@
 package view.kennel.windowmanager;
-
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import view.login.LoginManager;
-
 import java.io.BufferedReader;
 
 public class CLIKennelMenuController extends KennelMenuController{

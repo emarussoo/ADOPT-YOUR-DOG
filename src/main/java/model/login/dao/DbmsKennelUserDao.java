@@ -1,10 +1,8 @@
 package model.login.dao;
-
 import exceptions.GenericSystemException;
 import model.daofactory.DaoFactory;
 import model.login.KennelUser;
 import utils.ConnectionHandler;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

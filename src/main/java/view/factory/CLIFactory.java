@@ -1,5 +1,4 @@
 package view.factory;
-
 import view.kennel.addadogview.AddDogPageController;
 import view.kennel.addadogview.CLIAddDogPageController;
 import view.kennel.managedogadoptionrequestview.CLIManageDarPageController;
@@ -41,6 +40,8 @@ public class CLIFactory extends GraphicalFactory{
         return new CLIDogAdoptionRequestPageController();
     }
 
+
+
     @Override
     public LoginViewController createLoginPageController(){
         return new CLILoginViewController();
@@ -50,6 +51,9 @@ public class CLIFactory extends GraphicalFactory{
     public RegisterViewController createRegisterPageController(){
         return new CLIRegisterViewController();
     }
+
+
+
 
     public KennelMenuController createKennelMenuController(){
         return new CLIKennelMenuController();

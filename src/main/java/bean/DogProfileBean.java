@@ -1,5 +1,6 @@
 package bean;
 
+
 public class DogProfileBean{
     private String dogId;
     private String dogName;

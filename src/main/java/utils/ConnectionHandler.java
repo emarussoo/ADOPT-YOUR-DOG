@@ -1,7 +1,5 @@
 package utils;
-
 import exceptions.GenericSystemException;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -1,5 +1,4 @@
 package view.user.dogspageview;
-
 import bean.DogProfileBean;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

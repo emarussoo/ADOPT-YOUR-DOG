@@ -1,5 +1,6 @@
 package utils;
 
+//this enum contains the test questions and associated api paramete
 public enum TestQuestions {
     DOMANDA_1("How often do you meet other dogs during outdoor walks?", "good_with_other_dogs"),
     DOMANDA_2("Choose the minimum coat length (1 short, 5 long)", "coat_length"),
@@ -11,13 +12,13 @@ public enum TestQuestions {
     private final String testo;
     private final String apiValue;
 
-    // Costruttore per l'enum
+
     TestQuestions(String testo, String apiValue) {
         this.testo = testo;
         this.apiValue = apiValue;
     }
 
-    // Getter per il testo della domanda
+
     public String getTesto() {
         return testo;
     }

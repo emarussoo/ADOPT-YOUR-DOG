@@ -1,4 +1,4 @@
-package presenter;
+package controller;
 
 import bean.LoginBean;
 import exceptions.IncorrectCredentialsException;

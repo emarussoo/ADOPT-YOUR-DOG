@@ -1,5 +1,4 @@
 package model.dogadoptionrequest;
-
 import model.dog.Dog;
 import model.kennel.Kennel;
 

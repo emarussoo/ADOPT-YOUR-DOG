@@ -1,7 +1,5 @@
 package model.login.dao;
-
 import model.login.KennelUser;
-
 import java.util.ArrayList;
 import java.util.List;
 

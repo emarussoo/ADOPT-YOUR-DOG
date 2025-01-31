@@ -1,5 +1,4 @@
 package view.login;
-
 import exceptions.EmptyFieldsException;
 import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
@@ -8,7 +7,6 @@ import javafx.scene.text.Text;
 import utils.StageHandler;
 import view.user.windowmanager.GUIUserMenuController;
 import view.user.windowmanager.UserMenuController;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +22,6 @@ public class GUILoginViewController extends LoginViewController{
     Text errorMessageField;
     private GUILoginViewController() {
         //costruttore
-
     }
 
     public static GUILoginViewController getSingletonInstance(){

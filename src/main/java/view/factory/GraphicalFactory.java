@@ -1,5 +1,4 @@
 package view.factory;
-
 import exceptions.GenericSystemException;
 import view.kennel.addadogview.AddDogPageController;
 import view.kennel.managedogadoptionrequestview.ManageDarPageController;
@@ -11,7 +10,6 @@ import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.user.testview.TestPageController;
 import view.user.windowmanager.UserMenuController;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -28,15 +26,19 @@ public abstract class GraphicalFactory {
     public abstract TestPageController createTestPageController();
     public abstract DogsPageController createDogsPageController();
     public abstract DogAdoptionRequestPageController createDogAdoptionRequestPageController();
+
+
+
     public abstract LoginViewController createLoginPageController();
     public abstract RegisterViewController createRegisterPageController();
+
+
     public abstract KennelMenuController createKennelMenuController();
-
-
     public abstract MyDogsPageController createMyDogsPageController();
     public abstract ManageDarPageController createManageDarPageController();
     public abstract AddDogPageController createAddDogPageController();
-    //singleton
+
+
     public static synchronized GraphicalFactory getGraphicalSingletonFactory() throws GenericSystemException {
         Properties prop = new Properties();
 

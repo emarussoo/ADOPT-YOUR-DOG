@@ -7,7 +7,7 @@ import exceptions.IncorrectCredentialsException;
 import exceptions.PasswordConfirmationException;
 import model.kennel.Kennel;
 import model.login.KennelUser;
-import presenter.LogInController;
+import controller.LogInController;
 import view.factory.GraphicalFactory;
 import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;

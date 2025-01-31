@@ -58,10 +58,12 @@ public class FileKennelDao extends KennelDao{
     }
 
 
+    //auxiliary function used to convert a model into a csv string
     private String kennelToCsv(Kennel kennel){
         return String.valueOf(kennel.getKennelId()) + "," + kennel.getKennelName();
     }
 
+    //auxiliary function used to convert a csv string into a model
     private Kennel csvToKennel(String csvLine){
         String[] tokens = csvLine.split(",");
         return new Kennel(

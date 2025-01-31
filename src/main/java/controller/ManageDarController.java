@@ -1,9 +1,7 @@
-package presenter;
-
+package controller;
 import bean.DogAdoptionRequestBean;
 import model.daofactory.DaoFactory;
 import model.dogadoptionrequest.DogAdoptionRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 

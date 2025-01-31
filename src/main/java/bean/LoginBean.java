@@ -1,5 +1,6 @@
 package bean;
 
+
 public class LoginBean {
     String username;
     String password;

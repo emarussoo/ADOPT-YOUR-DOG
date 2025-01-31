@@ -30,7 +30,6 @@ public class DemoDogDao extends DogDao{
                 return dog;
             }
         }
-        //demo implementation of load operation
         return null;
     }
 
@@ -38,8 +37,8 @@ public class DemoDogDao extends DogDao{
         dog.setDogId(counter);
         counter++;
         demoListOfDogs.add(dog);
-        //demo implementation of add operation
     }
+
     public void removeDogById(int dogId){
         for(Dog dog: demoListOfDogs){
             if(dog.getDogId() == dogId){
@@ -49,7 +48,6 @@ public class DemoDogDao extends DogDao{
         }
     }
     public List<Dog> getAllDogs(){
-        //demo implementation of getalldogs operation
         return demoListOfDogs;
     }
 }

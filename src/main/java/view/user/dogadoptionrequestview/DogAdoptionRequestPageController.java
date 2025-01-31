@@ -1,8 +1,6 @@
 package view.user.dogadoptionrequestview;
-
 import bean.DogProfileBean;
 import exceptions.InvalidFieldException;
-
 import java.util.List;
 
 public abstract class DogAdoptionRequestPageController {

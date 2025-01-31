@@ -1,5 +1,6 @@
 package bean;
 
+
 public class DogAdoptionRequestBean{
 
     private String darIdBean;

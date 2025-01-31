@@ -1,9 +1,7 @@
 package view.kennel.mydogsview;
-
 import bean.DogProfileBean;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.util.List;
 
 public class CLIMyDogsPageController extends MyDogsPageController {

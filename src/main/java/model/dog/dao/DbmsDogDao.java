@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 
+
 public class DbmsDogDao extends DogDao{
     @Override
     public Dog getDogById(int dogId) throws GenericSystemException {
@@ -36,7 +37,6 @@ public class DbmsDogDao extends DogDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //dbms implementation of load operation
         return dog;
     }
     public void add(Dog dog) throws GenericSystemException {
@@ -50,7 +50,7 @@ public class DbmsDogDao extends DogDao{
             dogsStatement.executeUpdate();
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
-        }//dbms implementation of add operation
+        }
 
     }
     public void removeDogById(int dogId) throws GenericSystemException {
@@ -62,9 +62,8 @@ public class DbmsDogDao extends DogDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-
-        //dbms implementation of delete operation
     }
+
     public List<Dog> getAllDogs() throws GenericSystemException {
         List<Dog> allDogs = new ArrayList<>();
         String query = "SELECT id, name, age, breed, kennel_id FROM DOGS";
@@ -84,7 +83,6 @@ public class DbmsDogDao extends DogDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //dbms implementation of getalldogs operation
         return allDogs;
     }
 

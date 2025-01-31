@@ -1,5 +1,6 @@
 package bean;
 
+
 public class DogBreedSearchBean {
     private String name;
 

@@ -1,9 +1,9 @@
 package model.dogadoptionrequest.dao;
 
 import model.dogadoptionrequest.DogAdoptionRequest;
-
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class FileDogAdoptionRequestDao extends DogAdoptionRequestDao{
     @Override

@@ -2,7 +2,6 @@ package view.kennel.addadogview;
 import exceptions.EmptyFieldsException;
 import exceptions.InvalidFieldException;
 import utils.GraphicalController;
-
 import java.util.List;
 
 public abstract class AddDogPageController implements GraphicalController {

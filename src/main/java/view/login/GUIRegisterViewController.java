@@ -1,15 +1,9 @@
 package view.login;
-
 import exceptions.EmptyFieldsException;
 import exceptions.PasswordConfirmationException;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import view.kennel.windowmanager.KennelWindowManager;
 
 import java.util.ArrayList;
 import java.util.List;

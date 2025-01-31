@@ -1,5 +1,4 @@
 package view.kennel.windowmanager;
-
 import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -8,7 +7,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import utils.StageHandler;
 import view.login.LoginManager;
-
 import java.io.IOException;
 
 public class GUIKennelMenuController extends KennelMenuController{

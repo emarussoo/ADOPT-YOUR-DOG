@@ -1,5 +1,4 @@
 package view.user.dogadoptionrequestview;
-
 import bean.DogProfileBean;
 import exceptions.EmptyFieldsException;
 import exceptions.InvalidFieldException;
@@ -11,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import view.user.windowmanager.UserWindowManager;
-
 import java.util.ArrayList;
 import java.util.List;
 

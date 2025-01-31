@@ -1,11 +1,9 @@
 package view.user.testview;
-
 import bean.BreedBean;
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.net.URISyntaxException;

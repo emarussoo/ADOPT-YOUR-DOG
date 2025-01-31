@@ -8,6 +8,7 @@ import model.kennel.dao.DemoKennelDao;
 import model.kennel.dao.KennelDao;
 import model.login.dao.DemoKennelUserDao;
 
+
 public class DemoDaoFactory extends DaoFactory {
     @Override
     public DogDao createDogDao() {

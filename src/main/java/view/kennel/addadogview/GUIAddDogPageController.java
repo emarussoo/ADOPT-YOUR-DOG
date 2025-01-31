@@ -1,5 +1,4 @@
 package view.kennel.addadogview;
-
 import exceptions.EmptyFieldsException;
 import exceptions.InvalidFieldException;
 import javafx.geometry.Pos;
@@ -8,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import view.kennel.windowmanager.KennelWindowManager;
-
 import java.util.ArrayList;
 import java.util.List;
 

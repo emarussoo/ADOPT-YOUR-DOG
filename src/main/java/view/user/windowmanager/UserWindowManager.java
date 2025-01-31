@@ -1,18 +1,17 @@
 package view.user.windowmanager;
-
 import bean.*;
 import exceptions.*;
-import presenter.AdoptDogController;
+import controller.AdoptDogController;
 import view.user.dogadoptionrequestview.DogAdoptionRequestPageController;
 import view.user.dogspageview.DogsPageController;
 import view.factory.GraphicalFactory;
 import view.user.testview.TestPageController;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
 public class UserWindowManager {
+    //graphical and applicative controllers
     private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestPageController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
     private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestPageController();
@@ -22,17 +21,20 @@ public class UserWindowManager {
     private static UserWindowManager instance = null;
 
     protected UserWindowManager() {
-        // Inizializzazione se necessaria
+        //costruttore
     }
 
+    //this shows the app menu
     public void show(){
         userMenuController.show();
     }
 
+    //this shows the test
     public void showTest(){
         testPage.createTest();
     }
 
+    //this will be called to get user test answers, process them and then call the method to show the test result
     public void submitTest() throws GenericSystemException, URISyntaxException, IOException, InterruptedException {
         try {
             List<String> listOfAnswers = testPage.getTestAnswers();
@@ -48,6 +50,8 @@ public class UserWindowManager {
         }
     }
 
+    //this will be called to show the result of the test
+    //it will call the graphical controller who is in charge to show the test result, so the testpage controller
     private void showTestResult(BreedBean breedBean){
         testPage.createTestResult(breedBean);
     }
@@ -56,6 +60,8 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+    //this will be called to get a breed and show the updated dogs list
     public void submitSearch(){
         String insertedBreed = dogsPage.getInsertedBreed();
         DogBreedSearchBean dogBreedSearchBean = new DogBreedSearchBean(insertedBreed);
@@ -63,19 +69,25 @@ public class UserWindowManager {
         showListOfDogs(filteredDogs);
     }
 
+    //this will return the list of all dogs
     public List<DogProfileBean> getAllDogs(){
         return presenter.getAllDogs();
     }
 
+    //this will show all the dogs
     public void showAllDogs(){
         List<DogProfileBean> allDogs = getAllDogs();
         showListOfDogs(allDogs);
     }
 
+    //this will show the list of dogs that is passed by calling the specific graphical controller
     private void showListOfDogs(List<DogProfileBean> listOfDogs){
         dogsPage.createListOfDogs(listOfDogs);
     }
 
+    //this will be called to print the dar form
+    //it will also get the information about the dog that the user wants to adopt
+    //it will call the method to show the form, but with pre-setted dog info
     public DogProfileBean  showDogAdoptionRequestForm(){
         DogProfileBean dogProfileBean = dogsPage.getDogInfo();
         dogAdoptionRequestPage.createDogAdoptionRequest(dogProfileBean);
@@ -86,6 +98,7 @@ public class UserWindowManager {
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //this will effectively add the dar
     public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
         try {
             List<String> dogAdoptionRequestUserInfo = dogAdoptionRequestPage.getUserInfo();

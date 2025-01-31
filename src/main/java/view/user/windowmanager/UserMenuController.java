@@ -1,6 +1,4 @@
 package view.user.windowmanager;
-
-
 import javafx.scene.Node;
 import utils.GraphicalController;
 

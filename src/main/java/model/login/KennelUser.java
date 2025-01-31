@@ -1,5 +1,4 @@
 package model.login;
-
 import model.kennel.Kennel;
 
 public class KennelUser {

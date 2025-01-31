@@ -3,7 +3,7 @@ package baseclasses;
 public class BreedBase {
     private String imageLink;
     private String name;
-    private String coatLength; //lunghezza pelliccia
+    private String coatLength;
     private String playfulness;
     private String protectiveness;
     private String energy;

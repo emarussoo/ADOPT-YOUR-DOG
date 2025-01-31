@@ -11,7 +11,6 @@ public class DemoKennelDao extends KennelDao{
 
     private int counter = 3;
 
-
     protected DemoKennelDao(){
         demoListOfKennels.add(new Kennel(1, "John Doe Kennel"));
         demoListOfKennels.add(new Kennel(2, "Francesco totti kennel"));

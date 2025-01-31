@@ -1,5 +1,4 @@
 package view.user.testview;
-
 import bean.BreedBean;
 import exceptions.GenericSystemException;
 import javafx.geometry.Insets;
@@ -13,9 +12,7 @@ import javafx.stage.Popup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
-import view.kennel.windowmanager.KennelWindowManager;
 import view.user.windowmanager.UserWindowManager;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;

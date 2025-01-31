@@ -24,7 +24,6 @@ public class DbmsKennelDao extends KennelDao{
         } catch (SQLException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        //dbms implementation of load operation
         return kennel;
     }
 

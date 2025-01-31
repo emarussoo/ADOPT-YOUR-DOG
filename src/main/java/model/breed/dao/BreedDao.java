@@ -3,26 +3,34 @@ package model.breed.dao;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exceptions.DogNotFoundException;
+import exceptions.GenericSystemException;
 import exceptions.InvalidBreedTestInput;
 import model.breed.Breed;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.TestQuestions;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Properties;
 
-
+//this dao is used to get a dog Breed from Ninjas API
 public class BreedDao {
     private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
     public Breed getBreedByAnswers(List<String> answers) throws URISyntaxException, IOException, InterruptedException, InvalidBreedTestInput, DogNotFoundException {
 
+        Properties prop = new Properties();
+        String apiKey;
         if(answers.size() != TestQuestions.values().length){
             throw new InvalidBreedTestInput("Please answer all the questions of the breed test!");
         }
@@ -34,19 +42,31 @@ public class BreedDao {
                 .build();
 
 
-        //modifica
-        String uri = "https://api.api-ninjas.com/v1/dogs?"
-                + TestQuestions.DOMANDA_1.getApiValue() + "=" + answers.get(0)
-                +"&"+TestQuestions.DOMANDA_2.getApiValue() + "=" + answers.get(1)
-                +"&"+TestQuestions.DOMANDA_3.getApiValue() + "=" + answers.get(2)
-                +"&"+TestQuestions.DOMANDA_4.getApiValue() + "=" + answers.get(3)
-                +"&"+TestQuestions.DOMANDA_5.getApiValue() + "=" + answers.get(4)
-                +"&"+TestQuestions.DOMANDA_6.getApiValue() + "=" + answers.get(5);
+        String baseUrl = "https://api.api-ninjas.com/v1/dogs?";
+        List<String> params = List.of(
+                TestQuestions.DOMANDA_1.getApiValue() + "=" + URLEncoder.encode(answers.get(0), StandardCharsets.UTF_8),
+                TestQuestions.DOMANDA_2.getApiValue() + "=" + URLEncoder.encode(answers.get(1), StandardCharsets.UTF_8),
+                TestQuestions.DOMANDA_3.getApiValue() + "=" + URLEncoder.encode(answers.get(2), StandardCharsets.UTF_8),
+                TestQuestions.DOMANDA_4.getApiValue() + "=" + URLEncoder.encode(answers.get(3), StandardCharsets.UTF_8),
+                TestQuestions.DOMANDA_5.getApiValue() + "=" + URLEncoder.encode(answers.get(4), StandardCharsets.UTF_8),
+                TestQuestions.DOMANDA_6.getApiValue() + "=" + URLEncoder.encode(answers.get(5), StandardCharsets.UTF_8)
+        );
+
+        String uri = baseUrl + String.join("&", params);
+
+        try(FileInputStream config = new FileInputStream("src/main/resources/config.properties")){
+            prop.load(config);
+            apiKey = prop.getProperty("API-KEY");
+        } catch (FileNotFoundException e) {
+            throw new GenericSystemException(e.getMessage());
+        } catch (IOException e) {
+            throw new GenericSystemException(e.getMessage());
+        }
 
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .uri(new URI(uri)
                 )
-                .header("X-Api-Key", System.getenv("NINJAS-API-KEY"))
+                .header("X-Api-Key", apiKey)
                 .GET()
                 .build();
 
@@ -56,18 +76,14 @@ public class BreedDao {
         debugLogger.debug(uri);
         debugLogger.debug(jsonResponse);
 
-        if(jsonResponse.startsWith("[")){
-            jsonResponse = jsonResponse.substring(1, jsonResponse.length());
-
-        }
-        if(jsonResponse.endsWith("]")){
-            jsonResponse = jsonResponse.substring(0, jsonResponse.length()-1);
-        }
-
         try{
             ObjectMapper objectMapper = new ObjectMapper();
 
             JsonNode rootNode = objectMapper.readTree(jsonResponse);
+
+            if(rootNode.isArray() && rootNode.size()>0){
+                rootNode = rootNode.get(0);
+            }
 
             String imageLink = rootNode.get("image_link").asText();
             String name = rootNode.get("name").asText();

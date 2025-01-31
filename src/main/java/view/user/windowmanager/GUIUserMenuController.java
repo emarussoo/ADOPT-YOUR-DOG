@@ -1,5 +1,4 @@
 package view.user.windowmanager;
-
 import exceptions.GenericSystemException;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -9,8 +8,6 @@ import start.Main;
 import utils.StageHandler;
 import view.login.GUILoginViewController;
 import view.login.LoginViewController;
-
-
 import java.io.IOException;
 
 public class GUIUserMenuController extends UserMenuController {

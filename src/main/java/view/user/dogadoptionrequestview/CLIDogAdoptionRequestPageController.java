@@ -1,10 +1,8 @@
 package view.user.dogadoptionrequestview;
-
 import bean.DogProfileBean;
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;

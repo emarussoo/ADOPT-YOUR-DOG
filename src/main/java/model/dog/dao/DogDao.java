@@ -1,7 +1,5 @@
 package model.dog.dao;
-
 import model.dog.Dog;
-
 import java.util.List;
 
 public abstract class DogDao {

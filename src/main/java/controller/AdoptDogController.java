@@ -1,5 +1,4 @@
-package presenter;
-
+package controller;
 import bean.*;
 import exceptions.DogNotFoundException;
 import exceptions.InvalidBreedTestInput;
@@ -8,9 +7,6 @@ import model.breed.dao.BreedDao;
 import model.daofactory.DaoFactory;
 import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -18,7 +14,6 @@ import java.util.List;
 
 
 public class AdoptDogController {
-    private static final Logger debugLogger = LogManager.getLogger("debugLogger");
 
     public List<DogProfileBean> getAllDogs(){
         List<Dog> listOfAllDogs;

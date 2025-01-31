@@ -1,8 +1,6 @@
 package model.kennel;
-
 import model.dog.Dog;
 import model.dogadoptionrequest.DogAdoptionRequest;
-
 import java.util.ArrayList;
 import java.util.List;
 
