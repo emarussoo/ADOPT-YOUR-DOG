@@ -28,7 +28,7 @@ public class GUIFactory extends GraphicalFactory{
     }
 
     @Override
-    public TestPageController createTestViewController(){
+    public TestPageController createTestPageController(){
         return new GUITestPageController();
     }
 
@@ -37,7 +37,7 @@ public class GUIFactory extends GraphicalFactory{
         return new GUIDogsPageController();
     }
 
-    public DogAdoptionRequestPageController createDogAdoptionRequestController(){
+    public DogAdoptionRequestPageController createDogAdoptionRequestPageController(){
         return new GUIDogAdoptionRequestPageController();
     }
 

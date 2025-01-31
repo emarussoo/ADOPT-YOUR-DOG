@@ -27,10 +27,10 @@ public class CLIKennelMenuController extends KennelMenuController{
                         addDog();
                         break;
                     case 2:
-                        showDars();
+                        showDogAdoptionRequest();
                         break;
                     case 3:
-                        myDogs();
+                        showMyDogs();
                         break;
                     case 4:
                         acceptDar();
@@ -58,19 +58,19 @@ public class CLIKennelMenuController extends KennelMenuController{
     public void addDog(){
         KennelWindowManager.getSingletonInstance().submitAdd();
     }
-    public void myDogs(){
+    public void showMyDogs(){
         KennelWindowManager.getSingletonInstance().showMyDogs();
     }
 
-    public void showDars(){
+    public void showDogAdoptionRequest(){
         KennelWindowManager.getSingletonInstance().showMyDars();
     }
 
-    public void acceptDar(){
+    private void acceptDar(){
         KennelWindowManager.getSingletonInstance().acceptDar();
     }
 
-    public void rejectDar(){
+    private void rejectDar(){
         KennelWindowManager.getSingletonInstance().rejectDar();
     }
 

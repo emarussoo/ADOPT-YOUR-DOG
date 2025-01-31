@@ -6,8 +6,8 @@ import utils.GraphicalController;
 public abstract class KennelMenuController implements GraphicalController {
     public abstract void show();
     public void setCentralView(Node component){}
-
-    public void addDog() {
-
-    }
+    public abstract void addDog();
+    public abstract void showDogAdoptionRequest();
+    public abstract void showMyDogs();
+    public abstract void logout();
 }

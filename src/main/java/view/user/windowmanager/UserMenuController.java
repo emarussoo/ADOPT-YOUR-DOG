@@ -10,8 +10,6 @@ public abstract class UserMenuController implements GraphicalController {
     public abstract void showTest();
     public abstract void showDogs();
     public abstract void login();
-
     public void setCentralView(Node component){
-
     }
 }

@@ -13,14 +13,13 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class UserWindowManager {
-    private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestViewController();
+    private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestPageController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
-    private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestController();
+    private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestPageController();
     private final UserMenuController userMenuController = GraphicalFactory.getGraphicalSingletonFactory().createUserMenuController();
     private final AdoptDogController presenter = new AdoptDogController();
 
     private static UserWindowManager instance = null;
-    private boolean launched = false;
 
     protected UserWindowManager() {
         // Inizializzazione se necessaria
@@ -49,11 +48,9 @@ public class UserWindowManager {
         }
     }
 
-    public void showTestResult(BreedBean breedBean){
+    private void showTestResult(BreedBean breedBean){
         testPage.createTestResult(breedBean);
     }
-
-
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,10 +70,9 @@ public class UserWindowManager {
     public void showAllDogs(){
         List<DogProfileBean> allDogs = getAllDogs();
         showListOfDogs(allDogs);
-        //it will call presenter.getDogsByBreed with empty params
     }
 
-    public void showListOfDogs(List<DogProfileBean> listOfDogs){
+    private void showListOfDogs(List<DogProfileBean> listOfDogs){
         dogsPage.createListOfDogs(listOfDogs);
     }
 
@@ -108,15 +104,9 @@ public class UserWindowManager {
     }
 
 
-
-
-
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
     public TestPageController getTestView() {
@@ -137,8 +127,8 @@ public class UserWindowManager {
 
     public static UserWindowManager getSingletonInstance() {
         if (instance == null) {
-            instance = new UserWindowManager(); // Creazione solo se necessario
+            instance = new UserWindowManager();
         }
-        return instance; // Ritorna sempre l'istanza unica
+        return instance;
     }
 }

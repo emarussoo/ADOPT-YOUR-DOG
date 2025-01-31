@@ -25,9 +25,9 @@ public abstract class GraphicalFactory {
     }
 
     public abstract UserMenuController createUserMenuController();
-    public abstract TestPageController createTestViewController();
+    public abstract TestPageController createTestPageController();
     public abstract DogsPageController createDogsPageController();
-    public abstract DogAdoptionRequestPageController createDogAdoptionRequestController();
+    public abstract DogAdoptionRequestPageController createDogAdoptionRequestPageController();
     public abstract LoginViewController createLoginPageController();
     public abstract RegisterViewController createRegisterPageController();
     public abstract KennelMenuController createKennelMenuController();

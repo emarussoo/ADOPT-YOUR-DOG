@@ -28,7 +28,7 @@ public class CLIFactory extends GraphicalFactory{
     }
 
     @Override
-    public TestPageController createTestViewController(){
+    public TestPageController createTestPageController(){
         return new CLITestPageController();
     }
 
@@ -37,7 +37,7 @@ public class CLIFactory extends GraphicalFactory{
         return new CLIDogsPageController();
     }
 
-    public DogAdoptionRequestPageController createDogAdoptionRequestController(){
+    public DogAdoptionRequestPageController createDogAdoptionRequestPageController(){
         return new CLIDogAdoptionRequestPageController();
     }
 

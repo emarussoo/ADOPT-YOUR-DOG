@@ -52,8 +52,4 @@ public class DemoDogDao extends DogDao{
         //demo implementation of getalldogs operation
         return demoListOfDogs;
     }
-
-    public int getCurrentId(){
-        return counter++;
-    }
 }

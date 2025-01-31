@@ -24,8 +24,4 @@ public class FileDogAdoptionRequestDao extends DogAdoptionRequestDao{
     public List<DogAdoptionRequest> getAllDogAdoptionRequest(){
         return new ArrayList<>();
     }
-
-    public int getCurrentId(){
-        return 0;
-    }
 }

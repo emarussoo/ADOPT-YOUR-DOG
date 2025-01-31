@@ -35,23 +35,23 @@ public class CLIUserMenuController extends UserMenuController {
                 switch(option){
                     case 1:
                         showTest();
-                        submitTest();
+                        UserWindowManager.getSingletonInstance().submitTest();
                         break;
                     case 2:
                         showDogs();
                         break;
                     case 3:
-                        submitSearch();
+                        UserWindowManager.getSingletonInstance().submitSearch();
                         break;
                     case 4:
-                        DogProfileBean dogProfileBean = showDogAdoptionRequest();
-                        sendDogAdoptionRequest(dogProfileBean);
+                        DogProfileBean dogProfileBean = UserWindowManager.getSingletonInstance().showDogAdoptionRequestForm();
+                        UserWindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
                         break;
                     case 5:
                         login();
                         break;
                     case 6:
-                        register();
+                        LoginManager.getSingletonInstance().register();
                         break;
                     default:
                         break;
@@ -70,35 +70,11 @@ public class CLIUserMenuController extends UserMenuController {
         UserWindowManager.getSingletonInstance().showTest();
     }
 
-    public void submitTest() throws URISyntaxException, IOException, InterruptedException {
-        UserWindowManager.getSingletonInstance().submitTest();
-    }
-
-    public void submitSearch(){
-        UserWindowManager.getSingletonInstance().submitSearch();
-
-    }
-
     public void showDogs(){
         UserWindowManager.getSingletonInstance().showAllDogs();
-    }
-
-    public DogProfileBean showDogAdoptionRequest(){
-        return UserWindowManager.getSingletonInstance().showDogAdoptionRequestForm();
-    }
-
-    public void sendDogAdoptionRequest(DogProfileBean dogProfileBean){
-        UserWindowManager.getSingletonInstance().sendDogAdoptionRequest(dogProfileBean);
     }
 
     public void login(){
         LoginManager.getSingletonInstance().authenticate();
     }
-
-    public void register(){
-        LoginManager.getSingletonInstance().register();
-    }
-
-
-
 }
