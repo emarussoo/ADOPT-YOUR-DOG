@@ -14,13 +14,18 @@ public class DbmsDaoFactory extends DaoFactory {
     public DogDao createDogDao() {
         return new DbmsDogDao();
     }
+
+    @Override
     public DogAdoptionRequestDao createDogAdoptionRequestDao() {
         return new DbmsDogAdoptionRequestDao();
     }
+
+    @Override
     public KennelDao createKennelDao(){
         return new DbmsKennelDao();
     }
 
+    @Override
     public DbmsKennelUserDao createKennelUserDao(){
         return new DbmsKennelUserDao();
     }

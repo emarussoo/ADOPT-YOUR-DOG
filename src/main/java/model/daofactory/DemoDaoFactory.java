@@ -14,13 +14,18 @@ public class DemoDaoFactory extends DaoFactory {
     public DogDao createDogDao() {
         return DemoDogDao.getSingletonInstance();
     }
+
+    @Override
     public DogAdoptionRequestDao createDogAdoptionRequestDao() {
         return DemoDogAdoptionRequestDao.getSingletonInstance();
     }
+
+    @Override
     public KennelDao createKennelDao(){
         return DemoKennelDao.getSingletonInstance();
     }
 
+    @Override
     public DemoKennelUserDao createKennelUserDao(){
         return DemoKennelUserDao.getInstance();
     }

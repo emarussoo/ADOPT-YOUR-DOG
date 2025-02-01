@@ -15,13 +15,18 @@ public class FileDaoFactory extends DaoFactory {
     public DogDao createDogDao() {
         return new FileDogDao();
     }
+
+    @Override
     public DogAdoptionRequestDao createDogAdoptionRequestDao() {
         return new FileDogAdoptionRequestDao();
     }
+
+    @Override
     public KennelDao createKennelDao(){
         return new FileKennelDao();
     }
 
+    @Override
     public KennelUserDao createKennelUserDao(){
         return new FileKennelUserDao();
     }

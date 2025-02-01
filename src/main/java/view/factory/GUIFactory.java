@@ -61,14 +61,17 @@ public class GUIFactory extends GraphicalFactory{
         return GUIKennelMenuController.getSingletonInstance();
     }
 
+    @Override
     public MyDogsPageController createMyDogsPageController(){
         return new GUIMyDogsPageController();
     }
 
+    @Override
     public ManageDarPageController createManageDarPageController(){
         return new GUIManageDarPageController();
     }
 
+    @Override
     public AddDogPageController createAddDogPageController(){
         return new GUIAddDogPageController();
     }

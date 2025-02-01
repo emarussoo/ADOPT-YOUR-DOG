@@ -54,19 +54,22 @@ public class CLIFactory extends GraphicalFactory{
 
 
 
-
+    @Override
     public KennelMenuController createKennelMenuController(){
         return new CLIKennelMenuController();
     }
 
+    @Override
     public MyDogsPageController createMyDogsPageController(){
         return new CLIMyDogsPageController();
     }
 
+    @Override
     public ManageDarPageController createManageDarPageController(){
         return new CLIManageDarPageController();
     }
 
+    @Override
     public AddDogPageController createAddDogPageController(){
         return new CLIAddDogPageController();
     }
