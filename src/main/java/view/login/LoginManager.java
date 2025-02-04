@@ -10,7 +10,6 @@ import model.login.KennelUser;
 import controller.LogInController;
 import view.factory.GraphicalFactory;
 import view.kennel.windowmanager.KennelWindowManager;
-import view.user.windowmanager.UserWindowManager;
 
 import java.util.List;
 

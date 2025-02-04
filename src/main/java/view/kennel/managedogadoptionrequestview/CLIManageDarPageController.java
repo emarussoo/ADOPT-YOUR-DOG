@@ -4,7 +4,6 @@ import controller.ManageDarController;
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import view.kennel.windowmanager.KennelWindowManager;
 import java.io.BufferedReader;
 import java.util.List;
 
