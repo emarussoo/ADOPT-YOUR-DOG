@@ -11,12 +11,11 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class UserWindowManager {
-    //graphical and applicative controllers
+    //graphical controllers
     private final TestPageController testPage = GraphicalFactory.getGraphicalSingletonFactory().createTestPageController();
     private final DogsPageController dogsPage = GraphicalFactory.getGraphicalSingletonFactory().createDogsPageController();
     private final DogAdoptionRequestPageController dogAdoptionRequestPage = GraphicalFactory.getGraphicalSingletonFactory().createDogAdoptionRequestPageController();
     private final UserMenuController userMenuController = GraphicalFactory.getGraphicalSingletonFactory().createUserMenuController();
-    private final AdoptDogController presenter = new AdoptDogController();
 
     private static UserWindowManager instance = null;
 
@@ -39,7 +38,8 @@ public class UserWindowManager {
         try {
             List<String> listOfAnswers = testPage.getTestAnswers();
             TestBean testAnswers = new TestBean(listOfAnswers);
-            BreedBean resultBreed = presenter.processTestAnswers(testAnswers);
+            AdoptDogController controller = new AdoptDogController();
+            BreedBean resultBreed = controller.processTestAnswers(testAnswers);
             showTestResult(resultBreed);
 
         } catch (InterruptedException e) {
@@ -65,13 +65,15 @@ public class UserWindowManager {
     public void submitSearch(){
         String insertedBreed = dogsPage.getInsertedBreed();
         DogBreedSearchBean dogBreedSearchBean = new DogBreedSearchBean(insertedBreed);
-        List<DogProfileBean> filteredDogs = presenter.getDogsByBreed(dogBreedSearchBean);
+        AdoptDogController controller = new AdoptDogController();
+        List<DogProfileBean> filteredDogs = controller.getDogsByBreed(dogBreedSearchBean);
         showListOfDogs(filteredDogs);
     }
 
     //this will return the list of all dogs
     public List<DogProfileBean> getAllDogs(){
-        return presenter.getAllDogs();
+        AdoptDogController controller = new AdoptDogController();
+        return controller.getAllDogs();
     }
 
     //this will show all the dogs
@@ -109,7 +111,9 @@ public class UserWindowManager {
             String dogIdBean = dogProfileBean.getDogId();
             String kennelIdBean = dogProfileBean.getKennelId();
             DogAdoptionRequestBean dogAdoptionRequestBean = new DogAdoptionRequestBean(userNameBean, userSurnameBean, userEmailBean, userPhoneBean, dogIdBean, kennelIdBean);
-            presenter.sendDogAdoptionRequest(dogAdoptionRequestBean);
+
+            AdoptDogController controller = new AdoptDogController();
+            controller.sendDogAdoptionRequest(dogAdoptionRequestBean);
             dogAdoptionRequestPage.createMessage("Request sent");
         }catch(EmptyFieldsException | InvalidFieldException e){
             dogAdoptionRequestPage.createMessage(e.getMessage());
@@ -132,10 +136,6 @@ public class UserWindowManager {
 
     public UserMenuController getUserMenuController() {
         return userMenuController;
-    }
-
-    public AdoptDogController getPresenter() {
-        return presenter;
     }
 
     public static UserWindowManager getSingletonInstance() {

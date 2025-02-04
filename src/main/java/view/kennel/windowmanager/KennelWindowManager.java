@@ -24,8 +24,7 @@ public class KennelWindowManager {
     private ManageDarPageController manageDarPage = GraphicalFactory.getGraphicalSingletonFactory().createManageDarPageController();
     private MyDogsPageController myDogsPage = GraphicalFactory.getGraphicalSingletonFactory().createMyDogsPageController();
     private KennelMenuController kennelMenuController = GraphicalFactory.getGraphicalSingletonFactory().createKennelMenuController();
-    private ManageDarController manageDarController = new ManageDarController();
-    private ManageDogsController manageDogsController = new ManageDogsController();
+
     private static KennelWindowManager instance;
 
     protected KennelWindowManager() {}
@@ -70,7 +69,9 @@ public class KennelWindowManager {
 
     public void acceptDar(){
         DogAdoptionRequestBean toAcceptDar = manageDarPage.getDarInfo();
+        ManageDarController manageDarController = new ManageDarController();
         manageDarController.removeAllDarByDogId(Integer.parseInt(toAcceptDar.getDogIdBean()));
+        ManageDogsController manageDogsController = new ManageDogsController();
         manageDogsController.removeDogByDar(toAcceptDar);
         loggedKennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(loggedKennel.getKennelId());
         showMyDars();
@@ -80,6 +81,7 @@ public class KennelWindowManager {
     public void rejectDar(){
         DogAdoptionRequestBean toRemoveDar = manageDarPage.getDarInfo();
         String email = toRemoveDar.getUserEmailBean();
+        ManageDarController manageDarController = new ManageDarController();
         manageDarController.removeDar(toRemoveDar);
         manageDarController.sendEmail(email);
         //notifica utente
@@ -96,6 +98,7 @@ public class KennelWindowManager {
             String dogBreedBean = dogInfo.get(2);
             String kennelIdBean = String.valueOf(loggedKennel.getKennelId());
             DogProfileBean dogProfileBean = new DogProfileBean(dogNameBean, dogAgeBean, dogBreedBean, kennelIdBean);
+            ManageDogsController manageDogsController = new ManageDogsController();
             manageDogsController.addDog(dogProfileBean);
             loggedKennel = DaoFactory.getDaoSingletonFactory().createKennelDao().loadKennelDataById(loggedKennel.getKennelId());
             addDogPage.createMessage("Dog added");
@@ -106,21 +109,13 @@ public class KennelWindowManager {
     }
     public static KennelWindowManager getSingletonInstance() {
         if (instance == null) {
-            instance = new KennelWindowManager(); // Creazione solo se necessario
+            instance = new KennelWindowManager();
         }
-        return instance; // Ritorna sempre l'istanza unica
+        return instance;
     }
 
     public KennelMenuController getKennelMenuController() {
         return kennelMenuController;
-    }
-
-    public ManageDogsController getManageDogsController() {
-        return manageDogsController;
-    }
-
-    public ManageDarController getManageDarController() {
-        return manageDarController;
     }
 
     public int getKennelId() {

@@ -1,5 +1,6 @@
 package view.user.dogspageview;
 import bean.DogProfileBean;
+import controller.AdoptDogController;
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +39,7 @@ public class CLIDogsPageController extends DogsPageController{
         } catch (IOException e) {
             throw new GenericSystemException(e.getMessage());
         }
-        return UserWindowManager.getSingletonInstance().getPresenter().getDogById(insertedId);
+        AdoptDogController controller = new AdoptDogController();
+        return controller.getDogById(insertedId);
     }
 }

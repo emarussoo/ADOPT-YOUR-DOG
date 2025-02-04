@@ -1,5 +1,6 @@
 package view.kennel.managedogadoptionrequestview;
 import bean.DogAdoptionRequestBean;
+import controller.ManageDarController;
 import exceptions.GenericSystemException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +27,7 @@ public class CLIManageDarPageController extends ManageDarPageController {
         } catch (Exception e) {
             throw new GenericSystemException(e.getMessage());
         }
-        return KennelWindowManager.getSingletonInstance().getManageDarController().getDarById(darId);
+        ManageDarController manageDarController = new ManageDarController();
+        return manageDarController.getDarById(darId);
     }
 }

@@ -15,11 +15,9 @@ import view.user.windowmanager.UserWindowManager;
 import java.util.List;
 
 public class LoginManager {
-    private UserWindowManager userWindowManager = UserWindowManager.getSingletonInstance();
     private KennelWindowManager kennelWindowManager = KennelWindowManager.getSingletonInstance();
     private LoginViewController loginViewController = GraphicalFactory.getGraphicalSingletonFactory().createLoginPageController();
     private RegisterViewController registerViewController = GraphicalFactory.getGraphicalSingletonFactory().createRegisterPageController();
-    private LogInController logInController = new LogInController();
 
     private static LoginManager instance = null;
 
@@ -38,6 +36,7 @@ public class LoginManager {
         try {
             List<String> credentials = loginViewController.getLoginCredentials();
             LoginBean loginBean = new LoginBean(credentials.get(0), credentials.get(1));
+            LogInController logInController = new LogInController();
             logInController.auth(loginBean);
             kennelWindowManager.show();
         }catch(EmptyFieldsException | IncorrectCredentialsException e){
@@ -54,6 +53,7 @@ public class LoginManager {
             String username = credentials.get(1);
             String password = credentials.get(2);
             KennelUser newUser = new KennelUser(username, password);
+            LogInController logInController = new LogInController();
             logInController.ultimateRegistration(kennel, newUser);
             loginViewController.backToUserPage();
         }catch(EmptyFieldsException | PasswordConfirmationException e){
